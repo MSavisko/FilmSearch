@@ -1,0 +1,12 @@
+platform :ios, "9.0"
+#use_frameworks!
+
+target 'FilmSearch' do
+
+pod 'CocoaLumberjack'
+pod 'MagicalRecord'
+pod 'AFNetworking', '~> 3.0'
+pod 'KVOController', '~>1.0'
+pod 'EasyMapping', '~>0.17.0'
+
+end
