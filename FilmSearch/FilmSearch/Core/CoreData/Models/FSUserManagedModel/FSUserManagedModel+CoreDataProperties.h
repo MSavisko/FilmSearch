@@ -6,7 +6,7 @@
 //
 //
 
-#import "FSUserManagedModel+CoreDataClass.h"
+#import "FSUserManagedModel.h"
 
 
 NS_ASSUME_NONNULL_BEGIN

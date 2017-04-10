@@ -6,7 +6,7 @@
 //
 //
 
-#import "FSHistoryItemManagedModel+CoreDataClass.h"
+#import "FSHistoryItemManagedModel.h"
 
 
 NS_ASSUME_NONNULL_BEGIN

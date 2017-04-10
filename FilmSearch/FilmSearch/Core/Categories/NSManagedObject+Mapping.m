@@ -8,7 +8,7 @@
 
 #import "NSManagedObject+Mapping.h"
 
-#import "FSUserManagedModel+CoreDataClass.h"
+#import "FSUserManagedModel.h"
 
 @implementation NSManagedObject (Mapping)
 
