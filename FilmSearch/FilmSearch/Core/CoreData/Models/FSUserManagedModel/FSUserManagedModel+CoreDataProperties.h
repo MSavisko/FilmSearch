@@ -16,7 +16,16 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSFetchRequest<FSUserManagedModel *> *)fetchRequest;
 
 @property (nullable, nonatomic, copy) NSString *dataId;
-@property (nullable, nonatomic, retain) FSHistoryItemManagedModel *searchHistory;
+@property (nullable, nonatomic, retain) NSSet<FSHistoryItemManagedModel *> *searchHistory;
+
+@end
+
+@interface FSUserManagedModel (CoreDataGeneratedAccessors)
+
+- (void)addSearchHistoryObject:(FSHistoryItemManagedModel *)value;
+- (void)removeSearchHistoryObject:(FSHistoryItemManagedModel *)value;
+- (void)addSearchHistory:(NSSet<FSHistoryItemManagedModel *> *)values;
+- (void)removeSearchHistory:(NSSet<FSHistoryItemManagedModel *> *)values;
 
 @end
 

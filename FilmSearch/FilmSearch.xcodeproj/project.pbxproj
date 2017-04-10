@@ -25,6 +25,8 @@
 		923D44EE1E9C031000F0D227 /* MSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D44E91E9C031000F0D227 /* MSDataManager.m */; };
 		923D44F31E9C095D00F0D227 /* MSRequestManager+Films.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D44F21E9C095D00F0D227 /* MSRequestManager+Films.m */; };
 		923D45101E9C123F00F0D227 /* MSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D450F1E9C123F00F0D227 /* MSLogger.m */; };
+		923D45171E9C17DD00F0D227 /* NSManagedObject+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D45161E9C17DD00F0D227 /* NSManagedObject+Mapping.m */; };
+		923D45231E9C1CA500F0D227 /* NSString+MS.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D45221E9C1CA500F0D227 /* NSString+MS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,10 +67,6 @@
 		923D44F61E9C0FA200F0D227 /* FSFilmManagedModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSFilmManagedModel+CoreDataClass.m"; sourceTree = "<group>"; };
 		923D44F71E9C0FA200F0D227 /* FSFilmManagedModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSFilmManagedModel+CoreDataProperties.h"; sourceTree = "<group>"; };
 		923D44F81E9C0FA200F0D227 /* FSFilmManagedModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSFilmManagedModel+CoreDataProperties.m"; sourceTree = "<group>"; };
-		923D44FB1E9C0FE200F0D227 /* FSUserManagedModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSUserManagedModel+CoreDataClass.h"; sourceTree = "<group>"; };
-		923D44FC1E9C0FE200F0D227 /* FSUserManagedModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSUserManagedModel+CoreDataClass.m"; sourceTree = "<group>"; };
-		923D44FD1E9C0FE200F0D227 /* FSUserManagedModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSUserManagedModel+CoreDataProperties.h"; sourceTree = "<group>"; };
-		923D44FE1E9C0FE200F0D227 /* FSUserManagedModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSUserManagedModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		923D45011E9C0FEF00F0D227 /* FSHistoryItemManagedModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSHistoryItemManagedModel+CoreDataClass.h"; sourceTree = "<group>"; };
 		923D45021E9C0FEF00F0D227 /* FSHistoryItemManagedModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSHistoryItemManagedModel+CoreDataClass.m"; sourceTree = "<group>"; };
 		923D45031E9C0FEF00F0D227 /* FSHistoryItemManagedModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSHistoryItemManagedModel+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -76,6 +74,17 @@
 		923D450A1E9C11F000F0D227 /* MSLoggerDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoggerDefines.h; sourceTree = "<group>"; };
 		923D450E1E9C123F00F0D227 /* MSLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLogger.h; sourceTree = "<group>"; };
 		923D450F1E9C123F00F0D227 /* MSLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLogger.m; sourceTree = "<group>"; };
+		923D45121E9C14D800F0D227 /* FSUserManagedModelKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSUserManagedModelKeys.h; sourceTree = "<group>"; };
+		923D45131E9C156800F0D227 /* FSHistoryItemManagedModelKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSHistoryItemManagedModelKeys.h; sourceTree = "<group>"; };
+		923D45141E9C15B900F0D227 /* FSFilmManagedModelKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSFilmManagedModelKeys.h; sourceTree = "<group>"; };
+		923D45151E9C17DD00F0D227 /* NSManagedObject+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Mapping.h"; sourceTree = "<group>"; };
+		923D45161E9C17DD00F0D227 /* NSManagedObject+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Mapping.m"; sourceTree = "<group>"; };
+		923D45181E9C1BEE00F0D227 /* FSUserManagedModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSUserManagedModel+CoreDataClass.h"; sourceTree = "<group>"; };
+		923D45191E9C1BEE00F0D227 /* FSUserManagedModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSUserManagedModel+CoreDataClass.m"; sourceTree = "<group>"; };
+		923D451A1E9C1BEE00F0D227 /* FSUserManagedModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSUserManagedModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		923D451B1E9C1BEE00F0D227 /* FSUserManagedModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSUserManagedModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		923D45211E9C1CA500F0D227 /* NSString+MS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MS.h"; sourceTree = "<group>"; };
+		923D45221E9C1CA500F0D227 /* NSString+MS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MS.m"; sourceTree = "<group>"; };
 		EAB48E7BC665F9503C3B559B /* libPods-FilmSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilmSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -142,17 +151,9 @@
 			children = (
 				923D449B1E9BF80400F0D227 /* Managers */,
 				923D45091E9C11F000F0D227 /* Logger */,
-				923D448C1E9BF6BD00F0D227 /* ViewControllers */,
 				923D44CF1E9C013900F0D227 /* Storyboards */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		923D448C1E9BF6BD00F0D227 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		923D448D1E9BF6BD00F0D227 /* SupportingFiles */ = {
@@ -207,10 +208,11 @@
 		923D44A01E9BF87900F0D227 /* FSUserManagedModel */ = {
 			isa = PBXGroup;
 			children = (
-				923D44FB1E9C0FE200F0D227 /* FSUserManagedModel+CoreDataClass.h */,
-				923D44FC1E9C0FE200F0D227 /* FSUserManagedModel+CoreDataClass.m */,
-				923D44FD1E9C0FE200F0D227 /* FSUserManagedModel+CoreDataProperties.h */,
-				923D44FE1E9C0FE200F0D227 /* FSUserManagedModel+CoreDataProperties.m */,
+				923D45121E9C14D800F0D227 /* FSUserManagedModelKeys.h */,
+				923D45181E9C1BEE00F0D227 /* FSUserManagedModel+CoreDataClass.h */,
+				923D45191E9C1BEE00F0D227 /* FSUserManagedModel+CoreDataClass.m */,
+				923D451A1E9C1BEE00F0D227 /* FSUserManagedModel+CoreDataProperties.h */,
+				923D451B1E9C1BEE00F0D227 /* FSUserManagedModel+CoreDataProperties.m */,
 			);
 			path = FSUserManagedModel;
 			sourceTree = "<group>";
@@ -218,6 +220,7 @@
 		923D44A11E9BFD6D00F0D227 /* FSFilmManagedModel */ = {
 			isa = PBXGroup;
 			children = (
+				923D45141E9C15B900F0D227 /* FSFilmManagedModelKeys.h */,
 				923D44F51E9C0FA200F0D227 /* FSFilmManagedModel+CoreDataClass.h */,
 				923D44F61E9C0FA200F0D227 /* FSFilmManagedModel+CoreDataClass.m */,
 				923D44F71E9C0FA200F0D227 /* FSFilmManagedModel+CoreDataProperties.h */,
@@ -272,6 +275,7 @@
 		923D44F41E9C0F7600F0D227 /* FSHistoryItemManagedModel */ = {
 			isa = PBXGroup;
 			children = (
+				923D45131E9C156800F0D227 /* FSHistoryItemManagedModelKeys.h */,
 				923D45011E9C0FEF00F0D227 /* FSHistoryItemManagedModel+CoreDataClass.h */,
 				923D45021E9C0FEF00F0D227 /* FSHistoryItemManagedModel+CoreDataClass.m */,
 				923D45031E9C0FEF00F0D227 /* FSHistoryItemManagedModel+CoreDataProperties.h */,
@@ -293,6 +297,10 @@
 		923D45111E9C140100F0D227 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				923D45151E9C17DD00F0D227 /* NSManagedObject+Mapping.h */,
+				923D45161E9C17DD00F0D227 /* NSManagedObject+Mapping.m */,
+				923D45211E9C1CA500F0D227 /* NSString+MS.h */,
+				923D45221E9C1CA500F0D227 /* NSString+MS.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -436,11 +444,13 @@
 				923D44E11E9C023900F0D227 /* MSRequestResponse.m in Sources */,
 				923D44ED1E9C031000F0D227 /* MSDataManager+Setup.m in Sources */,
 				923D44E21E9C023900F0D227 /* MSRequestToken.m in Sources */,
+				923D45231E9C1CA500F0D227 /* NSString+MS.m in Sources */,
 				923D449F1E9BF85000F0D227 /* FilmSearch.xcdatamodeld in Sources */,
 				923D44EC1E9C031000F0D227 /* MSDataManager+Private.m in Sources */,
 				923D44F31E9C095D00F0D227 /* MSRequestManager+Films.m in Sources */,
 				923D44E01E9C023900F0D227 /* MSRequestManager.m in Sources */,
 				923D44EE1E9C031000F0D227 /* MSDataManager.m in Sources */,
+				923D45171E9C17DD00F0D227 /* NSManagedObject+Mapping.m in Sources */,
 				923D44971E9BF6BD00F0D227 /* main.m in Sources */,
 				923D44931E9BF6BD00F0D227 /* AppDelegate.m in Sources */,
 				923D45101E9C123F00F0D227 /* MSLogger.m in Sources */,

@@ -16,7 +16,7 @@
     </entity>
     <entity name="FSUserManagedModel" representedClassName="FSUserManagedModel" syncable="YES">
         <attribute name="dataId" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="searchHistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FSHistoryItemManagedModel" inverseName="user" inverseEntity="FSHistoryItemManagedModel" syncable="YES"/>
+        <relationship name="searchHistory" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FSHistoryItemManagedModel" inverseName="user" inverseEntity="FSHistoryItemManagedModel" syncable="YES"/>
     </entity>
     <elements>
         <element name="FSFilmManagedModel" positionX="-54" positionY="0" width="128" height="135"/>
