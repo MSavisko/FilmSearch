@@ -170,6 +170,7 @@
 		923D44991E9BF7E000F0D227 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				923D45111E9C140100F0D227 /* Categories */,
 				923D449A1E9BF7E000F0D227 /* CoreData */,
 			);
 			path = Core;
@@ -287,6 +288,13 @@
 				923D450F1E9C123F00F0D227 /* MSLogger.m */,
 			);
 			path = Logger;
+			sourceTree = "<group>";
+		};
+		923D45111E9C140100F0D227 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		E880B4D06959015A5827D783 /* Pods */ = {
