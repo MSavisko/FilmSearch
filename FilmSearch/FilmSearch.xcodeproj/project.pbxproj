@@ -24,6 +24,7 @@
 		923D44ED1E9C031000F0D227 /* MSDataManager+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D44E71E9C031000F0D227 /* MSDataManager+Setup.m */; };
 		923D44EE1E9C031000F0D227 /* MSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D44E91E9C031000F0D227 /* MSDataManager.m */; };
 		923D44F31E9C095D00F0D227 /* MSRequestManager+Films.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D44F21E9C095D00F0D227 /* MSRequestManager+Films.m */; };
+		923D45101E9C123F00F0D227 /* MSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D450F1E9C123F00F0D227 /* MSLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,9 @@
 		923D45021E9C0FEF00F0D227 /* FSHistoryItemManagedModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSHistoryItemManagedModel+CoreDataClass.m"; sourceTree = "<group>"; };
 		923D45031E9C0FEF00F0D227 /* FSHistoryItemManagedModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSHistoryItemManagedModel+CoreDataProperties.h"; sourceTree = "<group>"; };
 		923D45041E9C0FEF00F0D227 /* FSHistoryItemManagedModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSHistoryItemManagedModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		923D450A1E9C11F000F0D227 /* MSLoggerDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoggerDefines.h; sourceTree = "<group>"; };
+		923D450E1E9C123F00F0D227 /* MSLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLogger.h; sourceTree = "<group>"; };
+		923D450F1E9C123F00F0D227 /* MSLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLogger.m; sourceTree = "<group>"; };
 		EAB48E7BC665F9503C3B559B /* libPods-FilmSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilmSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				923D449B1E9BF80400F0D227 /* Managers */,
+				923D45091E9C11F000F0D227 /* Logger */,
 				923D448C1E9BF6BD00F0D227 /* ViewControllers */,
 				923D44CF1E9C013900F0D227 /* Storyboards */,
 			);
@@ -272,6 +277,16 @@
 				923D45041E9C0FEF00F0D227 /* FSHistoryItemManagedModel+CoreDataProperties.m */,
 			);
 			path = FSHistoryItemManagedModel;
+			sourceTree = "<group>";
+		};
+		923D45091E9C11F000F0D227 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				923D450A1E9C11F000F0D227 /* MSLoggerDefines.h */,
+				923D450E1E9C123F00F0D227 /* MSLogger.h */,
+				923D450F1E9C123F00F0D227 /* MSLogger.m */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 		E880B4D06959015A5827D783 /* Pods */ = {
@@ -420,6 +435,7 @@
 				923D44EE1E9C031000F0D227 /* MSDataManager.m in Sources */,
 				923D44971E9BF6BD00F0D227 /* main.m in Sources */,
 				923D44931E9BF6BD00F0D227 /* AppDelegate.m in Sources */,
+				923D45101E9C123F00F0D227 /* MSLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
