@@ -1,9 +1,9 @@
 //
 //  FSFilmManagedModel+CoreDataProperties.m
-//  FilmSearch
+//  
 //
 //  Created by Maksym Savisko on 4/10/17.
-//  Copyright © 2017 Maksym Savisko. All rights reserved.
+//
 //
 
 #import "FSFilmManagedModel+CoreDataProperties.h"
@@ -15,10 +15,10 @@
 }
 
 @dynamic dataId;
-@dynamic title;
-@dynamic releaseDate;
-@dynamic posterUrl;
 @dynamic imdbId;
-@dynamic user;
+@dynamic posterUrl;
+@dynamic releaseDate;
+@dynamic title;
+@dynamic history;
 
 @end

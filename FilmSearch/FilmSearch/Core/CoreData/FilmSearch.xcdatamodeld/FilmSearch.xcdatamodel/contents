@@ -6,14 +6,21 @@
         <attribute name="posterUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="releaseDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FSHistoryItemManagedModel" inverseName="film" inverseEntity="FSHistoryItemManagedModel" syncable="YES"/>
+    </entity>
+    <entity name="FSHistoryItemManagedModel" representedClassName="FSHistoryItemManagedModel" syncable="YES">
+        <attribute name="dataId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="searchDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="film" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FSFilmManagedModel" inverseName="history" inverseEntity="FSFilmManagedModel" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FSUserManagedModel" inverseName="searchHistory" inverseEntity="FSUserManagedModel" syncable="YES"/>
     </entity>
     <entity name="FSUserManagedModel" representedClassName="FSUserManagedModel" syncable="YES">
         <attribute name="dataId" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="searchHistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FSFilmManagedModel" inverseName="user" inverseEntity="FSFilmManagedModel" syncable="YES"/>
+        <relationship name="searchHistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FSHistoryItemManagedModel" inverseName="user" inverseEntity="FSHistoryItemManagedModel" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FSUserManagedModel" positionX="-63" positionY="-18" width="128" height="75"/>
         <element name="FSFilmManagedModel" positionX="-54" positionY="0" width="128" height="135"/>
+        <element name="FSUserManagedModel" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="FSHistoryItemManagedModel" positionX="-36" positionY="72" width="128" height="105"/>
     </elements>
 </model>
