@@ -11,5 +11,7 @@
 
 static NSString * const FSHistoryItemDataIdKey = @"dataId";
 static NSString * const FSHistoryItemSearchDateKey = @"searchDate";
+static NSString * const FSHistoryItemFilmKey = @"film";
+static NSString * const FSHistoryItemSearchTitleKey = @"searchTitle";
 
 #endif /* FSHistoryItemManagedModelKeys_h */

@@ -8,7 +8,24 @@
 
 #import "FSFilmManagedModel.h"
 #import "FSHistoryItemManagedModel.h"
+#import "FSFilmManagedModelKeys.h"
+
+#import "NSManagedObject+Mapping.h"
 
 @implementation FSFilmManagedModel
+
++ (EKManagedObjectMapping *)objectMapping
+{
+    EKManagedObjectMapping *mapping = [super objectMapping];
+    
+    [mapping mapPropertiesFromDictionary:@{
+                                           FSFilmImdbIdKey : NSStringFromSelector(@selector(imdbId)),
+                                           FSFilmPosterUrlIdKey : NSStringFromSelector(@selector(posterUrl)),
+                                           FSFilmReleaseDateKey : NSStringFromSelector(@selector(releaseDate)),
+                                           FSFilmTitleKey : NSStringFromSelector(@selector(title))
+                                           }];
+    
+    return mapping;
+}
 
 @end

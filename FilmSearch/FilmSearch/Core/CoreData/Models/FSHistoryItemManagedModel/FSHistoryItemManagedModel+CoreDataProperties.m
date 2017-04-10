@@ -18,5 +18,6 @@
 @dynamic searchDate;
 @dynamic user;
 @dynamic film;
+@dynamic searchTitle;
 
 @end

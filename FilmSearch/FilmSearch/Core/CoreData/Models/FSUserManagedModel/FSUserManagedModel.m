@@ -18,10 +18,6 @@
 {
     EKManagedObjectMapping *mapping = [super objectMapping];
     
-    [mapping mapPropertiesFromDictionary:@{
-                                           FSUserDataIdKey : NSStringFromSelector(@selector(dataId))
-                                           }];
-    
     [mapping hasMany:[FSHistoryItemManagedModel class] forKeyPath:FSUserSearchHistoryKey forProperty:NSStringFromSelector(@selector(searchHistory))];
     
     return mapping;

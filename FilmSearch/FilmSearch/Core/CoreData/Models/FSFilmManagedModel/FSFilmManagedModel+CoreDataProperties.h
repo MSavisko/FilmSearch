@@ -20,7 +20,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *posterUrl;
 @property (nullable, nonatomic, copy) NSDate *releaseDate;
 @property (nullable, nonatomic, copy) NSString *title;
-@property (nullable, nonatomic, retain) FSHistoryItemManagedModel *history;
+@property (nullable, nonatomic, retain) NSSet<FSHistoryItemManagedModel *> *history;
+
+@end
+
+@interface FSFilmManagedModel (CoreDataGeneratedAccessors)
+
+- (void)addHistoryObject:(FSHistoryItemManagedModel *)value;
+- (void)removeHistoryObject:(FSHistoryItemManagedModel *)value;
+- (void)addHistory:(NSSet<FSHistoryItemManagedModel *> *)values;
+- (void)removeHistory:(NSSet<FSHistoryItemManagedModel *> *)values;
 
 @end
 
