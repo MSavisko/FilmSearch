@@ -11,7 +11,7 @@
         <!--History NC-->
         <scene sceneID="6DE-2O-WMD">
             <objects>
-                <navigationController storyboardIdentifier="FSHistory" title="History NC" id="Wg0-9d-fkV" customClass="FSNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FSHistoryNC" title="History NC" id="Wg0-9d-fkV" customClass="FSNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="History" image="ic_tabbar_history" selectedImage="ic_tabbar_history_selected" id="EpI-Io-q9A"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="boa-7B-G7T">
@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-343" y="66"/>
         </scene>
-        <!--History View Controller-->
+        <!--History VC-->
         <scene sceneID="n2u-ht-45Q">
             <objects>
-                <viewController id="g6N-pc-TY5" customClass="FSHistoryViewController" sceneMemberID="viewController">
+                <viewController title="History VC" id="g6N-pc-TY5" customClass="FSHistoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PhG-UO-YTZ"/>
                         <viewControllerLayoutGuide type="bottom" id="8jW-bQ-Z5M"/>

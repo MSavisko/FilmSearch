@@ -25,7 +25,20 @@
     return [self ms_primaryRedColor];
 }
 
-#pragma mark - Private
++ (UIColor *) ms_buttonTextColor
+{
+    return [self ms_primaryRedColor];
+}
+
++ (UIColor *) ms_buttonBackgroundColor
+{
+    return [self ms_primaryWhiteColor];
+}
+
++ (UIColor *) ms_textFieldBorderColor
+{
+    return [self ms_primaryRedColor];
+}
 
 + (UIColor *) ms_primaryRedColor
 {
@@ -35,6 +48,11 @@
 + (UIColor *) ms_primaryGreyColor
 {
     return [UIColor colorWithRed:152.f/255.f green:149.f/255.f blue:143.f/255.f alpha:1.0];
+}
+
++ (UIColor *) ms_primaryWhiteColor
+{
+    return [UIColor whiteColor];
 }
 
 @end

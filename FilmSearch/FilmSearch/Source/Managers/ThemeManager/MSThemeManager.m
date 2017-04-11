@@ -7,8 +7,10 @@
 //
 
 #import "MSThemeManager.h"
+
 #import "UIColor+MSTheme.h"
 #import "UIFont+MSTheme.h"
+#import "UIImage+MSTheme.h"
 
 #import "FSTabBarController.h"
 
@@ -44,6 +46,8 @@
     return self;
 }
 
+#pragma mark - Public Methods
+
 - (void)applyAppearance
 {
     [self customizeNavigationBar:[UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[UINavigationController class]]]];
@@ -77,5 +81,80 @@
     }];
 }
 
+- (void)customizeButton:(__kindof UIButton *)button
+{
+    button.adjustsImageWhenHighlighted = NO;
+    button.adjustsImageWhenDisabled = NO;
+    
+    UIColor *titleTintColor = [UIColor ms_buttonTextColor];
+    UIColor *titleHighlightTintColor = [UIColor ms_buttonBackgroundColor];
+    UIColor *imageTintColor = [UIColor ms_buttonTextColor];
+    UIColor *imageHighlightTintColor = [UIColor ms_buttonTextColor];
+    UIColor *imageDisabledTintColor = [titleTintColor colorWithAlphaComponent:0.48f];
+    
+    UIImage *normalImage = [UIImage ms_buttonOutlinedImage];
+    UIImage *highlightedImage = [UIImage ms_buttonOutlinedImage];
+    
+    [button setTitleColor:titleTintColor forState:UIControlStateNormal];
+    [button setTitleColor:titleHighlightTintColor forState:UIControlStateHighlighted];
+    [button setTitleColor:titleHighlightTintColor forState:UIControlStateSelected];
+    [button setTitleColor:[titleTintColor colorWithAlphaComponent:0.64f] forState:UIControlStateDisabled];
+    
+    [button setBackgroundImage:normalImage forState:UIControlStateNormal];
+    [button setBackgroundImage:highlightedImage forState:UIControlStateSelected];
+    [button setBackgroundImage:highlightedImage forState:UIControlStateHighlighted];
+    [button setBackgroundImage:normalImage forState:UIControlStateDisabled];
+    
+    switch (button.state) {
+        case UIControlStateNormal: {
+            button.tintColor = imageTintColor;
+            break;
+        }
+        case UIControlStateHighlighted: {
+            button.tintColor = imageHighlightTintColor;;
+            break;
+        }
+        case UIControlStateDisabled: {
+            button.tintColor = imageDisabledTintColor;;
+            break;
+        }
+        case UIControlStateSelected: {
+            button.tintColor = imageHighlightTintColor;
+            break;
+        }
+        case UIControlStateFocused: {
+            
+            break;
+        }
+        case UIControlStateApplication: {
+            
+            break;
+        }
+        case UIControlStateReserved: {
+            
+            break;
+        }
+            
+        default: {
+            
+            if ( (button.state & UIControlStateDisabled) == UIControlStateDisabled )
+            {
+                button.tintColor = imageDisabledTintColor;
+            }
+            
+            break;
+        }
+    }
+}
+
+- (void)customizeTextView:(__kindof UITextField *)textField
+{
+    textField.layer.cornerRadius = 8.0f;
+    textField.layer.masksToBounds = YES;
+    textField.layer.borderColor = [[UIColor ms_primaryGreyColor] CGColor];
+    textField.layer.borderWidth = 1.0f;
+    
+    [textField setTintColor:[UIColor ms_primaryRedColor]];
+}
 
 @end

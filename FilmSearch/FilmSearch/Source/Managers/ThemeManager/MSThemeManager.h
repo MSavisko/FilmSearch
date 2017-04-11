@@ -27,5 +27,7 @@
 
 - (void)customizeTabBar:(__kindof UITabBar *)tabBar;
 - (void)customizeNavigationBar:(__kindof UINavigationBar *)navigationBar;
+- (void)customizeButton:(__kindof UIButton *)button;
+- (void)customizeTextView:(__kindof UITextField *)textField;
 
 @end
