@@ -7,31 +7,79 @@
 //
 
 #import "FSTabBarController.h"
+#import "MSTabBarItemViewControllerProtocol.h"
 
-@interface FSTabBarController ()
+static NSInteger const MSInitialViewControllerIndex = 0;
+
+@interface FSTabBarController () <UITabBarControllerDelegate, UITabBarDelegate>
+{
+    NSInteger _tapCount;
+}
 
 @end
 
 @implementation FSTabBarController
 
-- (void)viewDidLoad {
+#pragma mark - Life Cycle
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.delegate = self;
+    
+    [self.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
+    {
+        
+        if ( idx == MSInitialViewControllerIndex )
+        {
+            self.selectedIndex = idx;
+        }
+    }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UITabBarControllerDelegate
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    if ( tabBarController.selectedViewController == viewController )
+    {
+        _tapCount += 1;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            _tapCount = 0;
+        });
+        
+        if ( _tapCount == 2 )
+        {
+            _tapCount = 0;
+            
+            BOOL shouldPop = YES;
+            
+            UIViewController *visibleViewController = [viewController ms_visibleViewController];
+            
+            if ( [visibleViewController respondsToSelector:@selector(shouldPopToRootViewControllerAfterTappingOnTabBarItem)] )
+            {
+                shouldPop = [(id<MSTabBarItemViewControllerProtocol>)visibleViewController shouldPopToRootViewControllerAfterTappingOnTabBarItem];
+            }
+            
+            return shouldPop;
+        }
+        
+        return NO;
+    }
+    else
+    {
+        _tapCount = 0;
+    }
+    
+    return YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    
 }
-*/
 
 @end

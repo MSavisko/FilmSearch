@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		56A785427709C717F9814B35 /* libPods-FilmSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB48E7BC665F9503C3B559B /* libPods-FilmSearch.a */; };
 		9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */; };
+		9237FBFC1E9D52EB00F74E43 /* FSTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FBFA1E9D514800F74E43 /* FSTabBarController.m */; };
+		9237FC031E9D54AC00F74E43 /* UIViewController+MSTop.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC021E9D54AC00F74E43 /* UIViewController+MSTop.m */; };
 		923D44931E9BF6BD00F0D227 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D448A1E9BF6BD00F0D227 /* AppDelegate.m */; };
 		923D44941E9BF6BD00F0D227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 923D448E1E9BF6BD00F0D227 /* Assets.xcassets */; };
 		923D44961E9BF6BD00F0D227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923D44901E9BF6BD00F0D227 /* LaunchScreen.storyboard */; };
@@ -44,6 +46,9 @@
 		9237FBF41E9D4FCD00F74E43 /* FSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPrefixHeader.pch; sourceTree = "<group>"; };
 		9237FBF91E9D514800F74E43 /* FSTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTabBarController.h; sourceTree = "<group>"; };
 		9237FBFA1E9D514800F74E43 /* FSTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSTabBarController.m; sourceTree = "<group>"; };
+		9237FBFD1E9D541A00F74E43 /* MSTabBarItemViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSTabBarItemViewControllerProtocol.h; sourceTree = "<group>"; };
+		9237FC011E9D54AC00F74E43 /* UIViewController+MSTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSTop.h"; sourceTree = "<group>"; };
+		9237FC021E9D54AC00F74E43 /* UIViewController+MSTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSTop.m"; sourceTree = "<group>"; };
 		923D446D1E9BF5CD00F0D227 /* FilmSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		923D44891E9BF6BD00F0D227 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		923D448A1E9BF6BD00F0D227 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -134,6 +139,7 @@
 		9237FBF81E9D512D00F74E43 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
+				9237FBFD1E9D541A00F74E43 /* MSTabBarItemViewControllerProtocol.h */,
 				9237FBF91E9D514800F74E43 /* FSTabBarController.h */,
 				9237FBFA1E9D514800F74E43 /* FSTabBarController.m */,
 			);
@@ -342,6 +348,8 @@
 				923D45341E9C294100F0D227 /* EKManagedObjectMapping+MS.m */,
 				9237FBF11E9D4CD900F74E43 /* UIViewController+MSKeyboard.h */,
 				9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */,
+				9237FC011E9D54AC00F74E43 /* UIViewController+MSTop.h */,
+				9237FC021E9D54AC00F74E43 /* UIViewController+MSTop.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -492,6 +500,7 @@
 				923D45321E9C286F00F0D227 /* EKMappingBlocks+MS.m in Sources */,
 				923D44EC1E9C031000F0D227 /* MSDataManager+Private.m in Sources */,
 				923D44F31E9C095D00F0D227 /* MSRequestManager+Films.m in Sources */,
+				9237FC031E9D54AC00F74E43 /* UIViewController+MSTop.m in Sources */,
 				923D44E01E9C023900F0D227 /* MSRequestManager.m in Sources */,
 				923D44EE1E9C031000F0D227 /* MSDataManager.m in Sources */,
 				923D45171E9C17DD00F0D227 /* NSManagedObject+Mapping.m in Sources */,
@@ -499,6 +508,7 @@
 				923D45351E9C294100F0D227 /* EKManagedObjectMapping+MS.m in Sources */,
 				923D44931E9BF6BD00F0D227 /* AppDelegate.m in Sources */,
 				923D45291E9C20FB00F0D227 /* FSHistoryItemManagedModel.m in Sources */,
+				9237FBFC1E9D52EB00F74E43 /* FSTabBarController.m in Sources */,
 				923D452F1E9C22BD00F0D227 /* FSFilmManagedModel+CoreDataProperties.m in Sources */,
 				923D452C1E9C214700F0D227 /* FSFilmManagedModel.m in Sources */,
 				923D45101E9C123F00F0D227 /* MSLogger.m in Sources */,
