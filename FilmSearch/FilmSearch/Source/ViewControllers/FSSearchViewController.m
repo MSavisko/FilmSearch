@@ -12,7 +12,6 @@
 
 #import "MSThemeManager.h"
 
-
 @interface FSSearchViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
@@ -51,7 +50,7 @@
 
 - (void) setupNavigationTitle
 {
-    self.title = NSLocalizedString(@"Movie Search", @"v1.0");
+    self.title = NSLocalizedString(@"Film Search", @"v1.0");
 }
 
 @end
