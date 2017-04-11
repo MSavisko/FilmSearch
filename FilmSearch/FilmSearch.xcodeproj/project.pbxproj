@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		56A785427709C717F9814B35 /* libPods-FilmSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB48E7BC665F9503C3B559B /* libPods-FilmSearch.a */; };
+		9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */; };
 		923D44931E9BF6BD00F0D227 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D448A1E9BF6BD00F0D227 /* AppDelegate.m */; };
 		923D44941E9BF6BD00F0D227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 923D448E1E9BF6BD00F0D227 /* Assets.xcassets */; };
 		923D44961E9BF6BD00F0D227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923D44901E9BF6BD00F0D227 /* LaunchScreen.storyboard */; };
@@ -38,6 +39,11 @@
 /* Begin PBXFileReference section */
 		22A349788756F1189B2EBD6A /* Pods-FilmSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilmSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-FilmSearch/Pods-FilmSearch.release.xcconfig"; sourceTree = "<group>"; };
 		4FB40A8E28B551DF5F9B8E55 /* Pods-FilmSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilmSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilmSearch/Pods-FilmSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		9237FBF11E9D4CD900F74E43 /* UIViewController+MSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSKeyboard.h"; sourceTree = "<group>"; };
+		9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSKeyboard.m"; sourceTree = "<group>"; };
+		9237FBF41E9D4FCD00F74E43 /* FSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPrefixHeader.pch; sourceTree = "<group>"; };
+		9237FBF91E9D514800F74E43 /* FSTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTabBarController.h; sourceTree = "<group>"; };
+		9237FBFA1E9D514800F74E43 /* FSTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSTabBarController.m; sourceTree = "<group>"; };
 		923D446D1E9BF5CD00F0D227 /* FilmSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		923D44891E9BF6BD00F0D227 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		923D448A1E9BF6BD00F0D227 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -118,6 +124,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9237FBF01E9D4B4D00F74E43 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9237FBF81E9D512D00F74E43 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				9237FBF91E9D514800F74E43 /* FSTabBarController.h */,
+				9237FBFA1E9D514800F74E43 /* FSTabBarController.m */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		923D44641E9BF5CD00F0D227 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +184,8 @@
 				923D449B1E9BF80400F0D227 /* Managers */,
 				923D45091E9C11F000F0D227 /* Logger */,
 				923D44CF1E9C013900F0D227 /* Storyboards */,
+				9237FBF81E9D512D00F74E43 /* TabBarController */,
+				9237FBF01E9D4B4D00F74E43 /* ViewControllers */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -174,6 +198,7 @@
 				923D44901E9BF6BD00F0D227 /* LaunchScreen.storyboard */,
 				923D44911E9BF6BD00F0D227 /* main.m */,
 				923D44921E9BF6BD00F0D227 /* Main.storyboard */,
+				9237FBF41E9D4FCD00F74E43 /* FSPrefixHeader.pch */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -315,6 +340,8 @@
 				923D45311E9C286F00F0D227 /* EKMappingBlocks+MS.m */,
 				923D45331E9C294100F0D227 /* EKManagedObjectMapping+MS.h */,
 				923D45341E9C294100F0D227 /* EKManagedObjectMapping+MS.m */,
+				9237FBF11E9D4CD900F74E43 /* UIViewController+MSKeyboard.h */,
+				9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -460,6 +487,7 @@
 				923D44ED1E9C031000F0D227 /* MSDataManager+Setup.m in Sources */,
 				923D44E21E9C023900F0D227 /* MSRequestToken.m in Sources */,
 				923D45231E9C1CA500F0D227 /* NSString+MS.m in Sources */,
+				9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */,
 				923D449F1E9BF85000F0D227 /* FilmSearch.xcdatamodeld in Sources */,
 				923D45321E9C286F00F0D227 /* EKMappingBlocks+MS.m in Sources */,
 				923D44EC1E9C031000F0D227 /* MSDataManager+Private.m in Sources */,
@@ -577,6 +605,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4KQC9K68AM;
+				GCC_PREFIX_HEADER = /Users/MSavisko/Documents/Xcode/Work/MEV/FilmSearch/FilmSearch/FilmSearch/SupportingFiles/FSPrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/FilmSearch/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -595,6 +624,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4KQC9K68AM;
+				GCC_PREFIX_HEADER = /Users/MSavisko/Documents/Xcode/Work/MEV/FilmSearch/FilmSearch/FilmSearch/SupportingFiles/FSPrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/FilmSearch/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -18,7 +18,7 @@
     
     NSString *urlQueryfilmName = [filmName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
-    NSString *urlString = [self apiCall:[NSString stringWithFormat:@"?t=%@&plot=full", urlQueryfilmName]];
+    NSString *urlString = [self apiCall:[NSString stringWithFormat:@"?t=%@&plot=full&type=movie", urlQueryfilmName]];
     
     [self GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
     {
