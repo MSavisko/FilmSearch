@@ -9,6 +9,8 @@
 #import "FSTabBarController.h"
 #import "MSTabBarItemViewControllerProtocol.h"
 
+#import "MSThemeManager.h"
+
 static NSInteger const MSInitialViewControllerIndex = 0;
 
 @interface FSTabBarController () <UITabBarControllerDelegate, UITabBarDelegate>
@@ -36,6 +38,13 @@ static NSInteger const MSInitialViewControllerIndex = 0;
             self.selectedIndex = idx;
         }
     }];
+    
+    [[MSThemeManager sharedInstance] customizeTabBar:self.tabBar];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UITabBarControllerDelegate

@@ -11,6 +11,11 @@
 		9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */; };
 		9237FBFC1E9D52EB00F74E43 /* FSTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FBFA1E9D514800F74E43 /* FSTabBarController.m */; };
 		9237FC031E9D54AC00F74E43 /* UIViewController+MSTop.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC021E9D54AC00F74E43 /* UIViewController+MSTop.m */; };
+		9237FC081E9D5B7900F74E43 /* FSHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC071E9D5B7900F74E43 /* FSHistoryViewController.m */; };
+		9237FC0F1E9D644800F74E43 /* MSThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC0E1E9D644800F74E43 /* MSThemeManager.m */; };
+		9237FC131E9D677400F74E43 /* UIColor+MSTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC121E9D677400F74E43 /* UIColor+MSTheme.m */; };
+		9237FC161E9D68B800F74E43 /* UIFont+MSTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC151E9D68B800F74E43 /* UIFont+MSTheme.m */; };
+		9237FC1A1E9D71ED00F74E43 /* FSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC191E9D71ED00F74E43 /* FSNavigationController.m */; };
 		923D44931E9BF6BD00F0D227 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D448A1E9BF6BD00F0D227 /* AppDelegate.m */; };
 		923D44941E9BF6BD00F0D227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 923D448E1E9BF6BD00F0D227 /* Assets.xcassets */; };
 		923D44961E9BF6BD00F0D227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923D44901E9BF6BD00F0D227 /* LaunchScreen.storyboard */; };
@@ -19,7 +24,6 @@
 		923D449F1E9BF85000F0D227 /* FilmSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 923D449D1E9BF85000F0D227 /* FilmSearch.xcdatamodeld */; };
 		923D44D11E9C017600F0D227 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923D44D01E9C017600F0D227 /* Search.storyboard */; };
 		923D44D31E9C01CF00F0D227 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923D44D21E9C01CF00F0D227 /* History.storyboard */; };
-		923D44D51E9C01FF00F0D227 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923D44D41E9C01FF00F0D227 /* Details.storyboard */; };
 		923D44E01E9C023900F0D227 /* MSRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D44D91E9C023900F0D227 /* MSRequestManager.m */; };
 		923D44E11E9C023900F0D227 /* MSRequestResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D44DD1E9C023900F0D227 /* MSRequestResponse.m */; };
 		923D44E21E9C023900F0D227 /* MSRequestToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D44DF1E9C023900F0D227 /* MSRequestToken.m */; };
@@ -49,6 +53,16 @@
 		9237FBFD1E9D541A00F74E43 /* MSTabBarItemViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSTabBarItemViewControllerProtocol.h; sourceTree = "<group>"; };
 		9237FC011E9D54AC00F74E43 /* UIViewController+MSTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSTop.h"; sourceTree = "<group>"; };
 		9237FC021E9D54AC00F74E43 /* UIViewController+MSTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSTop.m"; sourceTree = "<group>"; };
+		9237FC061E9D5B7900F74E43 /* FSHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSHistoryViewController.h; sourceTree = "<group>"; };
+		9237FC071E9D5B7900F74E43 /* FSHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSHistoryViewController.m; sourceTree = "<group>"; };
+		9237FC0D1E9D644800F74E43 /* MSThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSThemeManager.h; sourceTree = "<group>"; };
+		9237FC0E1E9D644800F74E43 /* MSThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSThemeManager.m; sourceTree = "<group>"; };
+		9237FC111E9D677400F74E43 /* UIColor+MSTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MSTheme.h"; sourceTree = "<group>"; };
+		9237FC121E9D677400F74E43 /* UIColor+MSTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MSTheme.m"; sourceTree = "<group>"; };
+		9237FC141E9D68B800F74E43 /* UIFont+MSTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+MSTheme.h"; sourceTree = "<group>"; };
+		9237FC151E9D68B800F74E43 /* UIFont+MSTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+MSTheme.m"; sourceTree = "<group>"; };
+		9237FC181E9D71ED00F74E43 /* FSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNavigationController.h; sourceTree = "<group>"; };
+		9237FC191E9D71ED00F74E43 /* FSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNavigationController.m; sourceTree = "<group>"; };
 		923D446D1E9BF5CD00F0D227 /* FilmSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		923D44891E9BF6BD00F0D227 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		923D448A1E9BF6BD00F0D227 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,7 +74,6 @@
 		923D449E1E9BF85000F0D227 /* FilmSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FilmSearch.xcdatamodel; sourceTree = "<group>"; };
 		923D44D01E9C017600F0D227 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		923D44D21E9C01CF00F0D227 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
-		923D44D41E9C01FF00F0D227 /* Details.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		923D44D71E9C023900F0D227 /* MSRequestManager+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSRequestManager+Private.h"; sourceTree = "<group>"; };
 		923D44D81E9C023900F0D227 /* MSRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRequestManager.h; sourceTree = "<group>"; };
 		923D44D91E9C023900F0D227 /* MSRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRequestManager.m; sourceTree = "<group>"; };
@@ -132,6 +145,8 @@
 		9237FBF01E9D4B4D00F74E43 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9237FC061E9D5B7900F74E43 /* FSHistoryViewController.h */,
+				9237FC071E9D5B7900F74E43 /* FSHistoryViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -144,6 +159,28 @@
 				9237FBFA1E9D514800F74E43 /* FSTabBarController.m */,
 			);
 			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		9237FC0C1E9D643500F74E43 /* ThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				9237FC111E9D677400F74E43 /* UIColor+MSTheme.h */,
+				9237FC121E9D677400F74E43 /* UIColor+MSTheme.m */,
+				9237FC141E9D68B800F74E43 /* UIFont+MSTheme.h */,
+				9237FC151E9D68B800F74E43 /* UIFont+MSTheme.m */,
+				9237FC0D1E9D644800F74E43 /* MSThemeManager.h */,
+				9237FC0E1E9D644800F74E43 /* MSThemeManager.m */,
+			);
+			path = ThemeManager;
+			sourceTree = "<group>";
+		};
+		9237FC171E9D71D300F74E43 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				9237FC181E9D71ED00F74E43 /* FSNavigationController.h */,
+				9237FC191E9D71ED00F74E43 /* FSNavigationController.m */,
+			);
+			path = NavigationController;
 			sourceTree = "<group>";
 		};
 		923D44641E9BF5CD00F0D227 = {
@@ -190,6 +227,7 @@
 				923D449B1E9BF80400F0D227 /* Managers */,
 				923D45091E9C11F000F0D227 /* Logger */,
 				923D44CF1E9C013900F0D227 /* Storyboards */,
+				9237FC171E9D71D300F74E43 /* NavigationController */,
 				9237FBF81E9D512D00F74E43 /* TabBarController */,
 				9237FBF01E9D4B4D00F74E43 /* ViewControllers */,
 			);
@@ -230,6 +268,7 @@
 		923D449B1E9BF80400F0D227 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				9237FC0C1E9D643500F74E43 /* ThemeManager */,
 				923D44E31E9C031000F0D227 /* DataManager */,
 				923D44D61E9C023900F0D227 /* RequestManager */,
 			);
@@ -274,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				923D44D01E9C017600F0D227 /* Search.storyboard */,
-				923D44D41E9C01FF00F0D227 /* Details.storyboard */,
 				923D44D21E9C01CF00F0D227 /* History.storyboard */,
 			);
 			path = Storyboards;
@@ -427,7 +465,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				923D44961E9BF6BD00F0D227 /* LaunchScreen.storyboard in Resources */,
-				923D44D51E9C01FF00F0D227 /* Details.storyboard in Resources */,
 				923D44941E9BF6BD00F0D227 /* Assets.xcassets in Resources */,
 				923D44D11E9C017600F0D227 /* Search.storyboard in Resources */,
 				923D44D31E9C01CF00F0D227 /* History.storyboard in Resources */,
@@ -491,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				923D44E11E9C023900F0D227 /* MSRequestResponse.m in Sources */,
+				9237FC0F1E9D644800F74E43 /* MSThemeManager.m in Sources */,
 				923D45261E9C1FD400F0D227 /* FSUserManagedModel.m in Sources */,
 				923D44ED1E9C031000F0D227 /* MSDataManager+Setup.m in Sources */,
 				923D44E21E9C023900F0D227 /* MSRequestToken.m in Sources */,
@@ -500,17 +538,21 @@
 				923D45321E9C286F00F0D227 /* EKMappingBlocks+MS.m in Sources */,
 				923D44EC1E9C031000F0D227 /* MSDataManager+Private.m in Sources */,
 				923D44F31E9C095D00F0D227 /* MSRequestManager+Films.m in Sources */,
+				9237FC081E9D5B7900F74E43 /* FSHistoryViewController.m in Sources */,
 				9237FC031E9D54AC00F74E43 /* UIViewController+MSTop.m in Sources */,
 				923D44E01E9C023900F0D227 /* MSRequestManager.m in Sources */,
+				9237FC1A1E9D71ED00F74E43 /* FSNavigationController.m in Sources */,
 				923D44EE1E9C031000F0D227 /* MSDataManager.m in Sources */,
 				923D45171E9C17DD00F0D227 /* NSManagedObject+Mapping.m in Sources */,
 				923D44971E9BF6BD00F0D227 /* main.m in Sources */,
 				923D45351E9C294100F0D227 /* EKManagedObjectMapping+MS.m in Sources */,
+				9237FC131E9D677400F74E43 /* UIColor+MSTheme.m in Sources */,
 				923D44931E9BF6BD00F0D227 /* AppDelegate.m in Sources */,
 				923D45291E9C20FB00F0D227 /* FSHistoryItemManagedModel.m in Sources */,
 				9237FBFC1E9D52EB00F74E43 /* FSTabBarController.m in Sources */,
 				923D452F1E9C22BD00F0D227 /* FSFilmManagedModel+CoreDataProperties.m in Sources */,
 				923D452C1E9C214700F0D227 /* FSFilmManagedModel.m in Sources */,
+				9237FC161E9D68B800F74E43 /* UIFont+MSTheme.m in Sources */,
 				923D45101E9C123F00F0D227 /* MSLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

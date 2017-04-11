@@ -1,7 +1,65 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wg0-9d-fkV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--History NC-->
+        <scene sceneID="6DE-2O-WMD">
+            <objects>
+                <navigationController storyboardIdentifier="FSHistory" title="History NC" id="Wg0-9d-fkV" customClass="FSNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="History" image="ic_tabbar_history" selectedImage="ic_tabbar_history_selected" id="EpI-Io-q9A"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="boa-7B-G7T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="g6N-pc-TY5" kind="relationship" relationship="rootViewController" id="WYc-Tb-RNO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="faT-xY-yMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-343" y="66"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="n2u-ht-45Q">
+            <objects>
+                <viewController id="g6N-pc-TY5" customClass="FSHistoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PhG-UO-YTZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="8jW-bQ-Z5M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="und-e8-Ca6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RRA-iX-2VB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RRA-iX-2VB" secondAttribute="trailing" id="Myh-lQ-54o"/>
+                            <constraint firstItem="8jW-bQ-Z5M" firstAttribute="top" secondItem="RRA-iX-2VB" secondAttribute="bottom" id="aia-gj-0RH"/>
+                            <constraint firstItem="RRA-iX-2VB" firstAttribute="top" secondItem="PhG-UO-YTZ" secondAttribute="bottom" id="gg7-zU-JbQ"/>
+                            <constraint firstItem="RRA-iX-2VB" firstAttribute="leading" secondItem="und-e8-Ca6" secondAttribute="leading" id="vxs-Mt-nFW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gTh-GM-ROu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gDV-Lr-H6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="518" y="65"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_tabbar_history" width="30" height="30"/>
+        <image name="ic_tabbar_history_selected" width="30" height="30"/>
+    </resources>
 </document>
