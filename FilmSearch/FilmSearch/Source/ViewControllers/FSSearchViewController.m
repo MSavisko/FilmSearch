@@ -32,7 +32,7 @@
     [self setupNavigationTitle];
 }
 
-#pragma mark - Customization
+#pragma mark - Setup
 
 - (void) setupViews
 {
