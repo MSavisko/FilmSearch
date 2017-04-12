@@ -10,6 +10,10 @@
 
 #import "MSDataManager+Film.h"
 #import "FSFilmManagedModel.h"
+#import "FSFilmManagedModelKeys.h"
+
+#import <KVOController/NSObject+FBKVOController.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface FSFilmDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *filmTitleLabel;
@@ -27,25 +31,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.title = NSLocalizedString(@"Film Detail", @"v1.0");
+    
+    [self updateViewInfo];
 }
 
 #pragma mark - UI
 
 - (void) updateViewInfo
 {
+    self.filmTitleLabel.text = _film.title;
+    [self.filmPosterImageView sd_setImageWithURL:[NSURL URLWithString:_film.posterUrl] placeholderImage:[FSFilmManagedModel placeholder]];
     
+    self.filmReleaseLabel.text = self.film.releaseDate ? self.film.stringReleaseDate : NSLocalizedString(@"N/A", @"v1.0");
 }
 
 #pragma mark - Properties
 
 - (void)setFilm:(FSFilmManagedModel *)film
 {
+    [self.KVOController unobserveAll];
+    
     _film = film;
     
     [self updateViewInfo];
     
-    self.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Detail:", @"v1.0"), film.title];
+    if (_film)
+    {
+        [self.KVOController observe:_film keyPath:NSStringFromSelector(@selector(posterUrl)) options:NSKeyValueObservingOptionNew action:@selector(updateViewInfo)];
+        [self.KVOController observe:_film keyPath:NSStringFromSelector(@selector(releaseDate)) options:NSKeyValueObservingOptionNew action:@selector(updateViewInfo)];
+        [self.KVOController observe:_film keyPath:NSStringFromSelector(@selector(title)) options:NSKeyValueObservingOptionNew action:@selector(updateViewInfo)];
+    }
     
 }
 

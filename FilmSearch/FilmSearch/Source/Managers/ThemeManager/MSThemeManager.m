@@ -61,6 +61,8 @@
                                             NSFontAttributeName : [UIFont ms_navigationBartTitleFontWithWeight:UIFontWeightBold],
                                             NSKernAttributeName : @(1.f)
                                             }];
+    
+    [navigationBar setTintColor:[UIColor ms_primaryRedColor]];
 }
 
 - (void)customizeTabBar:(__kindof UITabBar *)tabBar

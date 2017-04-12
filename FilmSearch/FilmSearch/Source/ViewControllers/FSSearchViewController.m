@@ -72,6 +72,10 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 
 - (void) setupNavigationTitle
 {
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(closeVC)];
     self.title = NSLocalizedString(@"Film Search", @"v1.0");
 }
 
@@ -100,6 +104,11 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 }
 
 #pragma mark - Actions
+
+- (void) closeVC
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (IBAction)searchButtonDidPressed:(id)sender
 {

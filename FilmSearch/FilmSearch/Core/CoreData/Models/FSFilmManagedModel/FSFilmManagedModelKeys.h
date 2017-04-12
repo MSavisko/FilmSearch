@@ -14,5 +14,6 @@ static NSString * const FSFilmImdbIdKey = @"imdbID";
 static NSString * const FSFilmPosterUrlIdKey = @"Poster";
 static NSString * const FSFilmReleaseDateKey = @"Released";
 static NSString * const FSFilmTitleKey = @"Title";
+static NSString * const FSFilmNAKey = @"N/A";
 
 #endif /* FSFilmManagedModelKeys_h */
