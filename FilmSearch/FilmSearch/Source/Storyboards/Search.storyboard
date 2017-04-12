@@ -77,11 +77,67 @@
                         <outlet property="activityIndicator" destination="JKq-le-xDx" id="8Pq-Ez-qSP"/>
                         <outlet property="searchButton" destination="APC-QF-Aye" id="cap-Jr-8vC"/>
                         <outlet property="searchTextField" destination="5hP-jY-tfZ" id="d5p-t0-xfg"/>
+                        <segue destination="Y91-s2-xf9" kind="show" identifier="showFilmDetail" id="B2f-5g-YYP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNB-mB-xaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="929" y="-300"/>
+        </scene>
+        <!--Film Detail View Controller-->
+        <scene sceneID="GSx-Tk-Aog">
+            <objects>
+                <viewController storyboardIdentifier="FSFilmDetail" id="Y91-s2-xf9" customClass="FSFilmDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iyR-Bp-eON"/>
+                        <viewControllerLayoutGuide type="bottom" id="2tC-u7-WJf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hax-U8-5Lt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jW9-zL-FMZ">
+                                <rect key="frame" x="20" y="134" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0tv-c4-V8s">
+                                <rect key="frame" x="94.666666666666686" y="174" width="225" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="8t6-yH-dta"/>
+                                    <constraint firstAttribute="width" constant="225" id="NNO-pb-tyn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ri-OY-L8Y">
+                                <rect key="frame" x="20" y="494" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jW9-zL-FMZ" firstAttribute="centerX" secondItem="hax-U8-5Lt" secondAttribute="centerX" id="9Vh-87-RSw"/>
+                            <constraint firstItem="0tv-c4-V8s" firstAttribute="centerX" secondItem="jW9-zL-FMZ" secondAttribute="centerX" id="BGd-eN-AKK"/>
+                            <constraint firstItem="jW9-zL-FMZ" firstAttribute="top" secondItem="iyR-Bp-eON" secondAttribute="bottom" constant="70" id="ILn-U0-rgS"/>
+                            <constraint firstItem="6ri-OY-L8Y" firstAttribute="leading" secondItem="hax-U8-5Lt" secondAttribute="leading" constant="20" id="KNK-z0-ZEq"/>
+                            <constraint firstAttribute="trailing" secondItem="6ri-OY-L8Y" secondAttribute="trailing" constant="20" id="PJe-49-a8j"/>
+                            <constraint firstItem="0tv-c4-V8s" firstAttribute="top" secondItem="jW9-zL-FMZ" secondAttribute="bottom" constant="40" id="Q26-ms-wx0"/>
+                            <constraint firstItem="6ri-OY-L8Y" firstAttribute="top" secondItem="0tv-c4-V8s" secondAttribute="bottom" constant="20" id="WAO-in-AVA"/>
+                            <constraint firstItem="jW9-zL-FMZ" firstAttribute="leading" secondItem="hax-U8-5Lt" secondAttribute="leading" constant="20" id="i0M-Mr-kLO"/>
+                            <constraint firstAttribute="trailing" secondItem="jW9-zL-FMZ" secondAttribute="trailing" constant="20" id="n0A-ak-t3L"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="filmPosterImageView" destination="0tv-c4-V8s" id="Xcj-RI-P0U"/>
+                        <outlet property="filmReleaseLabel" destination="6ri-OY-L8Y" id="9vy-dg-bMN"/>
+                        <outlet property="filmTitleLabel" destination="jW9-zL-FMZ" id="RmD-Gz-TOw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y1C-K0-B5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784" y="-300"/>
         </scene>
     </scenes>
     <resources>

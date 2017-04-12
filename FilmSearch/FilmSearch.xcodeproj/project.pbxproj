@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		087E08AB1E9E5003009F3C37 /* MSDataManager+Film.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E08AA1E9E5003009F3C37 /* MSDataManager+Film.m */; };
+		08C83A281E9E727C000285E8 /* FSFilmDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C83A271E9E727C000285E8 /* FSFilmDetailViewController.m */; };
+		08C83A2B1E9E7D15000285E8 /* FSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C83A2A1E9E7D15000285E8 /* FSBaseViewController.m */; };
 		56A785427709C717F9814B35 /* libPods-FilmSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB48E7BC665F9503C3B559B /* libPods-FilmSearch.a */; };
 		9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */; };
 		9237FBFC1E9D52EB00F74E43 /* FSTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FBFA1E9D514800F74E43 /* FSTabBarController.m */; };
@@ -49,6 +51,10 @@
 /* Begin PBXFileReference section */
 		087E08A91E9E5003009F3C37 /* MSDataManager+Film.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSDataManager+Film.h"; sourceTree = "<group>"; };
 		087E08AA1E9E5003009F3C37 /* MSDataManager+Film.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSDataManager+Film.m"; sourceTree = "<group>"; };
+		08C83A261E9E727C000285E8 /* FSFilmDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSFilmDetailViewController.h; sourceTree = "<group>"; };
+		08C83A271E9E727C000285E8 /* FSFilmDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSFilmDetailViewController.m; sourceTree = "<group>"; };
+		08C83A291E9E7D15000285E8 /* FSBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBaseViewController.h; sourceTree = "<group>"; };
+		08C83A2A1E9E7D15000285E8 /* FSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaseViewController.m; sourceTree = "<group>"; };
 		22A349788756F1189B2EBD6A /* Pods-FilmSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilmSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-FilmSearch/Pods-FilmSearch.release.xcconfig"; sourceTree = "<group>"; };
 		4FB40A8E28B551DF5F9B8E55 /* Pods-FilmSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilmSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilmSearch/Pods-FilmSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		9237FBF11E9D4CD900F74E43 /* UIViewController+MSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSKeyboard.h"; sourceTree = "<group>"; };
@@ -157,10 +163,14 @@
 		9237FBF01E9D4B4D00F74E43 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				08C83A291E9E7D15000285E8 /* FSBaseViewController.h */,
+				08C83A2A1E9E7D15000285E8 /* FSBaseViewController.m */,
 				9237FC1B1E9D735F00F74E43 /* FSSearchViewController.h */,
 				9237FC1C1E9D735F00F74E43 /* FSSearchViewController.m */,
 				9237FC061E9D5B7900F74E43 /* FSHistoryViewController.h */,
 				9237FC071E9D5B7900F74E43 /* FSHistoryViewController.m */,
+				08C83A261E9E727C000285E8 /* FSFilmDetailViewController.h */,
+				08C83A271E9E727C000285E8 /* FSFilmDetailViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -562,9 +572,11 @@
 				923D44ED1E9C031000F0D227 /* MSDataManager+Setup.m in Sources */,
 				923D44E21E9C023900F0D227 /* MSRequestToken.m in Sources */,
 				923D45231E9C1CA500F0D227 /* NSString+MS.m in Sources */,
+				08C83A2B1E9E7D15000285E8 /* FSBaseViewController.m in Sources */,
 				9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */,
 				923D449F1E9BF85000F0D227 /* FilmSearch.xcdatamodeld in Sources */,
 				923D45321E9C286F00F0D227 /* EKMappingBlocks+MS.m in Sources */,
+				08C83A281E9E727C000285E8 /* FSFilmDetailViewController.m in Sources */,
 				923D44EC1E9C031000F0D227 /* MSDataManager+Private.m in Sources */,
 				923D44F31E9C095D00F0D227 /* MSRequestManager+Films.m in Sources */,
 				9237FC081E9D5B7900F74E43 /* FSHistoryViewController.m in Sources */,

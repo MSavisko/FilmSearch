@@ -36,7 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MSDataManagerFilmProtocol <MSDataManagerProtocol>
 
++ (nullable FSFilmManagedModel *) fetchFilmById:(NSString *) filmId inContext:(nullable NSManagedObjectContext *)context;
 + (NSArray <FSFilmManagedModel *> *) fetchFilmsByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context;
++ (NSArray <NSString *> *) fetchFilmsIdsByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context;
 
 @end
 

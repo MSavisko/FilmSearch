@@ -7,11 +7,12 @@
 //
 
 #import "FSSearchViewController.h"
-
-#import "MSRequestManager+Films.h"
+#import "FSFilmDetailViewController.h"
 
 #import "MSThemeManager.h"
+#import "MSRequestManager+Films.h"
 #import "MSDataManager+Film.h"
+
 #import "UIColor+MSTheme.h"
 
 typedef NS_ENUM(NSInteger, FSSearchScreenState)
@@ -20,6 +21,8 @@ typedef NS_ENUM(NSInteger, FSSearchScreenState)
     FSSearchScreenStateSearching,
     FSSearchScreenStateSearchFinished
 };
+
+static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 
 @interface FSSearchViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -99,12 +102,28 @@ typedef NS_ENUM(NSInteger, FSSearchScreenState)
     //Check for space and empty request
     [self updateScreenForState:FSSearchScreenStateSearching];
     
+    //Try to find film in DB.
+    NSString *filmId = [MSDataManager fetchFilmsIdsByTitle:_searchTextField.text inContext:nil].firstObject;
     
-    FSFilmManagedModel *film = [MSDataManager fetchFilmsByTitle:_searchTextField.text inContext:nil].firstObject;
-    
-    if (film)
+    if (filmId && filmId.length > 0)
     {
-        //TODO: Show next screen
+        [self performSegueWithIdentifier:FSFilmDetailSegueIdentifier sender:filmId];
+        [self updateScreenForState:FSSearchScreenStateSearchFinished];
+        return;
+    }
+    
+    //Request film from API
+    
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ( [segue.identifier isEqualToString:FSFilmDetailSegueIdentifier] )
+    {
+        FSFilmDetailViewController *filmDetailVc = [segue destinationViewController];
+        filmDetailVc.filmId = sender;
     }
 }
 
