@@ -149,12 +149,23 @@
 
 - (void)customizeTextView:(__kindof UITextField *)textField
 {
+    [self customizeTextView:textField withPlaceholderText:nil];
+}
+
+- (void)customizeTextView:(__kindof UITextField *)textField withPlaceholderText:(NSString*)placeholderText
+{
     textField.layer.cornerRadius = 8.0f;
     textField.layer.masksToBounds = YES;
     textField.layer.borderColor = [[UIColor ms_primaryGreyColor] CGColor];
     textField.layer.borderWidth = 1.0f;
     
     [textField setTintColor:[UIColor ms_primaryRedColor]];
+    [textField setTextColor:[UIColor ms_primaryRedColor]];
+    
+    if (placeholderText.length > 0)
+    {
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholderText attributes:@{NSForegroundColorAttributeName: [UIColor ms_primaryGreyColor], NSFontAttributeName: [UIFont ms_regularFontWithWeight:UIFontWeightRegular]}];
+    }
 }
 
 @end

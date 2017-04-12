@@ -29,5 +29,6 @@
 - (void)customizeNavigationBar:(__kindof UINavigationBar *)navigationBar;
 - (void)customizeButton:(__kindof UIButton *)button;
 - (void)customizeTextView:(__kindof UITextField *)textField;
+- (void)customizeTextView:(__kindof UITextField *)textField withPlaceholderText:(NSString*)placeholderText;
 
 @end

@@ -11,8 +11,9 @@
 @interface UIFont (MSTheme)
 
 + (UIFont *)ms_fontWithSize:(CGFloat)pointSize weight:(CGFloat)weight;
-+ (UIFont *)ms_tabBarFontWithWeight:(CGFloat)weight;
++ (UIFont *)ms_regularFontWithWeight:(CGFloat)weight;
 
++ (UIFont *)ms_tabBarFontWithWeight:(CGFloat)weight;
 + (UIFont *)ms_navigationBartTitleFontWithWeight:(CGFloat)weight;
 
 @end

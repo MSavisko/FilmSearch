@@ -8,7 +8,7 @@
 
 #import "MSDataManagerConstants.h"
 
-@class NSManagedObjectContext;
+@class NSManagedObjectContext, FSFilmManagedModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,6 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) setupWithCompletion:(nullable MSDataManagerVoidCompletionBlock) completion;
 + (void) setupAtStoreURL:(NSURL *) storeUrl completion:(nullable MSDataManagerVoidCompletionBlock) completion;
+
+@end
+
+@protocol MSDataManagerFilmProtocol <MSDataManagerProtocol>
+
++ (NSArray <FSFilmManagedModel *> *) fetchFilmsByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context;
 
 @end
 

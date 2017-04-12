@@ -39,33 +39,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5hP-jY-tfZ">
-                                <rect key="frame" x="107.33333333333331" y="283.66666666666669" width="200" height="40"/>
+                                <rect key="frame" x="107.33333333333331" y="286.33333333333331" width="200" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="R8r-mp-s3g"/>
-                                    <constraint firstAttribute="height" constant="40" id="vzw-Lp-0Qm"/>
+                                    <constraint firstAttribute="height" constant="35" id="vzw-Lp-0Qm"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APC-QF-Aye" customClass="FSBorderedButton">
-                                <rect key="frame" x="184" y="348.66666666666669" width="46" height="30"/>
+                                <rect key="frame" x="184" y="346.33333333333331" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CgR-S7-Za8"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="searchButtonDidPressed:" destination="iC0-gT-jgz" eventType="touchUpInside" id="Rgp-0O-9Su"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JKq-le-xDx">
+                                <rect key="frame" x="189" y="343" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="APC-QF-Aye" firstAttribute="centerX" secondItem="JKq-le-xDx" secondAttribute="centerX" id="2C1-iF-rxt"/>
                             <constraint firstItem="APC-QF-Aye" firstAttribute="top" secondItem="5hP-jY-tfZ" secondAttribute="bottom" constant="25" id="5Qa-ow-jIk"/>
                             <constraint firstItem="5hP-jY-tfZ" firstAttribute="centerY" secondItem="a1J-hx-LZl" secondAttribute="centerY" constant="-40" id="IEa-K2-Vdg"/>
                             <constraint firstItem="APC-QF-Aye" firstAttribute="centerX" secondItem="5hP-jY-tfZ" secondAttribute="centerX" id="aLr-bw-eww"/>
+                            <constraint firstItem="APC-QF-Aye" firstAttribute="centerY" secondItem="JKq-le-xDx" secondAttribute="centerY" id="mJA-4U-l16"/>
                             <constraint firstItem="5hP-jY-tfZ" firstAttribute="centerX" secondItem="a1J-hx-LZl" secondAttribute="centerX" id="pcR-gs-3zM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="brk-Bu-HEb"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="JKq-le-xDx" id="8Pq-Ez-qSP"/>
                         <outlet property="searchButton" destination="APC-QF-Aye" id="cap-Jr-8vC"/>
                         <outlet property="searchTextField" destination="5hP-jY-tfZ" id="d5p-t0-xfg"/>
                     </connections>

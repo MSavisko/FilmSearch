@@ -15,6 +15,12 @@
     return [UIFont systemFontOfSize:pointSize weight:weight];
 }
 
++ (UIFont *)ms_regularFontWithWeight:(CGFloat)weight
+{
+    return [self ms_fontWithSize:14 weight:weight];
+}
+
+
 + (UIFont *)ms_tabBarFontWithWeight:(CGFloat)weight
 {
     return [self ms_fontWithSize:10 weight:weight];
@@ -24,5 +30,7 @@
 {
     return [self ms_fontWithSize:17 weight:weight];
 }
+
+
 
 @end
