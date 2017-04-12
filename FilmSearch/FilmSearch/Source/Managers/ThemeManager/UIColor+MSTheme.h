@@ -13,6 +13,7 @@
 + (UIColor *) ms_primaryRedColor;
 + (UIColor *) ms_primaryGreyColor;
 + (UIColor *) ms_primaryWhiteColor;
++ (UIColor *) ms_primaryBlackColor;
 
 + (UIColor *) ms_tabBarItemColor;
 + (UIColor *) ms_tabBarItemColorSelected;

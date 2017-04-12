@@ -15,6 +15,10 @@
 #import <KVOController/NSObject+FBKVOController.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
+#import "UIColor+MSTheme.h"
+#import "UIFont+MSTheme.h"
+
+
 @interface FSFilmDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *filmTitleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *filmPosterImageView;
@@ -31,13 +35,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self setupUI];
     self.title = NSLocalizedString(@"Film Detail", @"v1.0");
-    
     [self updateViewInfo];
 }
 
 #pragma mark - UI
+
+- (void) setupUI
+{
+    _filmTitleLabel.textColor = [UIColor ms_primaryRedColor];
+    _filmReleaseLabel.textColor = [UIColor ms_primaryRedColor];
+    _filmTitleLabel.font = [UIFont ms_regularFontWithWeight:UIFontWeightMedium];
+    _filmReleaseLabel.font = [UIFont ms_regularFontWithWeight:UIFontWeightMedium];
+}
 
 - (void) updateViewInfo
 {

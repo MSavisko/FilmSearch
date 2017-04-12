@@ -205,9 +205,9 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    [textField resignFirstResponder];
+    [self searchButtonDidPressed:nil];
     return YES;
 }
-
-#pragma mark - Helpers Meth
 
 @end

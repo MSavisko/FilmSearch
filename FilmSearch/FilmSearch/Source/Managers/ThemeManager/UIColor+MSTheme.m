@@ -55,4 +55,9 @@
     return [UIColor whiteColor];
 }
 
++ (UIColor *) ms_primaryBlackColor
+{
+    return [UIColor blackColor];
+}
+
 @end
