@@ -20,6 +20,11 @@
 
 @implementation MSDataManager (SearchHistory)
 
++ (void) updateSearchHistoryWithChanges:(NSDictionary *)changes completion:(nullable MSDataManagerVoidCompletionBlock)completion
+{
+    [self updateSearchHistoryWithChanges:changes inContext:nil completion:completion];
+}
+
 + (void) updateSearchHistoryWithChanges:(NSDictionary *)changes inContext:(nullable NSManagedObjectContext *) context completion:(nullable MSDataManagerVoidCompletionBlock)completion
 {
     MSDataManagerExecuteOnContextBlock executionBlock = ^(NSManagedObjectContext *_Nonnull localContext)

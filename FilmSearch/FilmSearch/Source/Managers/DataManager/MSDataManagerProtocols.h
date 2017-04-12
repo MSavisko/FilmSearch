@@ -43,8 +43,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MSDataManagerFilmProtocol <MSDataManagerProtocol>
 
-+ (nullable FSFilmManagedModel *) fetchFilmByImdbId:(NSString *) imdbId inContext:(nullable NSManagedObjectContext *)context;
++ (nullable NSString *) fetchFilmIdByTitle:(NSString *) filmTitle;
++ (nullable NSString *) fetchFilmIdByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context;
+
 + (nullable FSFilmManagedModel *) fetchFilmById:(NSString *) filmId inContext:(nullable NSManagedObjectContext *)context;
++ (nullable FSFilmManagedModel *) fetchFilmByImdbId:(NSString *) imdbId inContext:(nullable NSManagedObjectContext *)context;
+
 + (nullable NSArray <FSFilmManagedModel *> *) fetchFilmsByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context;
 + (nullable NSArray <NSString *> *) fetchFilmsIdsByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context;
 
@@ -52,6 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MSDataManagerSearchHistoryProtocol <MSDataManagerProtocol>
 
++ (void) updateSearchHistoryWithChanges:(NSDictionary *)changes completion:(nullable MSDataManagerVoidCompletionBlock)completion;
 + (void) updateSearchHistoryWithChanges:(NSDictionary *)changes inContext:(nullable NSManagedObjectContext *) context completion:(nullable MSDataManagerVoidCompletionBlock)completion;
 
 @end

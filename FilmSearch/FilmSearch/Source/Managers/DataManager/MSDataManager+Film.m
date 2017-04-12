@@ -79,6 +79,17 @@
     return containtResults.count > 0 ? [containtResults valueForKey:keyPath] : nil;
 }
 
++ (nullable NSString *) fetchFilmIdByTitle:(NSString *) filmTitle
+{
+    return [self fetchFilmIdByTitle:filmTitle inContext:nil];
+}
+
++ (nullable NSString *) fetchFilmIdByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context
+{
+    NSArray <NSString *> *filmIds = [MSDataManager fetchFilmsIdsByTitle:filmTitle   inContext:context];
+    return filmIds.firstObject;
+}
+
 #pragma mark - Private
 
 + (nullable FSFilmManagedModel *) fetchFilmByPredicate:(NSPredicate *) predicate inContext:(nullable NSManagedObjectContext *)context

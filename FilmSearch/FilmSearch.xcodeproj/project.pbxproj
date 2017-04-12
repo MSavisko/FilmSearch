@@ -11,6 +11,9 @@
 		08C83A281E9E727C000285E8 /* FSFilmDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C83A271E9E727C000285E8 /* FSFilmDetailViewController.m */; };
 		08C83A2B1E9E7D15000285E8 /* FSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C83A2A1E9E7D15000285E8 /* FSBaseViewController.m */; };
 		56A785427709C717F9814B35 /* libPods-FilmSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB48E7BC665F9503C3B559B /* libPods-FilmSearch.a */; };
+		922510B41E9ED168001F6C99 /* MSRequestResponse+Film.m in Sources */ = {isa = PBXBuildFile; fileRef = 922510B31E9ED168001F6C99 /* MSRequestResponse+Film.m */; };
+		922510B81E9ED706001F6C99 /* MSAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 922510B71E9ED706001F6C99 /* MSAlertManager.m */; };
+		922510BE1E9ED828001F6C99 /* MSAlertManager+SearchFilm.m in Sources */ = {isa = PBXBuildFile; fileRef = 922510BD1E9ED828001F6C99 /* MSAlertManager+SearchFilm.m */; };
 		9230AB421E9E9E3D000146F5 /* MSDataManager+SearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9230AB411E9E9E3D000146F5 /* MSDataManager+SearchHistory.m */; };
 		9230AB451E9EA763000146F5 /* MSDataManager+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9230AB441E9EA763000146F5 /* MSDataManager+User.m */; };
 		9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */; };
@@ -59,6 +62,12 @@
 		08C83A2A1E9E7D15000285E8 /* FSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaseViewController.m; sourceTree = "<group>"; };
 		22A349788756F1189B2EBD6A /* Pods-FilmSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilmSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-FilmSearch/Pods-FilmSearch.release.xcconfig"; sourceTree = "<group>"; };
 		4FB40A8E28B551DF5F9B8E55 /* Pods-FilmSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilmSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilmSearch/Pods-FilmSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		922510B21E9ED168001F6C99 /* MSRequestResponse+Film.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSRequestResponse+Film.h"; sourceTree = "<group>"; };
+		922510B31E9ED168001F6C99 /* MSRequestResponse+Film.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSRequestResponse+Film.m"; sourceTree = "<group>"; };
+		922510B61E9ED706001F6C99 /* MSAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAlertManager.h; sourceTree = "<group>"; };
+		922510B71E9ED706001F6C99 /* MSAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAlertManager.m; sourceTree = "<group>"; };
+		922510BC1E9ED828001F6C99 /* MSAlertManager+SearchFilm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSAlertManager+SearchFilm.h"; sourceTree = "<group>"; };
+		922510BD1E9ED828001F6C99 /* MSAlertManager+SearchFilm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSAlertManager+SearchFilm.m"; sourceTree = "<group>"; };
 		9230AB401E9E9E3D000146F5 /* MSDataManager+SearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSDataManager+SearchHistory.h"; sourceTree = "<group>"; };
 		9230AB411E9E9E3D000146F5 /* MSDataManager+SearchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSDataManager+SearchHistory.m"; sourceTree = "<group>"; };
 		9230AB431E9EA763000146F5 /* MSDataManager+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSDataManager+User.h"; sourceTree = "<group>"; };
@@ -164,6 +173,17 @@
 				EAB48E7BC665F9503C3B559B /* libPods-FilmSearch.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		922510B51E9ED6EC001F6C99 /* AlertManager */ = {
+			isa = PBXGroup;
+			children = (
+				922510B61E9ED706001F6C99 /* MSAlertManager.h */,
+				922510B71E9ED706001F6C99 /* MSAlertManager.m */,
+				922510BC1E9ED828001F6C99 /* MSAlertManager+SearchFilm.h */,
+				922510BD1E9ED828001F6C99 /* MSAlertManager+SearchFilm.m */,
+			);
+			path = AlertManager;
 			sourceTree = "<group>";
 		};
 		9237FBF01E9D4B4D00F74E43 /* ViewControllers */ = {
@@ -310,6 +330,7 @@
 		923D449B1E9BF80400F0D227 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				922510B51E9ED6EC001F6C99 /* AlertManager */,
 				9237FC0C1E9D643500F74E43 /* ThemeManager */,
 				923D44E31E9C031000F0D227 /* DataManager */,
 				923D44D61E9C023900F0D227 /* RequestManager */,
@@ -374,6 +395,8 @@
 				923D44DD1E9C023900F0D227 /* MSRequestResponse.m */,
 				923D44DE1E9C023900F0D227 /* MSRequestToken.h */,
 				923D44DF1E9C023900F0D227 /* MSRequestToken.m */,
+				922510B21E9ED168001F6C99 /* MSRequestResponse+Film.h */,
+				922510B31E9ED168001F6C99 /* MSRequestResponse+Film.m */,
 			);
 			path = RequestManager;
 			sourceTree = "<group>";
@@ -585,10 +608,12 @@
 				923D45231E9C1CA500F0D227 /* NSString+MS.m in Sources */,
 				08C83A2B1E9E7D15000285E8 /* FSBaseViewController.m in Sources */,
 				9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */,
+				922510BE1E9ED828001F6C99 /* MSAlertManager+SearchFilm.m in Sources */,
 				923D449F1E9BF85000F0D227 /* FilmSearch.xcdatamodeld in Sources */,
 				923D45321E9C286F00F0D227 /* EKMappingBlocks+MS.m in Sources */,
 				08C83A281E9E727C000285E8 /* FSFilmDetailViewController.m in Sources */,
 				923D44EC1E9C031000F0D227 /* MSDataManager+Private.m in Sources */,
+				922510B41E9ED168001F6C99 /* MSRequestResponse+Film.m in Sources */,
 				923D44F31E9C095D00F0D227 /* MSRequestManager+Films.m in Sources */,
 				9237FC081E9D5B7900F74E43 /* FSHistoryViewController.m in Sources */,
 				9237FC031E9D54AC00F74E43 /* UIViewController+MSTop.m in Sources */,
@@ -604,6 +629,7 @@
 				923D45351E9C294100F0D227 /* EKManagedObjectMapping+MS.m in Sources */,
 				9237FC131E9D677400F74E43 /* UIColor+MSTheme.m in Sources */,
 				923D44931E9BF6BD00F0D227 /* AppDelegate.m in Sources */,
+				922510B81E9ED706001F6C99 /* MSAlertManager.m in Sources */,
 				923D45291E9C20FB00F0D227 /* FSHistoryItemManagedModel.m in Sources */,
 				9237FBFC1E9D52EB00F74E43 /* FSTabBarController.m in Sources */,
 				923D452F1E9C22BD00F0D227 /* FSFilmManagedModel+CoreDataProperties.m in Sources */,

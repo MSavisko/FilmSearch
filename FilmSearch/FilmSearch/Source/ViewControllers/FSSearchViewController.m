@@ -13,6 +13,7 @@
 #import "MSRequestManager+Films.h"
 #import "MSDataManager+Film.h"
 #import "MSDataManager+SearchHistory.h"
+#import "MSAlertManager+SearchFilm.h"
 
 #import "UIColor+MSTheme.h"
 
@@ -45,13 +46,18 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 {
     [super viewDidLoad];
     [self updateScreenForState:FSSearchScreenStateReadyToSearch];
-    [self setupViews];
-    [self setupTextField];
-    [self setupButton];
-    [self setupNavigationTitle];
+    [self setupUI];
 }
 
 #pragma mark - Setup
+
+- (void) setupUI
+{
+    [self setupViews];
+    [self setupTextField];
+    [self setupButton];
+    [self setupNavigation];
+}
 
 - (void) setupViews
 {
@@ -70,7 +76,7 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
     [_searchButton setTitle:NSLocalizedString(@"Search", @"v1.0") forState:UIControlStateNormal];
 }
 
-- (void) setupNavigationTitle
+- (void) setupNavigation
 {
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
@@ -116,40 +122,50 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
     [self updateScreenForState:FSSearchScreenStateSearching];
     
     //Try to find film in DB.
-    NSArray <NSString *> *filmIds = [MSDataManager fetchFilmsIdsByTitle:_searchTextField.text inContext:nil];
-    
-    NSString *filmId = filmIds.firstObject;
-    
-    if (filmId && filmId.length > 0)
+    NSString *filmId = [MSDataManager fetchFilmIdByTitle:[_searchTextField.text copy]];
+    if (filmId && filmId.length)
     {
-        [self performSegueWithIdentifier:FSFilmDetailSegueIdentifier sender:filmId];
-        [self updateScreenForState:FSSearchScreenStateSearchFinished];
+        [self showDetailWithFilmId:filmId];
         return;
     }
     
     //Request film from API
+    [self requestFilmWithTitle:_searchTextField.text];
+}
+
+- (void) requestFilmWithTitle:(NSString *) filmTitle
+{
     __weak typeof(self) wSelf = self;
     [[MSRequestManager sharedInstance] findFilmByName:_searchTextField.text andCompletion:^(MSRequestResponse *response)
+     {
+         if (response.isSuccess)
+         {
+             if ([MSRequestResponse isFilmExistInInfo:response.object])
+             {
+                 NSDictionary *changes = [FSHistoryItemManagedModel representationWithSearchTitle:filmTitle andFilmInfo:response.object];
+                 [wSelf didReceiveValidResponseWithInfo:changes];
+             }
+             else
+             {
+                 [MSAlertManager showAlertForFilmSearchResponse:response];
+             }
+         }
+         else
+         {
+             [MSAlertManager showAlertForFilmSearchResponse:response];
+         }
+         [wSelf updateScreenForState:FSSearchScreenStateSearchFinished];
+     }];
+}
+
+- (void) didReceiveValidResponseWithInfo:(NSDictionary *) info
+{
+    NSString *filmId = [MSRequestResponse filmIdFromInfo:info];
+    
+    __weak typeof(self) wSelf = self;
+    [MSDataManager updateSearchHistoryWithChanges:info inContext:nil completion:^
     {
-        if (response.isSuccess)
-        {
-            if ([response.object valueForKey:@"Response"])
-            {
-                NSNumber *responseValue = [response.object valueForKey:@"Response"];
-                
-                BOOL value = responseValue.boolValue;
-                
-                if (value)
-                {
-                    NSDictionary *changes = [FSHistoryItemManagedModel representationWithSearchTitle:wSelf.searchTextField.text andFilmInfo:response.object];
-                    [MSDataManager updateSearchHistoryWithChanges:changes inContext:nil completion:^{
-                        //
-                    }];
-                }
-                
-                MSLogDebug(@"Response: %@", value ? @"YES" : @"NO");
-            }
-        }
+        [wSelf showDetailWithFilmId:filmId];
     }];
 }
 
@@ -164,17 +180,25 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
     }
 }
 
+- (void) showDetailWithFilmId:(NSString *) filmId
+{
+    [self performSegueWithIdentifier:FSFilmDetailSegueIdentifier sender:filmId];
+    [self updateScreenForState:FSSearchScreenStateSearchFinished];
+}
+
 #pragma mark - UITextFieldDelegate
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    //Add filter for english letters.
-    /*
-    NSCharacterSet *englishCharSet = [NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
-    NSMutableCharacterSet *
-    NSString *filtered = [[string componentsSeparatedByCharactersInSet:invalidCharSet] componentsJoinedByString:@""];
-    return [string isEqualToString:filtered];
-     */
+    //New text
+    NSString * newString = [[textField text] stringByReplacingCharactersInRange:range withString:string];
+    
+    //Validation for first symbol space
+    NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    if (textField.text.length == 0 && [newString stringByTrimmingCharactersInSet:set].length == 0)
+    {
+        return NO;
+    }
     
     return YES;
 }
@@ -183,5 +207,7 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 {
     return YES;
 }
+
+#pragma mark - Helpers Meth
 
 @end

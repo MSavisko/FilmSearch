@@ -18,5 +18,6 @@
 @property (nonatomic) NSInteger statusCode;
 
 + (instancetype) response;
++ (NSString *) errorTextFromResponse:(NSError *) error;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "MSRequestManager.h"
+#import "MSRequestResponse+Film.h"
 
 @interface MSRequestManager (Films)
 
