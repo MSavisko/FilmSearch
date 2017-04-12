@@ -9,6 +9,8 @@
 #import "MSDataManager.h"
 #import "MSDataManagerConstants.h"
 #import <MagicalRecord/MagicalRecord.h>
+#import <EasyMapping/EasyMapping.h>
+#import "NSManagedObject+Mapping.h"
 
 @interface MSDataManager (Private) <MSDataManagerPrivateProtocol>
 

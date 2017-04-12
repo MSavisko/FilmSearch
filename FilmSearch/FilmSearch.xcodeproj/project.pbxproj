@@ -11,6 +11,8 @@
 		08C83A281E9E727C000285E8 /* FSFilmDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C83A271E9E727C000285E8 /* FSFilmDetailViewController.m */; };
 		08C83A2B1E9E7D15000285E8 /* FSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C83A2A1E9E7D15000285E8 /* FSBaseViewController.m */; };
 		56A785427709C717F9814B35 /* libPods-FilmSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB48E7BC665F9503C3B559B /* libPods-FilmSearch.a */; };
+		9230AB421E9E9E3D000146F5 /* MSDataManager+SearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9230AB411E9E9E3D000146F5 /* MSDataManager+SearchHistory.m */; };
+		9230AB451E9EA763000146F5 /* MSDataManager+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9230AB441E9EA763000146F5 /* MSDataManager+User.m */; };
 		9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */; };
 		9237FBFC1E9D52EB00F74E43 /* FSTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FBFA1E9D514800F74E43 /* FSTabBarController.m */; };
 		9237FC031E9D54AC00F74E43 /* UIViewController+MSTop.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC021E9D54AC00F74E43 /* UIViewController+MSTop.m */; };
@@ -57,6 +59,10 @@
 		08C83A2A1E9E7D15000285E8 /* FSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaseViewController.m; sourceTree = "<group>"; };
 		22A349788756F1189B2EBD6A /* Pods-FilmSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilmSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-FilmSearch/Pods-FilmSearch.release.xcconfig"; sourceTree = "<group>"; };
 		4FB40A8E28B551DF5F9B8E55 /* Pods-FilmSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilmSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilmSearch/Pods-FilmSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		9230AB401E9E9E3D000146F5 /* MSDataManager+SearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSDataManager+SearchHistory.h"; sourceTree = "<group>"; };
+		9230AB411E9E9E3D000146F5 /* MSDataManager+SearchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSDataManager+SearchHistory.m"; sourceTree = "<group>"; };
+		9230AB431E9EA763000146F5 /* MSDataManager+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSDataManager+User.h"; sourceTree = "<group>"; };
+		9230AB441E9EA763000146F5 /* MSDataManager+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSDataManager+User.m"; sourceTree = "<group>"; };
 		9237FBF11E9D4CD900F74E43 /* UIViewController+MSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSKeyboard.h"; sourceTree = "<group>"; };
 		9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSKeyboard.m"; sourceTree = "<group>"; };
 		9237FBF41E9D4FCD00F74E43 /* FSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPrefixHeader.pch; sourceTree = "<group>"; };
@@ -379,12 +385,16 @@
 				923D44EB1E9C031000F0D227 /* MSDataManagerProtocols.h */,
 				923D44E41E9C031000F0D227 /* MSDataManager+Private.h */,
 				923D44E51E9C031000F0D227 /* MSDataManager+Private.m */,
+				9230AB431E9EA763000146F5 /* MSDataManager+User.h */,
+				9230AB441E9EA763000146F5 /* MSDataManager+User.m */,
 				923D44E61E9C031000F0D227 /* MSDataManager+Setup.h */,
 				923D44E71E9C031000F0D227 /* MSDataManager+Setup.m */,
 				923D44E81E9C031000F0D227 /* MSDataManager.h */,
 				923D44E91E9C031000F0D227 /* MSDataManager.m */,
 				087E08A91E9E5003009F3C37 /* MSDataManager+Film.h */,
 				087E08AA1E9E5003009F3C37 /* MSDataManager+Film.m */,
+				9230AB401E9E9E3D000146F5 /* MSDataManager+SearchHistory.h */,
+				9230AB411E9E9E3D000146F5 /* MSDataManager+SearchHistory.m */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -571,6 +581,7 @@
 				923D45261E9C1FD400F0D227 /* FSUserManagedModel.m in Sources */,
 				923D44ED1E9C031000F0D227 /* MSDataManager+Setup.m in Sources */,
 				923D44E21E9C023900F0D227 /* MSRequestToken.m in Sources */,
+				9230AB421E9E9E3D000146F5 /* MSDataManager+SearchHistory.m in Sources */,
 				923D45231E9C1CA500F0D227 /* NSString+MS.m in Sources */,
 				08C83A2B1E9E7D15000285E8 /* FSBaseViewController.m in Sources */,
 				9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */,
@@ -585,6 +596,7 @@
 				923D44E01E9C023900F0D227 /* MSRequestManager.m in Sources */,
 				9237FC1A1E9D71ED00F74E43 /* FSNavigationController.m in Sources */,
 				923D44EE1E9C031000F0D227 /* MSDataManager.m in Sources */,
+				9230AB451E9EA763000146F5 /* MSDataManager+User.m in Sources */,
 				923D45171E9C17DD00F0D227 /* NSManagedObject+Mapping.m in Sources */,
 				087E08AB1E9E5003009F3C37 /* MSDataManager+Film.m in Sources */,
 				9237FC1D1E9D735F00F74E43 /* FSSearchViewController.m in Sources */,

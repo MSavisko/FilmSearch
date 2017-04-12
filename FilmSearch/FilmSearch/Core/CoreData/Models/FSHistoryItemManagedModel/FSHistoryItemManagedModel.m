@@ -11,8 +11,10 @@
 #import "FSUserManagedModel.h"
 
 #import "FSHistoryItemManagedModelKeys.h"
+#import "FSFilmManagedModelKeys.h"
 
 #import "NSManagedObject+Mapping.h"
+#import "NSString+MS.h"
 
 @implementation FSHistoryItemManagedModel
 
@@ -42,6 +44,20 @@
     [mapping hasOne:[FSFilmManagedModel class] forKeyPath:FSHistoryItemFilmKey forProperty:NSStringFromSelector(@selector(film))];
     
     return mapping;
+}
+
++ (NSDictionary *) representationWithSearchTitle:(NSString *) searchTitle andFilmInfo:(NSDictionary *) filmInfo
+{
+    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:0];
+    [result setValue:[NSString ms_uuidString] forKey:FSHistoryItemDataIdKey];
+    [result setValue:searchTitle forKey:FSHistoryItemSearchTitleKey];
+    [result setObject:[NSDate date] forKey:FSHistoryItemSearchDateKey];
+    
+    NSMutableDictionary *_filmInfo = [NSMutableDictionary dictionaryWithDictionary:filmInfo];
+    [_filmInfo setValue:[NSString ms_uuidString] forKey:FSFilmDataIdKey];
+    [result setObject:_filmInfo forKey:FSHistoryItemFilmKey];
+    
+    return result;
 }
 
 @end

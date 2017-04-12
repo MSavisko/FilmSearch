@@ -16,7 +16,9 @@
 {
     MSRequestResponse *response = [MSRequestResponse response];
     
-    NSString *urlQueryfilmName = [filmName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString *_filmName = [filmName copy];
+    
+    NSString *urlQueryfilmName = [_filmName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
     NSString *urlString = [self apiCall:[NSString stringWithFormat:@"?t=%@&plot=full&type=movie", urlQueryfilmName]];
     

@@ -12,11 +12,18 @@
 
 @implementation MSDataManager (Film)
 
++ (nullable FSFilmManagedModel *) fetchFilmByImdbId:(NSString *) imdbId inContext:(nullable NSManagedObjectContext *)context
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", NSStringFromSelector(@selector(imdbId)), imdbId];
+    
+    return [self fetchFilmByPredicate:predicate inContext:context];
+}
+
 + (nullable FSFilmManagedModel *) fetchFilmById:(NSString *) filmId inContext:(nullable NSManagedObjectContext *)context
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", NSStringFromSelector(@selector(dataId)), filmId];
     
-    return [FSFilmManagedModel MR_findFirstWithPredicate:predicate inContext:context? : [[self sharedInstance] mainContext]];
+    return [self fetchFilmByPredicate:predicate inContext:context];
 }
 
 + (NSArray <FSFilmManagedModel *> *) fetchFilmsByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context
@@ -69,7 +76,14 @@
     
     NSArray *containtResults = [FSFilmManagedModel MR_executeFetchRequest:containtFetchRequest inContext:_context];
     
-    return [containtResults valueForKey:keyPath];
+    return containtResults.count > 0 ? [containtResults valueForKey:keyPath] : nil;
+}
+
+#pragma mark - Private
+
++ (nullable FSFilmManagedModel *) fetchFilmByPredicate:(NSPredicate *) predicate inContext:(nullable NSManagedObjectContext *)context
+{
+    return [FSFilmManagedModel MR_findFirstWithPredicate:predicate inContext:context? : [[self sharedInstance] mainContext]];
 }
 
 @end

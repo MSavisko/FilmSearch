@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MSRequestManagerProtocols.h"
 #import "MSRequestManagerConstants.h"
+#import "MSRequestResponse.h"
 
 @interface MSRequestManager : NSObject <MSRequestManagerProtocol>
 

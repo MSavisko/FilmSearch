@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "MSLogger.h"
+#import "MSDataManager+Setup.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [MSLogger startLogging];
+    [MSDataManager setupWithCompletion:nil];
     
     return YES;
 }

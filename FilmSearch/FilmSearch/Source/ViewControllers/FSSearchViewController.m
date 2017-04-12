@@ -12,8 +12,12 @@
 #import "MSThemeManager.h"
 #import "MSRequestManager+Films.h"
 #import "MSDataManager+Film.h"
+#import "MSDataManager+SearchHistory.h"
 
 #import "UIColor+MSTheme.h"
+
+#import "FSHistoryItemManagedModel.h"
+#import "FSHistoryItemManagedModelKeys.h"
 
 typedef NS_ENUM(NSInteger, FSSearchScreenState)
 {
@@ -103,7 +107,9 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
     [self updateScreenForState:FSSearchScreenStateSearching];
     
     //Try to find film in DB.
-    NSString *filmId = [MSDataManager fetchFilmsIdsByTitle:_searchTextField.text inContext:nil].firstObject;
+    NSArray <NSString *> *filmIds = [MSDataManager fetchFilmsIdsByTitle:_searchTextField.text inContext:nil];
+    
+    NSString *filmId = filmIds.firstObject;
     
     if (filmId && filmId.length > 0)
     {
@@ -113,7 +119,29 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
     }
     
     //Request film from API
-    
+    __weak typeof(self) wSelf = self;
+    [[MSRequestManager sharedInstance] findFilmByName:_searchTextField.text andCompletion:^(MSRequestResponse *response)
+    {
+        if (response.isSuccess)
+        {
+            if ([response.object valueForKey:@"Response"])
+            {
+                NSNumber *responseValue = [response.object valueForKey:@"Response"];
+                
+                BOOL value = responseValue.boolValue;
+                
+                if (value)
+                {
+                    NSDictionary *changes = [FSHistoryItemManagedModel representationWithSearchTitle:wSelf.searchTextField.text andFilmInfo:response.object];
+                    [MSDataManager updateSearchHistoryWithChanges:changes inContext:nil completion:^{
+                        //
+                    }];
+                }
+                
+                MSLogDebug(@"Response: %@", value ? @"YES" : @"NO");
+            }
+        }
+    }];
 }
 
 #pragma mark - Navigation

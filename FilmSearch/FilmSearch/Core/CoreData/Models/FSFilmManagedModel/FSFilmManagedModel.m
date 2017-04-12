@@ -21,9 +21,30 @@
     [mapping mapPropertiesFromDictionary:@{
                                            FSFilmImdbIdKey : NSStringFromSelector(@selector(imdbId)),
                                            FSFilmPosterUrlIdKey : NSStringFromSelector(@selector(posterUrl)),
-                                           FSFilmReleaseDateKey : NSStringFromSelector(@selector(releaseDate)),
                                            FSFilmTitleKey : NSStringFromSelector(@selector(title))
                                            }];
+    
+    [mapping mapKeyPath:FSFilmReleaseDateKey toProperty:NSStringFromSelector(@selector(releaseDate)) withValueBlock:^id(NSString *key, id value, NSManagedObjectContext *context)
+    {
+        if ([value isKindOfClass:[NSString class]])
+        {
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"d LLLL yyyy"];
+            
+            return [formatter dateFromString:value];
+        }
+        
+        if ([value isKindOfClass:[NSDate class]])
+        {
+            return value;
+        }
+        
+        return nil;
+    }
+        reverseBlock:^id(id value, NSManagedObjectContext *context)
+    {
+        return value;
+    }];
     
     return mapping;
 }

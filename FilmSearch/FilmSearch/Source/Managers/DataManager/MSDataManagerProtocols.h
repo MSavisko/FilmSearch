@@ -8,7 +8,7 @@
 
 #import "MSDataManagerConstants.h"
 
-@class NSManagedObjectContext, FSFilmManagedModel;
+@class NSManagedObjectContext, FSFilmManagedModel, FSUserManagedModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,6 +27,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@protocol MSDataManagerUserProtocol <MSDataManagerProtocol>
+
++ (FSUserManagedModel *)currentUserModelInContext:(nullable NSManagedObjectContext *)context;
++ (FSUserManagedModel *)currentUserModel;
+
+@end
+
 @protocol MSDataManagerSetupProtocol <MSDataManagerProtocol>
 
 + (void) setupWithCompletion:(nullable MSDataManagerVoidCompletionBlock) completion;
@@ -36,9 +43,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MSDataManagerFilmProtocol <MSDataManagerProtocol>
 
++ (nullable FSFilmManagedModel *) fetchFilmByImdbId:(NSString *) imdbId inContext:(nullable NSManagedObjectContext *)context;
 + (nullable FSFilmManagedModel *) fetchFilmById:(NSString *) filmId inContext:(nullable NSManagedObjectContext *)context;
-+ (NSArray <FSFilmManagedModel *> *) fetchFilmsByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context;
-+ (NSArray <NSString *> *) fetchFilmsIdsByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context;
++ (nullable NSArray <FSFilmManagedModel *> *) fetchFilmsByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context;
++ (nullable NSArray <NSString *> *) fetchFilmsIdsByTitle:(NSString *) filmTitle inContext:(nullable NSManagedObjectContext *)context;
+
+@end
+
+@protocol MSDataManagerSearchHistoryProtocol <MSDataManagerProtocol>
+
++ (void) updateSearchHistoryWithChanges:(NSDictionary *)changes inContext:(nullable NSManagedObjectContext *) context completion:(nullable MSDataManagerVoidCompletionBlock)completion;
 
 @end
 
