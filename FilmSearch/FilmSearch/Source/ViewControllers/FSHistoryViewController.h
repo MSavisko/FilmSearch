@@ -6,8 +6,8 @@
 //  Copyright © 2017 Maksym Savisko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "FSBaseViewController.h"
 
-@interface FSHistoryViewController : UIViewController
+@interface FSHistoryViewController : FSBaseViewController
 
 @end

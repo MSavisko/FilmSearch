@@ -14,6 +14,10 @@
 		922510B41E9ED168001F6C99 /* MSRequestResponse+Film.m in Sources */ = {isa = PBXBuildFile; fileRef = 922510B31E9ED168001F6C99 /* MSRequestResponse+Film.m */; };
 		922510B81E9ED706001F6C99 /* MSAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 922510B71E9ED706001F6C99 /* MSAlertManager.m */; };
 		922510BE1E9ED828001F6C99 /* MSAlertManager+SearchFilm.m in Sources */ = {isa = PBXBuildFile; fileRef = 922510BD1E9ED828001F6C99 /* MSAlertManager+SearchFilm.m */; };
+		922510C21E9EE72B001F6C99 /* FSSearchHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 922510C11E9EE72B001F6C99 /* FSSearchHistoryCell.m */; };
+		922510C51E9EEB9C001F6C99 /* NSDate+MSTimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 922510C41E9EEB9C001F6C99 /* NSDate+MSTimeAgo.m */; };
+		922510C91E9EF08F001F6C99 /* NSFetchedResultsController+SearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 922510C81E9EF08F001F6C99 /* NSFetchedResultsController+SearchHistory.m */; };
+		922510CC1E9EFAC7001F6C99 /* NSIndexPath+MSExstension.m in Sources */ = {isa = PBXBuildFile; fileRef = 922510CB1E9EFAC7001F6C99 /* NSIndexPath+MSExstension.m */; };
 		9230AB421E9E9E3D000146F5 /* MSDataManager+SearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9230AB411E9E9E3D000146F5 /* MSDataManager+SearchHistory.m */; };
 		9230AB451E9EA763000146F5 /* MSDataManager+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9230AB441E9EA763000146F5 /* MSDataManager+User.m */; };
 		9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */; };
@@ -68,6 +72,14 @@
 		922510B71E9ED706001F6C99 /* MSAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAlertManager.m; sourceTree = "<group>"; };
 		922510BC1E9ED828001F6C99 /* MSAlertManager+SearchFilm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSAlertManager+SearchFilm.h"; sourceTree = "<group>"; };
 		922510BD1E9ED828001F6C99 /* MSAlertManager+SearchFilm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSAlertManager+SearchFilm.m"; sourceTree = "<group>"; };
+		922510C01E9EE72B001F6C99 /* FSSearchHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSearchHistoryCell.h; sourceTree = "<group>"; };
+		922510C11E9EE72B001F6C99 /* FSSearchHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSearchHistoryCell.m; sourceTree = "<group>"; };
+		922510C31E9EEB9C001F6C99 /* NSDate+MSTimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MSTimeAgo.h"; sourceTree = "<group>"; };
+		922510C41E9EEB9C001F6C99 /* NSDate+MSTimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MSTimeAgo.m"; sourceTree = "<group>"; };
+		922510C71E9EF08F001F6C99 /* NSFetchedResultsController+SearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchedResultsController+SearchHistory.h"; sourceTree = "<group>"; };
+		922510C81E9EF08F001F6C99 /* NSFetchedResultsController+SearchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchedResultsController+SearchHistory.m"; sourceTree = "<group>"; };
+		922510CA1E9EFAC7001F6C99 /* NSIndexPath+MSExstension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+MSExstension.h"; sourceTree = "<group>"; };
+		922510CB1E9EFAC7001F6C99 /* NSIndexPath+MSExstension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+MSExstension.m"; sourceTree = "<group>"; };
 		9230AB401E9E9E3D000146F5 /* MSDataManager+SearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSDataManager+SearchHistory.h"; sourceTree = "<group>"; };
 		9230AB411E9E9E3D000146F5 /* MSDataManager+SearchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSDataManager+SearchHistory.m"; sourceTree = "<group>"; };
 		9230AB431E9EA763000146F5 /* MSDataManager+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSDataManager+User.h"; sourceTree = "<group>"; };
@@ -186,6 +198,24 @@
 			path = AlertManager;
 			sourceTree = "<group>";
 		};
+		922510BF1E9EE709001F6C99 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				922510C01E9EE72B001F6C99 /* FSSearchHistoryCell.h */,
+				922510C11E9EE72B001F6C99 /* FSSearchHistoryCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		922510C61E9EF04C001F6C99 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				922510C71E9EF08F001F6C99 /* NSFetchedResultsController+SearchHistory.h */,
+				922510C81E9EF08F001F6C99 /* NSFetchedResultsController+SearchHistory.m */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		9237FBF01E9D4B4D00F74E43 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +321,8 @@
 				9237FC171E9D71D300F74E43 /* NavigationController */,
 				9237FBF81E9D512D00F74E43 /* TabBarController */,
 				9237FBF01E9D4B4D00F74E43 /* ViewControllers */,
+				922510C61E9EF04C001F6C99 /* DataSource */,
+				922510BF1E9EE709001F6C99 /* Cells */,
 				9237FC211E9D7F3100F74E43 /* Controls */,
 			);
 			path = Source;
@@ -459,6 +491,10 @@
 				9237FBF21E9D4CD900F74E43 /* UIViewController+MSKeyboard.m */,
 				9237FC011E9D54AC00F74E43 /* UIViewController+MSTop.h */,
 				9237FC021E9D54AC00F74E43 /* UIViewController+MSTop.m */,
+				922510C31E9EEB9C001F6C99 /* NSDate+MSTimeAgo.h */,
+				922510C41E9EEB9C001F6C99 /* NSDate+MSTimeAgo.m */,
+				922510CA1E9EFAC7001F6C99 /* NSIndexPath+MSExstension.h */,
+				922510CB1E9EFAC7001F6C99 /* NSIndexPath+MSExstension.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -598,6 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				922510C21E9EE72B001F6C99 /* FSSearchHistoryCell.m in Sources */,
 				923D44E11E9C023900F0D227 /* MSRequestResponse.m in Sources */,
 				9237FC241E9D7F7B00F74E43 /* FSBorderedButton.m in Sources */,
 				9237FC0F1E9D644800F74E43 /* MSThemeManager.m in Sources */,
@@ -607,9 +644,11 @@
 				9230AB421E9E9E3D000146F5 /* MSDataManager+SearchHistory.m in Sources */,
 				923D45231E9C1CA500F0D227 /* NSString+MS.m in Sources */,
 				08C83A2B1E9E7D15000285E8 /* FSBaseViewController.m in Sources */,
+				922510CC1E9EFAC7001F6C99 /* NSIndexPath+MSExstension.m in Sources */,
 				9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */,
 				922510BE1E9ED828001F6C99 /* MSAlertManager+SearchFilm.m in Sources */,
 				923D449F1E9BF85000F0D227 /* FilmSearch.xcdatamodeld in Sources */,
+				922510C51E9EEB9C001F6C99 /* NSDate+MSTimeAgo.m in Sources */,
 				923D45321E9C286F00F0D227 /* EKMappingBlocks+MS.m in Sources */,
 				08C83A281E9E727C000285E8 /* FSFilmDetailViewController.m in Sources */,
 				923D44EC1E9C031000F0D227 /* MSDataManager+Private.m in Sources */,
@@ -632,6 +671,7 @@
 				922510B81E9ED706001F6C99 /* MSAlertManager.m in Sources */,
 				923D45291E9C20FB00F0D227 /* FSHistoryItemManagedModel.m in Sources */,
 				9237FBFC1E9D52EB00F74E43 /* FSTabBarController.m in Sources */,
+				922510C91E9EF08F001F6C99 /* NSFetchedResultsController+SearchHistory.m in Sources */,
 				923D452F1E9C22BD00F0D227 /* FSFilmManagedModel+CoreDataProperties.m in Sources */,
 				923D452C1E9C214700F0D227 /* FSFilmManagedModel.m in Sources */,
 				9237FC161E9D68B800F74E43 /* UIFont+MSTheme.m in Sources */,
