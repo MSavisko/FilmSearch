@@ -76,7 +76,7 @@
     
     NSArray *containtResults = [FSFilmManagedModel MR_executeFetchRequest:containtFetchRequest inContext:_context];
     
-    return containtResults.count > 0 ? [containtResults valueForKey:keyPath] : nil;
+    return containtResults.count > 0 ? [containtResults valueForKeyPath:keyPath] : nil;
 }
 
 + (nullable NSString *) fetchFilmIdByTitle:(NSString *) filmTitle

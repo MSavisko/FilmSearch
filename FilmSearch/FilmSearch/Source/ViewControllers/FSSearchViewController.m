@@ -118,7 +118,6 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 
 - (IBAction)searchButtonDidPressed:(id)sender
 {
-    //Check for space and empty request
     [self updateScreenForState:FSSearchScreenStateSearching];
     
     //Try to find film in DB.

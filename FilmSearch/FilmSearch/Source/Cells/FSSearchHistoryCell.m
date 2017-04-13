@@ -12,6 +12,7 @@
 #import "FSFilmManagedModel.h"
 
 #import "UIColor+MSTheme.h"
+#import "UIFont+MSTheme.h"
 #import "NSDate+MSTimeAgo.h"
 
 @interface FSSearchHistoryCell ()
@@ -36,6 +37,8 @@
     self.positionLabel.textColor = [UIColor ms_primaryRedColor];
     self.filmTitleLabel.textColor = [UIColor ms_primaryBlackColor];
     self.searchDateLabel.textColor = [UIColor ms_primaryBlackColor];
+    
+    self.searchDateLabel.font = [UIFont ms_regularFontWithWeight:UIFontWeightRegular];
 }
 
 #pragma mark - Public
