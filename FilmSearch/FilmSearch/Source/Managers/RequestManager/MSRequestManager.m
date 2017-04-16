@@ -254,7 +254,7 @@
 
 - (BOOL)isOffline
 {
-    return NO;
+    return _manager.reachabilityManager.isReachable;
 }
 
 

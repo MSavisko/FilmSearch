@@ -47,7 +47,7 @@
 
 #pragma mark - Public
 
-+ (void)showAlertWithText:(nullable NSString *)text andTitle:(nullable NSString *)title
+- (void)showAlertWithText:(nullable NSString *)text andTitle:(nullable NSString *)title
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:text preferredStyle:UIAlertControllerStyleAlert];
 
@@ -57,7 +57,7 @@
 
     alert.view.tintColor = [UIColor ms_primaryRedColor];
 
-    [[self presentingViewController] presentViewController:alert animated:YES completion:nil];
+    [[self.class presentingViewController] presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - Private

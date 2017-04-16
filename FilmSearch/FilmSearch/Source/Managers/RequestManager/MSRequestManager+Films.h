@@ -9,8 +9,6 @@
 #import "MSRequestManager.h"
 #import "MSRequestResponse+Film.h"
 
-@interface MSRequestManager (Films)
-
-- (void)findFilmByName:(nonnull NSString *)filmName andCompletion:(nullable MSRequestManagerResponseCompletionBlock)completion;
+@interface MSRequestManager (Films) <MSRequestManagerFilmsProtocol>
 
 @end

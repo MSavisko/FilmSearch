@@ -8,10 +8,6 @@
 
 #import "MSAlertManager.h"
 
-@class MSRequestResponse;
-
-@interface MSAlertManager (SearchFilm)
-
-+ (void)showAlertForFilmSearchResponse:(MSRequestResponse *)response;
+@interface MSAlertManager (SearchFilm) <MSAlertSearchFilmProtocol>
 
 @end

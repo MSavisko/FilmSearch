@@ -25,12 +25,12 @@
 		9237FC031E9D54AC00F74E43 /* UIViewController+MSTop.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC021E9D54AC00F74E43 /* UIViewController+MSTop.m */; };
 		9237FC081E9D5B7900F74E43 /* FSHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC071E9D5B7900F74E43 /* FSHistoryViewController.m */; };
 		9237FC0F1E9D644800F74E43 /* MSThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC0E1E9D644800F74E43 /* MSThemeManager.m */; };
-		9237FC131E9D677400F74E43 /* UIColor+MSTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC121E9D677400F74E43 /* UIColor+MSTheme.m */; };
-		9237FC161E9D68B800F74E43 /* UIFont+MSTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC151E9D68B800F74E43 /* UIFont+MSTheme.m */; };
 		9237FC1A1E9D71ED00F74E43 /* FSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC191E9D71ED00F74E43 /* FSNavigationController.m */; };
 		9237FC1D1E9D735F00F74E43 /* FSSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC1C1E9D735F00F74E43 /* FSSearchViewController.m */; };
-		9237FC201E9D7AC900F74E43 /* UIImage+MSTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC1F1E9D7AC900F74E43 /* UIImage+MSTheme.m */; };
 		9237FC241E9D7F7B00F74E43 /* FSBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237FC231E9D7F7B00F74E43 /* FSBorderedButton.m */; };
+		9238ACF51EA3D63600B25C93 /* UIColor+MSTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238ACF01EA3D63600B25C93 /* UIColor+MSTheme.m */; };
+		9238ACF61EA3D63600B25C93 /* UIFont+MSTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238ACF21EA3D63600B25C93 /* UIFont+MSTheme.m */; };
+		9238ACF71EA3D63600B25C93 /* UIImage+MSTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238ACF41EA3D63600B25C93 /* UIImage+MSTheme.m */; };
 		923D44931E9BF6BD00F0D227 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D448A1E9BF6BD00F0D227 /* AppDelegate.m */; };
 		923D44941E9BF6BD00F0D227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 923D448E1E9BF6BD00F0D227 /* Assets.xcassets */; };
 		923D44961E9BF6BD00F0D227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923D44901E9BF6BD00F0D227 /* LaunchScreen.storyboard */; };
@@ -96,18 +96,19 @@
 		9237FC071E9D5B7900F74E43 /* FSHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSHistoryViewController.m; sourceTree = "<group>"; };
 		9237FC0D1E9D644800F74E43 /* MSThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSThemeManager.h; sourceTree = "<group>"; };
 		9237FC0E1E9D644800F74E43 /* MSThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSThemeManager.m; sourceTree = "<group>"; };
-		9237FC111E9D677400F74E43 /* UIColor+MSTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MSTheme.h"; sourceTree = "<group>"; };
-		9237FC121E9D677400F74E43 /* UIColor+MSTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MSTheme.m"; sourceTree = "<group>"; };
-		9237FC141E9D68B800F74E43 /* UIFont+MSTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+MSTheme.h"; sourceTree = "<group>"; };
-		9237FC151E9D68B800F74E43 /* UIFont+MSTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+MSTheme.m"; sourceTree = "<group>"; };
 		9237FC181E9D71ED00F74E43 /* FSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNavigationController.h; sourceTree = "<group>"; };
 		9237FC191E9D71ED00F74E43 /* FSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNavigationController.m; sourceTree = "<group>"; };
 		9237FC1B1E9D735F00F74E43 /* FSSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSearchViewController.h; sourceTree = "<group>"; };
 		9237FC1C1E9D735F00F74E43 /* FSSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSearchViewController.m; sourceTree = "<group>"; };
-		9237FC1E1E9D7AC900F74E43 /* UIImage+MSTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MSTheme.h"; sourceTree = "<group>"; };
-		9237FC1F1E9D7AC900F74E43 /* UIImage+MSTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MSTheme.m"; sourceTree = "<group>"; };
 		9237FC221E9D7F7B00F74E43 /* FSBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBorderedButton.h; sourceTree = "<group>"; };
 		9237FC231E9D7F7B00F74E43 /* FSBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBorderedButton.m; sourceTree = "<group>"; };
+		9238ACED1EA3D26500B25C93 /* MSAlertManagerProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSAlertManagerProtocols.h; sourceTree = "<group>"; };
+		9238ACEF1EA3D63600B25C93 /* UIColor+MSTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MSTheme.h"; sourceTree = "<group>"; };
+		9238ACF01EA3D63600B25C93 /* UIColor+MSTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MSTheme.m"; sourceTree = "<group>"; };
+		9238ACF11EA3D63600B25C93 /* UIFont+MSTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+MSTheme.h"; sourceTree = "<group>"; };
+		9238ACF21EA3D63600B25C93 /* UIFont+MSTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+MSTheme.m"; sourceTree = "<group>"; };
+		9238ACF31EA3D63600B25C93 /* UIImage+MSTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MSTheme.h"; sourceTree = "<group>"; };
+		9238ACF41EA3D63600B25C93 /* UIImage+MSTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MSTheme.m"; sourceTree = "<group>"; };
 		923D446D1E9BF5CD00F0D227 /* FilmSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		923D44891E9BF6BD00F0D227 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		923D448A1E9BF6BD00F0D227 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -190,6 +191,7 @@
 		922510B51E9ED6EC001F6C99 /* AlertManager */ = {
 			isa = PBXGroup;
 			children = (
+				9238ACED1EA3D26500B25C93 /* MSAlertManagerProtocols.h */,
 				922510B61E9ED706001F6C99 /* MSAlertManager.h */,
 				922510B71E9ED706001F6C99 /* MSAlertManager.m */,
 				922510BC1E9ED828001F6C99 /* MSAlertManager+SearchFilm.h */,
@@ -244,12 +246,7 @@
 		9237FC0C1E9D643500F74E43 /* ThemeManager */ = {
 			isa = PBXGroup;
 			children = (
-				9237FC111E9D677400F74E43 /* UIColor+MSTheme.h */,
-				9237FC121E9D677400F74E43 /* UIColor+MSTheme.m */,
-				9237FC141E9D68B800F74E43 /* UIFont+MSTheme.h */,
-				9237FC151E9D68B800F74E43 /* UIFont+MSTheme.m */,
-				9237FC1E1E9D7AC900F74E43 /* UIImage+MSTheme.h */,
-				9237FC1F1E9D7AC900F74E43 /* UIImage+MSTheme.m */,
+				9238ACEE1EA3D63600B25C93 /* Categories */,
 				9237FC0D1E9D644800F74E43 /* MSThemeManager.h */,
 				9237FC0E1E9D644800F74E43 /* MSThemeManager.m */,
 			);
@@ -272,6 +269,19 @@
 				9237FC231E9D7F7B00F74E43 /* FSBorderedButton.m */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		9238ACEE1EA3D63600B25C93 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9238ACEF1EA3D63600B25C93 /* UIColor+MSTheme.h */,
+				9238ACF01EA3D63600B25C93 /* UIColor+MSTheme.m */,
+				9238ACF11EA3D63600B25C93 /* UIFont+MSTheme.h */,
+				9238ACF21EA3D63600B25C93 /* UIFont+MSTheme.m */,
+				9238ACF31EA3D63600B25C93 /* UIImage+MSTheme.h */,
+				9238ACF41EA3D63600B25C93 /* UIImage+MSTheme.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		923D44641E9BF5CD00F0D227 = {
@@ -643,6 +653,7 @@
 				923D44E21E9C023900F0D227 /* MSRequestToken.m in Sources */,
 				9230AB421E9E9E3D000146F5 /* MSDataManager+SearchHistory.m in Sources */,
 				923D45231E9C1CA500F0D227 /* NSString+MS.m in Sources */,
+				9238ACF71EA3D63600B25C93 /* UIImage+MSTheme.m in Sources */,
 				08C83A2B1E9E7D15000285E8 /* FSBaseViewController.m in Sources */,
 				922510CC1E9EFAC7001F6C99 /* NSIndexPath+MSExstension.m in Sources */,
 				9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */,
@@ -656,8 +667,8 @@
 				923D44F31E9C095D00F0D227 /* MSRequestManager+Films.m in Sources */,
 				9237FC081E9D5B7900F74E43 /* FSHistoryViewController.m in Sources */,
 				9237FC031E9D54AC00F74E43 /* UIViewController+MSTop.m in Sources */,
-				9237FC201E9D7AC900F74E43 /* UIImage+MSTheme.m in Sources */,
 				923D44E01E9C023900F0D227 /* MSRequestManager.m in Sources */,
+				9238ACF51EA3D63600B25C93 /* UIColor+MSTheme.m in Sources */,
 				9237FC1A1E9D71ED00F74E43 /* FSNavigationController.m in Sources */,
 				923D44EE1E9C031000F0D227 /* MSDataManager.m in Sources */,
 				9230AB451E9EA763000146F5 /* MSDataManager+User.m in Sources */,
@@ -666,15 +677,14 @@
 				9237FC1D1E9D735F00F74E43 /* FSSearchViewController.m in Sources */,
 				923D44971E9BF6BD00F0D227 /* main.m in Sources */,
 				923D45351E9C294100F0D227 /* EKManagedObjectMapping+MS.m in Sources */,
-				9237FC131E9D677400F74E43 /* UIColor+MSTheme.m in Sources */,
 				923D44931E9BF6BD00F0D227 /* AppDelegate.m in Sources */,
 				922510B81E9ED706001F6C99 /* MSAlertManager.m in Sources */,
 				923D45291E9C20FB00F0D227 /* FSHistoryItemManagedModel.m in Sources */,
 				9237FBFC1E9D52EB00F74E43 /* FSTabBarController.m in Sources */,
 				922510C91E9EF08F001F6C99 /* NSFetchedResultsController+SearchHistory.m in Sources */,
 				923D452F1E9C22BD00F0D227 /* FSFilmManagedModel+CoreDataProperties.m in Sources */,
+				9238ACF61EA3D63600B25C93 /* UIFont+MSTheme.m in Sources */,
 				923D452C1E9C214700F0D227 /* FSFilmManagedModel.m in Sources */,
-				9237FC161E9D68B800F74E43 /* UIFont+MSTheme.m in Sources */,
 				923D45101E9C123F00F0D227 /* MSLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
