@@ -42,7 +42,7 @@
 
 #pragma mark - UI
 
-- (void) setupUI
+- (void)setupUI
 {
     _filmTitleLabel.textColor = [UIColor ms_primaryRedColor];
     _filmReleaseLabel.textColor = [UIColor ms_primaryRedColor];
@@ -50,11 +50,11 @@
     _filmReleaseLabel.font = [UIFont ms_regularFontWithWeight:UIFontWeightMedium];
 }
 
-- (void) updateViewInfo
+- (void)updateViewInfo
 {
     self.filmTitleLabel.text = _film.title;
     [self.filmPosterImageView sd_setImageWithURL:[NSURL URLWithString:_film.posterUrl] placeholderImage:[FSFilmManagedModel placeholder]];
-    
+
     self.filmReleaseLabel.text = self.film.releaseDate ? self.film.stringReleaseDate : NSLocalizedString(@"N/A", @"v1.0");
 }
 
@@ -63,26 +63,23 @@
 - (void)setFilm:(FSFilmManagedModel *)film
 {
     [self.KVOController unobserveAll];
-    
+
     _film = film;
-    
+
     [self updateViewInfo];
-    
-    if (_film)
-    {
+
+    if (_film) {
         [self.KVOController observe:_film keyPath:NSStringFromSelector(@selector(posterUrl)) options:NSKeyValueObservingOptionNew action:@selector(updateViewInfo)];
         [self.KVOController observe:_film keyPath:NSStringFromSelector(@selector(releaseDate)) options:NSKeyValueObservingOptionNew action:@selector(updateViewInfo)];
         [self.KVOController observe:_film keyPath:NSStringFromSelector(@selector(title)) options:NSKeyValueObservingOptionNew action:@selector(updateViewInfo)];
     }
-    
 }
 
 - (void)setFilmId:(NSString *)filmId
 {
     NSString *previousFilmdId = [self.filmId copy];
-    
-    if ( !previousFilmdId || ![previousFilmdId isEqualToString:filmId])
-    {
+
+    if (!previousFilmdId || ![previousFilmdId isEqualToString:filmId]) {
         self.film = [MSDataManager fetchFilmById:filmId inContext:nil];
     }
 }

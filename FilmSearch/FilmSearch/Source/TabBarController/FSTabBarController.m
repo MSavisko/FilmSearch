@@ -13,8 +13,7 @@
 
 static NSInteger const MSInitialViewControllerIndex = 0;
 
-@interface FSTabBarController () <UITabBarControllerDelegate, UITabBarDelegate>
-{
+@interface FSTabBarController () <UITabBarControllerDelegate, UITabBarDelegate> {
     NSInteger _tapCount;
 }
 
@@ -27,18 +26,16 @@ static NSInteger const MSInitialViewControllerIndex = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     self.delegate = self;
-    
-    [self.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
-    {
-        
-        if ( idx == MSInitialViewControllerIndex )
-        {
+
+    [self.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
+
+        if (idx == MSInitialViewControllerIndex) {
             self.selectedIndex = idx;
         }
     }];
-    
+
     [[MSThemeManager sharedInstance] customizeTabBar:self.tabBar];
 }
 
@@ -51,44 +48,38 @@ static NSInteger const MSInitialViewControllerIndex = 0;
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
-    if ( tabBarController.selectedViewController == viewController )
-    {
+    if (tabBarController.selectedViewController == viewController) {
         _tapCount += 1;
-        
+
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
+
             _tapCount = 0;
         });
-        
-        if ( _tapCount == 2 )
-        {
+
+        if (_tapCount == 2) {
             _tapCount = 0;
-            
+
             BOOL shouldPop = YES;
-            
+
             UIViewController *visibleViewController = [viewController ms_visibleViewController];
-            
-            if ( [visibleViewController respondsToSelector:@selector(shouldPopToRootViewControllerAfterTappingOnTabBarItem)] )
-            {
+
+            if ([visibleViewController respondsToSelector:@selector(shouldPopToRootViewControllerAfterTappingOnTabBarItem)]) {
                 shouldPop = [(id<MSTabBarItemViewControllerProtocol>)visibleViewController shouldPopToRootViewControllerAfterTappingOnTabBarItem];
             }
-            
+
             return shouldPop;
         }
-        
+
         return NO;
-    }
-    else
-    {
+    } else {
         _tapCount = 0;
     }
-    
+
     return YES;
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    
 }
 
 @end

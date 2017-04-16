@@ -16,39 +16,37 @@
 
 #pragma mark - Singleton
 
-+ (instancetype) sharedInstance
++ (instancetype)sharedInstance
 {
     static dispatch_once_t pred;
     static id sharedInstance = nil;
     dispatch_once(&pred, ^{
-        
+
         sharedInstance = [[super alloc] initUniqueInstance];
     });
-    
+
     return sharedInstance;
 }
 
-- (instancetype) initUniqueInstance
+- (instancetype)initUniqueInstance
 {
     self = [super init];
-    
-    if ( self )
-    {
+
+    if (self) {
         [NSFetchedResultsController deleteCacheWithName:nil];
-        
     }
-    
+
     return self;
 }
 
-- (id) copy
+- (id)copy
 {
     return self;
 }
 
 #pragma mark - MSDataManagerProtocol
 
-- (NSManagedObjectContext *) mainContext
+- (NSManagedObjectContext *)mainContext
 {
     return [NSManagedObjectContext MR_defaultContext];
 }

@@ -28,70 +28,68 @@
 
 #pragma mark - Singleton
 
-+ (instancetype) sharedInstance
++ (instancetype)sharedInstance
 {
     static dispatch_once_t pred;
     static id sharedInstance = nil;
     dispatch_once(&pred, ^{
         sharedInstance = [[super alloc] initUniqueInstance];
     });
-    
+
     return sharedInstance;
 }
 
-- (instancetype) initUniqueInstance
+- (instancetype)initUniqueInstance
 {
     self = [super init];
-    
-    if ( self )
-    {
+
+    if (self) {
         AFHTTPSessionManager *afManager = [AFHTTPSessionManager manager];
         afManager.requestSerializer = [AFJSONRequestSerializer serializer];
         (afManager.requestSerializer).cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         [afManager.requestSerializer setValue:MSRequestManagerContentType forHTTPHeaderField:MSRequestManagerContentTypeField];
-        
+
         _manager = afManager;
-        
+
         [self startReachabilityMonitoring];
-        
+
         _activeRequests = [NSMutableArray array];
-        
+
         [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     }
-    
+
     return self;
 }
 
-- (id) copy
+- (id)copy
 {
     return self;
 }
 
 #pragma mark - Reachability
 
--(void) startReachabilityMonitoring {
+- (void)startReachabilityMonitoring
+{
     AFNetworkReachabilityManager *reachabilityManager = [AFNetworkReachabilityManager managerForDomain:@"www.google.com"];
     [reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusReachableViaWWAN ||
-            status == AFNetworkReachabilityStatusReachableViaWiFi )
-        {
+            status == AFNetworkReachabilityStatusReachableViaWiFi) {
             [self networkBecomeReachable];
-        }
-        else if (status == AFNetworkReachabilityStatusNotReachable)
-        {
+        } else if (status == AFNetworkReachabilityStatusNotReachable) {
             [self networkBecomeUnreachable];
         }
     }];
-    
+
     _manager.reachabilityManager = reachabilityManager;
     [_manager.reachabilityManager startMonitoring];
 }
 
--(void) networkBecomeReachable {
+- (void)networkBecomeReachable
+{
     [[NSNotificationCenter defaultCenter] postNotificationName:MSRequestManagerInternetDidBecomeReachableNotification object:nil];
 }
 
-- (void) networkBecomeUnreachable
+- (void)networkBecomeUnreachable
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:MSRequestManagerInternetDidBecomeReachableNotification object:nil];
 }
@@ -99,174 +97,162 @@
 
 #pragma mark - Private Base Methods
 
-- (void) GET:(NSString *) URLString
-  parameters:(nullable id) parameters
-    progress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgress
-     success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject)) success
-     failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error)) failure
+- (void)GET:(NSString *)URLString
+    parameters:(nullable id)parameters
+      progress:(nullable void (^)(NSProgress *downloadProgress))downloadProgress
+       success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject))success
+       failure:(nullable void (^)(NSURLSessionDataTask *_Nullable task, NSError *error))failure
 {
     [self addActiveRequest:URLString];
-    
-    [self.manager GET:URLString parameters:parameters progress:downloadProgress
-              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
-    {
-        if (success)
-        {
-            success (task, responseObject);
+
+    [self.manager GET:URLString
+        parameters:parameters
+        progress:downloadProgress
+        success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
+            if (success) {
+                success(task, responseObject);
+            }
         }
-    }
-              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
-    {
-        [self removeActiveRequest:URLString];
-        
-        if (failure)
-        {
-            failure (task, error);
-        }
-        
-    }];
-    
+        failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+            [self removeActiveRequest:URLString];
+
+            if (failure) {
+                failure(task, error);
+            }
+
+        }];
 }
 
-- (void) POST:(NSString *) URLString
-   parameters:(nullable id) parameters
-      success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject)) success
-      failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error)) failure
+- (void)POST:(NSString *)URLString
+    parameters:(nullable id)parameters
+       success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject))success
+       failure:(nullable void (^)(NSURLSessionDataTask *_Nullable task, NSError *error))failure
 {
     [self addActiveRequest:URLString];
-    
-    [self.manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
-     {
-         if (success)
-         {
-             success (task, responseObject);
-         }
-         
-     }
-               failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
-     {
-         [self removeActiveRequest:URLString];
-         
-         if (failure)
-         {
-             failure (task, error);
-         }
-         
-     }];
+
+    [self.manager POST:URLString
+        parameters:parameters
+        progress:nil
+        success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
+            if (success) {
+                success(task, responseObject);
+            }
+
+        }
+        failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+            [self removeActiveRequest:URLString];
+
+            if (failure) {
+                failure(task, error);
+            }
+
+        }];
 }
 
-- (void) PUT:(NSString *) URLString
-  parameters:(nullable id) parameters
-     success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject)) success
-     failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error)) failure
+- (void)PUT:(NSString *)URLString
+    parameters:(nullable id)parameters
+       success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject))success
+       failure:(nullable void (^)(NSURLSessionDataTask *_Nullable task, NSError *error))failure
 {
     [self addActiveRequest:URLString];
-    
-    [self.manager PUT:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
-     {
-         if (success)
-         {
-             success (task, responseObject);
-         }
-         
-     }
-              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
-     {
-         [self removeActiveRequest:URLString];
-         
-         if (failure)
-         {
-             failure (task, error);
-         }
-         
-     }];
+
+    [self.manager PUT:URLString
+        parameters:parameters
+        success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
+            if (success) {
+                success(task, responseObject);
+            }
+
+        }
+        failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+            [self removeActiveRequest:URLString];
+
+            if (failure) {
+                failure(task, error);
+            }
+
+        }];
 }
 
 #pragma mark - Private Request Methods
 
-- (void) addActiveRequest:(NSString *) URLString
+- (void)addActiveRequest:(NSString *)URLString
 {
     [self.activeRequests addObject:URLString];
 }
 
-- (void) removeActiveRequest:(NSString *) URLString
+- (void)removeActiveRequest:(NSString *)URLString
 {
-    if ([self.activeRequests containsObject:URLString])
-    {
+    if ([self.activeRequests containsObject:URLString]) {
         [self.activeRequests removeObject:URLString];
     }
 }
 
-- (BOOL) isActiveRequest:(NSString *) URLString
+- (BOOL)isActiveRequest:(NSString *)URLString
 {
     return ([self.activeRequests containsObject:URLString]);
 }
 
 #pragma mark - Private Call Methods
 
-- (NSString *) apiCall:(NSString *) call
+- (NSString *)apiCall:(NSString *)call
 {
     return [NSString stringWithFormat:@"%@%@", self.serverAddress, call];
 }
 
-- (NSInteger) statusCodeFromTask:(NSURLSessionDataTask *) task
+- (NSInteger)statusCodeFromTask:(NSURLSessionDataTask *)task
 {
     NSInteger statusCode = 0;
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
-    
-    if ([httpResponse isKindOfClass:[NSHTTPURLResponse class]])
-    {
+
+    if ([httpResponse isKindOfClass:[NSHTTPURLResponse class]]) {
         statusCode = httpResponse.statusCode;
     }
-    
+
     return statusCode;
 }
 
 #pragma mark - MSRequestManagerProtocol
 
-- (void) setAccessToken:(MSRequestToken *) accessToken
+- (void)setAccessToken:(MSRequestToken *)accessToken
 {
     _primitiveAccessToken = accessToken;
     [self.manager.requestSerializer setValue:accessToken.info forHTTPHeaderField:MSRequestManagerAccessTokenField];
 }
 
-- (MSRequestToken *) accessToken
+- (MSRequestToken *)accessToken
 {
     NSString *info = _primitiveAccessToken.info;
     NSString *headerInfo = [self.manager.requestSerializer.HTTPRequestHeaders valueForKey:MSRequestManagerAccessTokenField];
-    
-    if ([info isEqualToString:headerInfo])
-    {
+
+    if ([info isEqualToString:headerInfo]) {
         return _primitiveAccessToken;
-    }
-    else
-    {
+    } else {
         _primitiveAccessToken = nil;
         [self.manager.requestSerializer setValue:nil forHTTPHeaderField:MSRequestManagerAccessTokenField];
     }
-    
+
     return nil;
 }
 
-- (NSString *) serverAddress
+- (NSString *)serverAddress
 {
-    
+
 #ifdef DEBUG
     return MSRequestManagerServerAddressStage;
 #else
     return MSRequestManagerServerAddressProduction;
 #endif
-    
 }
 
-- (BOOL) isAuthorize
+- (BOOL)isAuthorize
 {
     //return (self.accessToken.info.length);
     //Current realization do not provide token
     return YES;
 }
 
-- (BOOL) isOffline
+- (BOOL)isOffline
 {
     return NO;
 }
