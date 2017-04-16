@@ -17,13 +17,12 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 
 @implementation EKMappingBlocks (PV)
 
-
 #pragma mark - Seconds
 
 + (EKManagedMappingValueBlock)secondsFromStringManagedMappingBlock
 {
     return ^id(NSString *key, id value, NSManagedObjectContext *context) {
-        
+
         return [self secondsFromStringMappingBlock](key, value);
     };
 }
@@ -31,7 +30,7 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKManagedMappingReverseValueBlock)secondsToStringManagedMappingBlock
 {
     return ^id(id value, NSManagedObjectContext *context) {
-        
+
         return [self secondsToStringMappingBlock](value);
     };
 }
@@ -39,7 +38,7 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKMappingReverseBlock)secondsToStringMappingBlock
 {
     return ^id(id value) {
-        
+
         return [NSString stringWithFormat:@"%@ %@", value, [[HKUnit secondUnit] unitString]];
     };
 }
@@ -49,12 +48,11 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKMappingValueBlock)nullMappingBlock
 {
     return ^id(NSString *key, id value) {
-        
-        if ( [value isKindOfClass:[NSNull class]] )
-        {
+
+        if ([value isKindOfClass:[NSNull class]]) {
             return nil;
         }
-        
+
         return value;
     };
 }
@@ -62,12 +60,11 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKMappingReverseBlock)toNullMappingBlock
 {
     return ^id(id value) {
-        
-        if ( !value )
-        {
+
+        if (!value) {
             return [NSNull null];
         }
-        
+
         return value;
     };
 }
@@ -75,7 +72,7 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKManagedMappingValueBlock)nullManagedMappingBlock
 {
     return ^id(NSString *key, id value, NSManagedObjectContext *context) {
-        
+
         return [self nullMappingBlock](key, value);
     };
 }
@@ -83,29 +80,25 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKManagedMappingReverseValueBlock)toNullManagedMappingBlock
 {
     return ^id(id value, NSManagedObjectContext *context) {
-        
+
         return [self toNullMappingBlock](value);
     };
 }
 
-
 #pragma mark - String
-
 
 + (EKMappingValueBlock)stringMappingBlock
 {
     return ^id(NSString *key, id value) {
-        
-        if ( [value isKindOfClass:[NSString class]] )
-        {
+
+        if ([value isKindOfClass:[NSString class]]) {
             return value;
         }
-        
-        if ( [value respondsToSelector:@selector(stringValue)] )
-        {
+
+        if ([value respondsToSelector:@selector(stringValue)]) {
             return [value stringValue];
         }
-        
+
         return nil;
     };
 }
@@ -113,12 +106,11 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKMappingReverseBlock)toStringMappingBlock
 {
     return ^id(id value) {
-        
-        if ( ![value isKindOfClass:[NSString class]] )
-        {
+
+        if (![value isKindOfClass:[NSString class]]) {
             return [value description];
         }
-        
+
         return value;
     };
 }
@@ -126,7 +118,7 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKManagedMappingValueBlock)stringManagedMappingBlock
 {
     return ^id(NSString *key, id value, NSManagedObjectContext *context) {
-        
+
         return [self stringMappingBlock](key, value);
     };
 }
@@ -134,18 +126,17 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKManagedMappingReverseValueBlock)toStringManagedMappingBlock
 {
     return ^id(id value, NSManagedObjectContext *context) {
-        
+
         return [self toStringMappingBlock](value);
     };
 }
 
 #pragma mark - Date
 
-
 + (EKManagedMappingValueBlock)stringToDateManagedMappingBlockUsingFormatter:(NSDateFormatter *)formatter
 {
     return ^id(NSString *key, id value, NSManagedObjectContext *context) {
-        
+
         return [self stringToDateMappingBlockUsingFormatter:formatter](key, value);
     };
 }
@@ -153,7 +144,7 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKManagedMappingReverseValueBlock)dateToStringManagedMappingBlockUsingFormatter:(NSDateFormatter *)formatter
 {
     return ^id(id value, NSManagedObjectContext *context) {
-        
+
         return [self dateToStringMappingBlockUsingFormatter:formatter](value);
     };
 }
@@ -161,14 +152,13 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKMappingValueBlock)stringToDateMappingBlockUsingFormatter:(NSDateFormatter *)formatter
 {
     return ^id(NSString *key, id value) {
-        
-        if ( [value isKindOfClass:[NSDate class]] )
-        {
+
+        if ([value isKindOfClass:[NSDate class]]) {
             return value;
         }
-        
+
         __kindof NSObject *result = [value isKindOfClass:[NSString class]] ? [formatter dateFromString:value] : [NSNull null];
-        
+
         return result;
     };
 }
@@ -176,17 +166,15 @@ static NSCharacterSet *valueInvalidCharacterSet = nil;
 + (EKMappingReverseBlock)dateToStringMappingBlockUsingFormatter:(NSDateFormatter *)formatter
 {
     return ^id(id value) {
-        
-        if ( [value isKindOfClass:[NSString class]] )
-        {
+
+        if ([value isKindOfClass:[NSString class]]) {
             return value;
         }
-        
+
         __kindof NSObject *result = [value isKindOfClass:[NSDate class]] ? [formatter stringFromDate:value] : [NSNull null];
-        
+
         return result;
     };
 }
 
 @end
-
