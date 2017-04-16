@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MSAlertManagerProtocols.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MSAlertManager : NSObject
+@interface MSAlertManager : NSObject <MSAlertManagerProtocol>
 
 // clue for improper use (produces compile time error)
 + (instancetype)alloc __attribute__((unavailable("alloc not available, call sharedInstance instead")));
@@ -24,8 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return Singleton Instance of this class.
  */
 + (instancetype)sharedInstance;
-
-+ (void)showAlertWithText:(nullable NSString *)text andTitle:(nullable NSString *)title;
 
 @end
 

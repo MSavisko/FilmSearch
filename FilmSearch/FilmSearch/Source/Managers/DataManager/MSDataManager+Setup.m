@@ -11,6 +11,8 @@
 #import <MagicalRecord/MagicalRecord+Setup.h>
 #import <MagicalRecord/MagicalRecord+Options.h>
 
+NSString *const MSDataManagerCoreDataPath = @"FilmSearch.sqlite";
+
 @implementation MSDataManager (Setup)
 
 #pragma mark - MSDataManagerSetupProtocol
@@ -42,7 +44,7 @@
 {
     NSURL *documentsDirURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 
-    return [documentsDirURL URLByAppendingPathComponent:@"HealthHelper.sqlite"];
+    return [documentsDirURL URLByAppendingPathComponent:MSDataManagerCoreDataPath];
 }
 
 @end
