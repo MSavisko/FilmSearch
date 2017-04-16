@@ -16,7 +16,6 @@
 #import "NSDate+MSTimeAgo.h"
 
 @interface FSSearchHistoryCell ()
-@property (weak, nonatomic) IBOutlet UILabel *positionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *filmTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *searchDateLabel;
 
@@ -32,21 +31,23 @@
     [self setupUI];
 }
 
+- (void) prepareForReuse
+{
+    [super prepareForReuse];
+    
+    self.filmTitleLabel.text = nil;
+    self.searchDateLabel.text = nil;
+}
+
 - (void)setupUI
 {
-    self.positionLabel.textColor = [UIColor ms_primaryRedColor];
-    self.filmTitleLabel.textColor = [UIColor ms_primaryBlackColor];
-    self.searchDateLabel.textColor = [UIColor ms_primaryBlackColor];
+    self.filmTitleLabel.textColor = [UIColor ms_primaryGreyColor];
+    self.searchDateLabel.textColor = [UIColor ms_primaryRedColor];
 
     self.searchDateLabel.font = [UIFont ms_regularFontWithWeight:UIFontWeightRegular];
 }
 
 #pragma mark - Public
-
-- (void)addPosition:(NSInteger)position
-{
-    _positionLabel.text = [NSString stringWithFormat:@"%d", (int)position];
-}
 
 - (void)addHistoryItem:(FSHistoryItemManagedModel *)historyItem
 {

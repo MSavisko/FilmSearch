@@ -148,7 +148,6 @@
     FSHistoryItemManagedModel *item = self.fetchedResultsController.fetchedObjects[indexPath.row];
 
     FSSearchHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchHistoryCell"];
-    [cell addPosition:indexPath.row + 1];
     [cell addHistoryItem:item];
 
     return cell;
