@@ -15,6 +15,9 @@
 #import "UIFont+MSTheme.h"
 #import "NSDate+MSTimeAgo.h"
 
+NSString *const FSHistoryCellIdentifier = @"searchHistoryCell";
+CGFloat const FSHistoryCellDefaultHeight = 60;
+
 @interface FSSearchHistoryCell ()
 @property (weak, nonatomic) IBOutlet UILabel *filmTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *searchDateLabel;
@@ -22,6 +25,14 @@
 @end
 
 @implementation FSSearchHistoryCell
+
+#pragma mark - Public
+
+- (void)addHistoryItem:(FSHistoryItemManagedModel *)historyItem
+{
+    _filmTitleLabel.text = historyItem.film.title;
+    _searchDateLabel.text = [historyItem.searchDate ms_formattedAsTimeAgo];
+}
 
 #pragma mark - Life Cycle
 
@@ -31,28 +42,20 @@
     [self setupUI];
 }
 
-- (void) prepareForReuse
+- (void)prepareForReuse
 {
     [super prepareForReuse];
-    
+
     self.filmTitleLabel.text = nil;
     self.searchDateLabel.text = nil;
 }
 
 - (void)setupUI
 {
-    self.filmTitleLabel.textColor = [UIColor ms_primaryGreyColor];
-    self.searchDateLabel.textColor = [UIColor ms_primaryRedColor];
+    self.filmTitleLabel.textColor = [UIColor ms_historyCellTitleColor];
+    self.searchDateLabel.textColor = [UIColor ms_historyCellSearchDateColor];
 
     self.searchDateLabel.font = [UIFont ms_regularFontWithWeight:UIFontWeightRegular];
-}
-
-#pragma mark - Public
-
-- (void)addHistoryItem:(FSHistoryItemManagedModel *)historyItem
-{
-    _filmTitleLabel.text = historyItem.film.title;
-    _searchDateLabel.text = [historyItem.searchDate ms_formattedAsTimeAgo];
 }
 
 @end

@@ -13,6 +13,8 @@
 
 #import "MSRequestManager+Private.h"
 
+NSString *const MSReachabilityDomain = @"www.google.com";
+
 @interface MSRequestManager ()
 
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
@@ -70,7 +72,7 @@
 
 - (void)startReachabilityMonitoring
 {
-    AFNetworkReachabilityManager *reachabilityManager = [AFNetworkReachabilityManager managerForDomain:@"www.google.com"];
+    AFNetworkReachabilityManager *reachabilityManager = [AFNetworkReachabilityManager managerForDomain:MSReachabilityDomain];
     [reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusReachableViaWWAN ||
             status == AFNetworkReachabilityStatusReachableViaWiFi) {

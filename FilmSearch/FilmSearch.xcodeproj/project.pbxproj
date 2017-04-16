@@ -33,6 +33,8 @@
 		9238ACF71EA3D63600B25C93 /* UIImage+MSTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238ACF41EA3D63600B25C93 /* UIImage+MSTheme.m */; };
 		9238ACFC1EA3D86800B25C93 /* MSThemeManager+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238ACFB1EA3D86800B25C93 /* MSThemeManager+Navigation.m */; };
 		9238ACFF1EA3D91300B25C93 /* MSThemeManager+Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238ACFE1EA3D91300B25C93 /* MSThemeManager+Controls.m */; };
+		9238AD021EA3DC0A00B25C93 /* MSThemeManager+Views.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238AD011EA3DC0A00B25C93 /* MSThemeManager+Views.m */; };
+		9238AD051EA3DE7400B25C93 /* UIStoryboard+FS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9238AD041EA3DE7400B25C93 /* UIStoryboard+FS.m */; };
 		923D44931E9BF6BD00F0D227 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 923D448A1E9BF6BD00F0D227 /* AppDelegate.m */; };
 		923D44941E9BF6BD00F0D227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 923D448E1E9BF6BD00F0D227 /* Assets.xcassets */; };
 		923D44961E9BF6BD00F0D227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923D44901E9BF6BD00F0D227 /* LaunchScreen.storyboard */; };
@@ -116,6 +118,10 @@
 		9238ACFB1EA3D86800B25C93 /* MSThemeManager+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSThemeManager+Navigation.m"; sourceTree = "<group>"; };
 		9238ACFD1EA3D91300B25C93 /* MSThemeManager+Controls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSThemeManager+Controls.h"; sourceTree = "<group>"; };
 		9238ACFE1EA3D91300B25C93 /* MSThemeManager+Controls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSThemeManager+Controls.m"; sourceTree = "<group>"; };
+		9238AD001EA3DC0A00B25C93 /* MSThemeManager+Views.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSThemeManager+Views.h"; sourceTree = "<group>"; };
+		9238AD011EA3DC0A00B25C93 /* MSThemeManager+Views.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MSThemeManager+Views.m"; sourceTree = "<group>"; };
+		9238AD031EA3DE7400B25C93 /* UIStoryboard+FS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+FS.h"; sourceTree = "<group>"; };
+		9238AD041EA3DE7400B25C93 /* UIStoryboard+FS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+FS.m"; sourceTree = "<group>"; };
 		923D446D1E9BF5CD00F0D227 /* FilmSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		923D44891E9BF6BD00F0D227 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		923D448A1E9BF6BD00F0D227 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -261,6 +267,8 @@
 				9238ACFB1EA3D86800B25C93 /* MSThemeManager+Navigation.m */,
 				9238ACFD1EA3D91300B25C93 /* MSThemeManager+Controls.h */,
 				9238ACFE1EA3D91300B25C93 /* MSThemeManager+Controls.m */,
+				9238AD001EA3DC0A00B25C93 /* MSThemeManager+Views.h */,
+				9238AD011EA3DC0A00B25C93 /* MSThemeManager+Views.m */,
 			);
 			path = ThemeManager;
 			sourceTree = "<group>";
@@ -429,6 +437,8 @@
 		923D44CF1E9C013900F0D227 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				9238AD031EA3DE7400B25C93 /* UIStoryboard+FS.h */,
+				9238AD041EA3DE7400B25C93 /* UIStoryboard+FS.m */,
 				923D44D01E9C017600F0D227 /* Search.storyboard */,
 				923D44D21E9C01CF00F0D227 /* History.storyboard */,
 			);
@@ -461,9 +471,9 @@
 				923D44EA1E9C031000F0D227 /* MSDataManagerConstants.h */,
 				923D44EB1E9C031000F0D227 /* MSDataManagerProtocols.h */,
 				923D44E41E9C031000F0D227 /* MSDataManager+Private.h */,
+				923D44E51E9C031000F0D227 /* MSDataManager+Private.m */,
 				923D44E81E9C031000F0D227 /* MSDataManager.h */,
 				923D44E91E9C031000F0D227 /* MSDataManager.m */,
-				923D44E51E9C031000F0D227 /* MSDataManager+Private.m */,
 				9230AB431E9EA763000146F5 /* MSDataManager+User.h */,
 				9230AB441E9EA763000146F5 /* MSDataManager+User.m */,
 				923D44E61E9C031000F0D227 /* MSDataManager+Setup.h */,
@@ -667,6 +677,7 @@
 				923D45231E9C1CA500F0D227 /* NSString+MS.m in Sources */,
 				9238ACF71EA3D63600B25C93 /* UIImage+MSTheme.m in Sources */,
 				08C83A2B1E9E7D15000285E8 /* FSBaseViewController.m in Sources */,
+				9238AD051EA3DE7400B25C93 /* UIStoryboard+FS.m in Sources */,
 				922510CC1E9EFAC7001F6C99 /* NSIndexPath+MSExstension.m in Sources */,
 				9237FBF31E9D4CD900F74E43 /* UIViewController+MSKeyboard.m in Sources */,
 				922510BE1E9ED828001F6C99 /* MSAlertManager+SearchFilm.m in Sources */,
@@ -679,6 +690,7 @@
 				923D44F31E9C095D00F0D227 /* MSRequestManager+Films.m in Sources */,
 				9237FC081E9D5B7900F74E43 /* FSHistoryViewController.m in Sources */,
 				9237FC031E9D54AC00F74E43 /* UIViewController+MSTop.m in Sources */,
+				9238AD021EA3DC0A00B25C93 /* MSThemeManager+Views.m in Sources */,
 				923D44E01E9C023900F0D227 /* MSRequestManager.m in Sources */,
 				9238ACF51EA3D63600B25C93 /* UIColor+MSTheme.m in Sources */,
 				9237FC1A1E9D71ED00F74E43 /* FSNavigationController.m in Sources */,

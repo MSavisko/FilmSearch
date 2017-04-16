@@ -18,11 +18,11 @@
 - (void)customizeNavigationBar:(__kindof UINavigationBar *)navigationBar
 {
     [navigationBar setTitleTextAttributes:@{
-                                            NSForegroundColorAttributeName : [UIColor ms_navigationTitleColor],
-                                            NSFontAttributeName : [UIFont ms_navigationBartTitleFontWithWeight:UIFontWeightBold],
-                                            NSKernAttributeName : @(1.f)
-                                            }];
-    
+        NSForegroundColorAttributeName : [UIColor ms_navigationTitleColor],
+        NSFontAttributeName : [UIFont ms_navigationBartTitleFontWithWeight:UIFontWeightBold],
+        NSKernAttributeName : @(1.f)
+    }];
+
     [navigationBar setTintColor:[UIColor ms_primaryRedColor]];
 }
 
@@ -30,17 +30,17 @@
 {
     [tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         [obj setTitleTextAttributes:@{
-                                      NSFontAttributeName : [UIFont ms_tabBarFontWithWeight:UIFontWeightRegular],
-                                      NSForegroundColorAttributeName : [UIColor ms_tabBarItemColor]
-                                      }
+            NSFontAttributeName : [UIFont ms_tabBarFontWithWeight:UIFontWeightRegular],
+            NSForegroundColorAttributeName : [UIColor ms_tabBarItemColor]
+        }
                            forState:UIControlStateNormal];
-        
+
         [obj setTitleTextAttributes:@{
-                                      NSFontAttributeName : [UIFont ms_tabBarFontWithWeight:UIFontWeightRegular],
-                                      NSForegroundColorAttributeName : [UIColor ms_tabBarItemColorSelected]
-                                      }
+            NSFontAttributeName : [UIFont ms_tabBarFontWithWeight:UIFontWeightRegular],
+            NSForegroundColorAttributeName : [UIColor ms_tabBarItemColorSelected]
+        }
                            forState:UIControlStateSelected];
-        
+
     }];
 }
 

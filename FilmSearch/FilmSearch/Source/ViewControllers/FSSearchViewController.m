@@ -9,7 +9,7 @@
 #import "FSSearchViewController.h"
 #import "FSFilmDetailViewController.h"
 
-#import "MSThemeManager.h"
+#import "MSThemeManager+Views.h"
 #import "MSRequestManager+Films.h"
 #import "MSDataManager+Film.h"
 #import "MSDataManager+SearchHistory.h"

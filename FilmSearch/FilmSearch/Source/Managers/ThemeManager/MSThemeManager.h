@@ -24,7 +24,4 @@
  */
 + (instancetype)sharedInstance;
 
-- (void)customizeTextView:(__kindof UITextField *)textField;
-- (void)customizeTextView:(__kindof UITextField *)textField withPlaceholderText:(NSString *)placeholderText;
-
 @end

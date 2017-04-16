@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString *const FSBaseViewControllerIdentifier;
+
 @interface FSFilmDetailViewController : FSBaseViewController
 
 @property (nullable, nonatomic, strong) NSString *filmId;

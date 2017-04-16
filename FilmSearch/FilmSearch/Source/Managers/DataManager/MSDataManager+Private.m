@@ -17,7 +17,7 @@
     static dispatch_queue_t savingQueue = nil;
     dispatch_once(&onceToken, ^{
 
-        savingQueue = dispatch_queue_create("com.MaksymSavisko.HealthHelper.coredata.serial.save.queue", DISPATCH_QUEUE_SERIAL);
+        savingQueue = dispatch_queue_create("com.MaksymSavisko.FilmSearch.coredata.serial.save.queue", DISPATCH_QUEUE_SERIAL);
     });
 
     return savingQueue;
@@ -42,12 +42,7 @@
 {
     MSDataManagerVoidCompletionBlock executeBlock = ^{
 
-        //TODO: Add check
-        //NSDate *date = [NSDate date];
-
-        //NSLog(@"Start saving to persistent store..");
         [MagicalRecord saveWithBlockAndWait:executionBlock];
-        //NSLog(@"Finish saving to persistent store. Time taken %@", @([[NSDate date] timeIntervalSinceDate:date]));
 
         if (completion) {
             dispatch_async(dispatch_get_main_queue(), ^{

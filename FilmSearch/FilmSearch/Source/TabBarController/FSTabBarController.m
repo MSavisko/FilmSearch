@@ -11,7 +11,7 @@
 
 #import "MSThemeManager+Navigation.h"
 
-static NSInteger const MSInitialViewControllerIndex = 0;
+static NSInteger const FSInitialViewControllerIndex = 0;
 
 @interface FSTabBarController () <UITabBarControllerDelegate, UITabBarDelegate> {
     NSInteger _tapCount;
@@ -31,7 +31,7 @@ static NSInteger const MSInitialViewControllerIndex = 0;
 
     [self.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
 
-        if (idx == MSInitialViewControllerIndex) {
+        if (idx == FSInitialViewControllerIndex) {
             self.selectedIndex = idx;
         }
     }];
