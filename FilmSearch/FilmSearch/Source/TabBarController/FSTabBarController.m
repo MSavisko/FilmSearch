@@ -9,7 +9,7 @@
 #import "FSTabBarController.h"
 #import "MSTabBarItemViewControllerProtocol.h"
 
-#import "MSThemeManager.h"
+#import "MSThemeManager+Navigation.h"
 
 static NSInteger const MSInitialViewControllerIndex = 0;
 

@@ -7,8 +7,7 @@
 //
 
 #import "FSBorderedButton.h"
-
-#import "MSThemeManager.h"
+#import "MSThemeManager+Controls.h"
 
 @implementation FSBorderedButton
 
