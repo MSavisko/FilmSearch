@@ -108,8 +108,6 @@
 
             MSLogDebug(@"Insert: %@. IndexPath - %@, NewIndexPath - %@", NSStringFromClass([anObject class]), indexPath.ms_humanReadableString, newIndexPath.ms_humanReadableString);
             [self.tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            //Need for updating index of cells.
-            [self.tableView reloadData];
             break;
         }
         case NSFetchedResultsChangeDelete: {
@@ -150,7 +148,6 @@
     FSHistoryItemManagedModel *item = self.fetchedResultsController.fetchedObjects[indexPath.row];
 
     FSSearchHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchHistoryCell"];
-    [cell addPosition:indexPath.row + 1];
     [cell addHistoryItem:item];
 
     return cell;

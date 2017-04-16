@@ -12,7 +12,6 @@
 
 @interface FSSearchHistoryCell : UITableViewCell
 
-- (void)addPosition:(NSInteger)position;
 - (void)addHistoryItem:(FSHistoryItemManagedModel *)historyItem;
 
 @end
