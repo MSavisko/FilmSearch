@@ -10,7 +10,7 @@
 
 @interface UIImage (MSTheme)
 
-+ (UIImage *) ms_buttonOutlinedImage;
-+ (UIImage *) ms_buttonFilledImage;
++ (UIImage *)ms_buttonOutlinedImage;
++ (UIImage *)ms_buttonFilledImage;
 
 @end

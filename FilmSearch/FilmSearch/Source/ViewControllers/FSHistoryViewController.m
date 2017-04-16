@@ -17,7 +17,7 @@
 #import "NSFetchedResultsController+SearchHistory.h"
 #import "NSIndexPath+MSExstension.h"
 
-@interface FSHistoryViewController () <NSFetchedResultsControllerDelegate,UITableViewDelegate, UITableViewDataSource>
+@interface FSHistoryViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
@@ -31,21 +31,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     [self setupTableView];
     [self setupNavigation];
 }
 
 #pragma mark - Setup
 
-- (void) setupTableView
+- (void)setupTableView
 {
     self.tableView.tableFooterView = [UIView new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 }
 
-- (void) setupNavigation
+- (void)setupNavigation
 {
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
@@ -56,7 +56,7 @@
 
 #pragma mark - Data
 
-- (void) reloadData
+- (void)reloadData
 {
     self.fetchedResultsController = nil;
     [self.tableView reloadData];
@@ -64,28 +64,25 @@
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
-    if (_fetchedResultsController)
-    {
+    if (_fetchedResultsController) {
         return _fetchedResultsController;
     }
-    
+
     _fetchedResultsController = [NSFetchedResultsController ms_allSearchHistoryFilmsFetchedResultsControllerDelegate:self];
-    
+
     NSError *error = nil;
-    if (![_fetchedResultsController performFetch:&error])
-    {
+    if (![_fetchedResultsController performFetch:&error]) {
         MSLogDebug(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
-    
+
     return _fetchedResultsController;
 }
 
 
-
 #pragma mark - Actions
 
-- (void) closeVC
+- (void)closeVC
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -108,33 +105,32 @@
 {
     switch (type) {
         case NSFetchedResultsChangeInsert: {
-            
+
             MSLogDebug(@"Insert: %@. IndexPath - %@, NewIndexPath - %@", NSStringFromClass([anObject class]), indexPath.ms_humanReadableString, newIndexPath.ms_humanReadableString);
-            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
         }
         case NSFetchedResultsChangeDelete: {
-            
+
             MSLogDebug(@"Delete: %@. IndexPath - %@, NewIndexPath - %@", NSStringFromClass([anObject class]), indexPath.ms_humanReadableString, newIndexPath.ms_humanReadableString);
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
         }
         case NSFetchedResultsChangeMove: {
-            
+
             MSLogDebug(@"Move: %@. IndexPath - %@, NewIndexPath - %@", NSStringFromClass([anObject class]), indexPath.ms_humanReadableString, newIndexPath.ms_humanReadableString);
-            if ( ![indexPath isEqualToIndexPath:newIndexPath] )
-            {
-                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            if (![indexPath isEqualToIndexPath:newIndexPath]) {
+                [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
                 break;
             }
         }
         case NSFetchedResultsChangeUpdate: {
-            
+
             MSLogDebug(@"Update: %@. IndexPath - %@, NewIndexPath - %@", NSStringFromClass([anObject class]), indexPath.ms_humanReadableString, newIndexPath.ms_humanReadableString);
-            
+
             //[self reloadCellAtIndexPath:indexPath withModel:anObject];
-            
+
             break;
         }
     }
@@ -150,11 +146,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FSHistoryItemManagedModel *item = self.fetchedResultsController.fetchedObjects[indexPath.row];
-    
+
     FSSearchHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchHistoryCell"];
     [cell addPosition:indexPath.row + 1];
     [cell addHistoryItem:item];
-    
+
     return cell;
 }
 
@@ -166,12 +162,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+
     FSHistoryItemManagedModel *item = self.fetchedResultsController.fetchedObjects[indexPath.row];
-    
+
     FSFilmDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Search" bundle:nil] instantiateViewControllerWithIdentifier:@"FSFilmDetail"];
     vc.filmId = item.film.dataId;
-    
+
     [self showViewController:vc sender:nil];
 }
 

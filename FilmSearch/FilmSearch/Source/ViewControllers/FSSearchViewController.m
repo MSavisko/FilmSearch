@@ -20,8 +20,7 @@
 #import "FSHistoryItemManagedModel.h"
 #import "FSHistoryItemManagedModelKeys.h"
 
-typedef NS_ENUM(NSInteger, FSSearchScreenState)
-{
+typedef NS_ENUM(NSInteger, FSSearchScreenState) {
     FSSearchScreenStateReadyToSearch = 0,
     FSSearchScreenStateSearching,
     FSSearchScreenStateSearchFinished
@@ -51,7 +50,7 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 
 #pragma mark - Setup
 
-- (void) setupUI
+- (void)setupUI
 {
     [self setupViews];
     [self setupTextField];
@@ -59,24 +58,24 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
     [self setupNavigation];
 }
 
-- (void) setupViews
+- (void)setupViews
 {
     _activityIndicator.color = [UIColor ms_primaryRedColor];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.view action:@selector(endEditing:)]];
 }
 
-- (void) setupTextField
+- (void)setupTextField
 {
     _searchTextField.delegate = self;
     [[MSThemeManager sharedInstance] customizeTextView:_searchTextField withPlaceholderText:NSLocalizedString(@"Enter film name", @"v1.0")];
 }
 
-- (void) setupButton
+- (void)setupButton
 {
     [_searchButton setTitle:NSLocalizedString(@"Search", @"v1.0") forState:UIControlStateNormal];
 }
 
-- (void) setupNavigation
+- (void)setupNavigation
 {
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
@@ -87,19 +86,18 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 
 #pragma mark - Update Screen State
 
-- (void) updateScreenForState:(FSSearchScreenState) state
+- (void)updateScreenForState:(FSSearchScreenState)state
 {
     self.screenState = state;
-    
-    switch (state)
-    {
+
+    switch (state) {
         case FSSearchScreenStateSearchFinished:
         case FSSearchScreenStateReadyToSearch:
             _searchButton.hidden = NO;
             _searchTextField.enabled = YES;
             [_activityIndicator stopAnimating];
             break;
-            
+
         case FSSearchScreenStateSearching:
             [_activityIndicator startAnimating];
             _activityIndicator.hidden = NO;
@@ -111,75 +109,74 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 
 #pragma mark - Actions
 
-- (void) closeVC
+- (void)closeVC
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)searchButtonDidPressed:(id)sender
 {
+
+    if (_searchTextField.text.length == 0) {
+        [MSAlertManager showAlertWithText:NSLocalizedString(@"Film Search", @"v1.0") andTitle:NSLocalizedString(@"Film title could not be empty", @"v1.0")];
+        return;
+    }
+
     [self updateScreenForState:FSSearchScreenStateSearching];
-    
+
     //Try to find film in DB.
     NSString *filmId = [MSDataManager fetchFilmIdByTitle:[_searchTextField.text copy]];
-    if (filmId && filmId.length)
-    {
+    if (filmId && filmId.length) {
         [self showDetailWithFilmId:filmId];
         return;
     }
-    
+
     //Request film from API
     [self requestFilmWithTitle:_searchTextField.text];
 }
 
-- (void) requestFilmWithTitle:(NSString *) filmTitle
+- (void)requestFilmWithTitle:(NSString *)filmTitle
 {
     __weak typeof(self) wSelf = self;
-    [[MSRequestManager sharedInstance] findFilmByName:_searchTextField.text andCompletion:^(MSRequestResponse *response)
-     {
-         if (response.isSuccess)
-         {
-             if ([MSRequestResponse isFilmExistInInfo:response.object])
-             {
-                 NSDictionary *changes = [FSHistoryItemManagedModel representationWithSearchTitle:filmTitle andFilmInfo:response.object];
-                 [wSelf didReceiveValidResponseWithInfo:changes];
-             }
-             else
-             {
-                 [MSAlertManager showAlertForFilmSearchResponse:response];
-             }
-         }
-         else
-         {
-             [MSAlertManager showAlertForFilmSearchResponse:response];
-         }
-         [wSelf updateScreenForState:FSSearchScreenStateSearchFinished];
-     }];
+    [[MSRequestManager sharedInstance] findFilmByName:_searchTextField.text
+                                        andCompletion:^(MSRequestResponse *response) {
+                                            if (response.isSuccess) {
+                                                if ([MSRequestResponse isFilmExistInInfo:response.object]) {
+                                                    NSDictionary *changes = [FSHistoryItemManagedModel representationWithSearchTitle:filmTitle andFilmInfo:response.object];
+                                                    [wSelf didReceiveValidResponseWithInfo:changes];
+                                                } else {
+                                                    [MSAlertManager showAlertForFilmSearchResponse:response];
+                                                }
+                                            } else {
+                                                [MSAlertManager showAlertForFilmSearchResponse:response];
+                                            }
+                                            [wSelf updateScreenForState:FSSearchScreenStateSearchFinished];
+                                        }];
 }
 
-- (void) didReceiveValidResponseWithInfo:(NSDictionary *) info
+- (void)didReceiveValidResponseWithInfo:(NSDictionary *)info
 {
     NSString *filmId = [MSRequestResponse filmIdFromInfo:info];
-    
+
     __weak typeof(self) wSelf = self;
-    [MSDataManager updateSearchHistoryWithChanges:info inContext:nil completion:^
-    {
-        [wSelf showDetailWithFilmId:filmId];
-    }];
+    [MSDataManager updateSearchHistoryWithChanges:info
+                                        inContext:nil
+                                       completion:^{
+                                           [wSelf showDetailWithFilmId:filmId];
+                                       }];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ( [segue.identifier isEqualToString:FSFilmDetailSegueIdentifier] )
-    {
+    if ([segue.identifier isEqualToString:FSFilmDetailSegueIdentifier]) {
         FSFilmDetailViewController *filmDetailVc = [segue destinationViewController];
         filmDetailVc.filmId = sender;
     }
 }
 
-- (void) showDetailWithFilmId:(NSString *) filmId
+- (void)showDetailWithFilmId:(NSString *)filmId
 {
     [self performSegueWithIdentifier:FSFilmDetailSegueIdentifier sender:filmId];
     [self updateScreenForState:FSSearchScreenStateSearchFinished];
@@ -187,18 +184,17 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 
 #pragma mark - UITextFieldDelegate
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     //New text
-    NSString * newString = [[textField text] stringByReplacingCharactersInRange:range withString:string];
-    
+    NSString *newString = [[textField text] stringByReplacingCharactersInRange:range withString:string];
+
     //Validation for first symbol space
     NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-    if (textField.text.length == 0 && [newString stringByTrimmingCharactersInSet:set].length == 0)
-    {
+    if (textField.text.length == 0 && [newString stringByTrimmingCharactersInSet:set].length == 0) {
         return NO;
     }
-    
+
     return YES;
 }
 

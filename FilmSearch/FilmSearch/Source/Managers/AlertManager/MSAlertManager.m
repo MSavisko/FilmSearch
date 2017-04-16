@@ -18,51 +18,48 @@
 
 #pragma mark - Singleton
 
-+ (instancetype) sharedInstance
++ (instancetype)sharedInstance
 {
     static dispatch_once_t pred;
     static id sharedInstance = nil;
     dispatch_once(&pred, ^{
-        
+
         sharedInstance = [[super alloc] initUniqueInstance];
     });
-    
+
     return sharedInstance;
 }
 
-- (instancetype) initUniqueInstance
+- (instancetype)initUniqueInstance
 {
     self = [super init];
-    
-    if ( self )
-    {
-        
+
+    if (self) {
     }
-    
+
     return self;
 }
 
-- (id) copy
+- (id)copy
 {
     return self;
 }
 
 #pragma mark - Public
 
-+ (void) showAlertWithText:(nullable NSString *) text andTitle:(nullable NSString *) title
++ (void)showAlertWithText:(nullable NSString *)text andTitle:(nullable NSString *)title
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:text preferredStyle:UIAlertControllerStyleAlert];
-    
+
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", @"v1.0") style:UIAlertActionStyleCancel handler:nil];
-    
+
     [alert addAction:okAction];
-    
+
     alert.view.tintColor = [UIColor ms_primaryRedColor];
-    
+
     [[self presentingViewController] presentViewController:alert animated:YES completion:nil];
-    
 }
-     
+
 #pragma mark - Private
 
 + (UIViewController *)presentingViewController

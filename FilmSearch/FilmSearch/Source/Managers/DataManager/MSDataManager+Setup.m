@@ -15,34 +15,33 @@
 
 #pragma mark - MSDataManagerSetupProtocol
 
-+ (void) setupWithCompletion:(MSDataManagerVoidCompletionBlock) completion
++ (void)setupWithCompletion:(MSDataManagerVoidCompletionBlock)completion
 {
     [self setupAtStoreURL:[[self sharedInstance] applicationDatabaseURL] completion:completion];
 }
 
-+ (void) setupAtStoreURL:(nonnull NSURL *) storeUrl completion:(nullable MSDataManagerVoidCompletionBlock) completion
++ (void)setupAtStoreURL:(nonnull NSURL *)storeUrl completion:(nullable MSDataManagerVoidCompletionBlock)completion
 {
     [[self sharedInstance] setupAtStoreURL:storeUrl completion:completion];
 }
 
 #pragma mark - Private
 
-- (void) setupAtStoreURL:(nonnull NSURL *) storeURL completion:(nullable MSDataManagerVoidCompletionBlock) completion
+- (void)setupAtStoreURL:(nonnull NSURL *)storeURL completion:(nullable MSDataManagerVoidCompletionBlock)completion
 {
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreAtURL:storeURL];
-    
+
     [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelAll];
-    
-    if (completion)
-    {
-        completion ();
+
+    if (completion) {
+        completion();
     }
 }
 
-- (NSURL *) applicationDatabaseURL
+- (NSURL *)applicationDatabaseURL
 {
     NSURL *documentsDirURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    
+
     return [documentsDirURL URLByAppendingPathComponent:@"HealthHelper.sqlite"];
 }
 

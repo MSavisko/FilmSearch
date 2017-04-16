@@ -9,7 +9,7 @@
 #ifndef FSUserManagedModelKeys_h
 #define FSUserManagedModelKeys_h
 
-static NSString * const FSUserDataIdKey = @"dataId";
-static NSString * const FSUserSearchHistoryKey = @"searchHistory";
+static NSString *const FSUserDataIdKey = @"dataId";
+static NSString *const FSUserSearchHistoryKey = @"searchHistory";
 
 #endif /* FSUserManagedModelKeys_h */

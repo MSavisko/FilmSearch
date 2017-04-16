@@ -12,11 +12,10 @@
 
 - (BOOL)isEqualToIndexPath:(NSIndexPath *)indexPath
 {
-    if ( !indexPath )
-    {
+    if (!indexPath) {
         return NO;
     }
-    
+
     return self.section == indexPath.section && self.row == indexPath.row;
 }
 
@@ -27,18 +26,17 @@
 
 + (NSArray<NSIndexPath *> *)ms_indexPathsForIndexes:(NSIndexSet *)indexes inSection:(NSInteger)section
 {
-    if ( !indexes.count )
-    {
+    if (!indexes.count) {
         return [NSArray array];
     }
-    
+
     NSMutableArray *indexPaths = [NSMutableArray array];
-    
-    [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
-        
+
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *_Nonnull stop) {
+
         [indexPaths addObject:[self indexPathForRow:idx inSection:section]];
     }];
-    
+
     return [indexPaths copy];
 }
 

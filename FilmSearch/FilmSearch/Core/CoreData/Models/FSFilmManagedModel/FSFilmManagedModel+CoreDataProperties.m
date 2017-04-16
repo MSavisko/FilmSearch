@@ -1,6 +1,6 @@
 //
 //  FSFilmManagedModel+CoreDataProperties.m
-//  
+//
 //
 //  Created by Maksym Savisko on 4/10/17.
 //
@@ -10,8 +10,9 @@
 
 @implementation FSFilmManagedModel (CoreDataProperties)
 
-+ (NSFetchRequest<FSFilmManagedModel *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"FSFilmManagedModel"];
++ (NSFetchRequest<FSFilmManagedModel *> *)fetchRequest
+{
+    return [[NSFetchRequest alloc] initWithEntityName:@"FSFilmManagedModel"];
 }
 
 @dynamic dataId;

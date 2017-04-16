@@ -11,6 +11,6 @@
 
 @interface MSRequestManager (Films)
 
-- (void) findFilmByName:(nonnull NSString *)filmName andCompletion:(nullable MSRequestManagerResponseCompletionBlock)completion;
+- (void)findFilmByName:(nonnull NSString *)filmName andCompletion:(nullable MSRequestManagerResponseCompletionBlock)completion;
 
 @end

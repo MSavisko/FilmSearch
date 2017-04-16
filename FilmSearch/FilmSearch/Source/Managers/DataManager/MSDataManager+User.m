@@ -18,17 +18,16 @@
 
 + (FSUserManagedModel *)currentUserModelInContext:(nullable NSManagedObjectContext *)context
 {
-    NSManagedObjectContext *_context = context? : [[self sharedInstance] mainContext];
-    
+    NSManagedObjectContext *_context = context ?: [[self sharedInstance] mainContext];
+
     FSUserManagedModel *userModel = [FSUserManagedModel MR_findFirstInContext:_context];
-    
-    if ( !userModel )
-    {
-        userModel = [EKManagedObjectMapper objectFromExternalRepresentation:@{FSUserDataIdKey : [NSString ms_uuidString]}
+
+    if (!userModel) {
+        userModel = [EKManagedObjectMapper objectFromExternalRepresentation:@{ FSUserDataIdKey : [NSString ms_uuidString] }
                                                                 withMapping:[FSUserManagedModel objectMapping]
                                                      inManagedObjectContext:_context];
     }
-    
+
     return userModel;
 }
 

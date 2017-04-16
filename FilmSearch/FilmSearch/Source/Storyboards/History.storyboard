@@ -61,17 +61,17 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JER-q9-3Y1">
-                                                    <rect key="frame" x="262" y="14" width="45" height="30"/>
+                                                    <rect key="frame" x="257" y="14" width="50" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="5zp-H2-3OU"/>
-                                                        <constraint firstAttribute="width" constant="45" id="GOc-oI-TOs"/>
+                                                        <constraint firstAttribute="width" constant="50" id="GOc-oI-TOs"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anX-IH-VNv">
-                                                    <rect key="frame" x="41" y="14.5" width="216" height="30"/>
+                                                    <rect key="frame" x="41" y="14.5" width="211" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="73J-TO-fNL"/>
                                                     </constraints>

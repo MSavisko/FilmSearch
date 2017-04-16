@@ -1,6 +1,6 @@
 //
 //  FSUserManagedModel+CoreDataProperties.h
-//  
+//
 //
 //  Created by Maksym Savisko on 4/10/17.
 //

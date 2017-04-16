@@ -1,6 +1,6 @@
 //
 //  FSUserManagedModel+CoreDataProperties.m
-//  
+//
 //
 //  Created by Maksym Savisko on 4/10/17.
 //
@@ -10,8 +10,9 @@
 
 @implementation FSUserManagedModel (CoreDataProperties)
 
-+ (NSFetchRequest<FSUserManagedModel *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"FSUserManagedModel"];
++ (NSFetchRequest<FSUserManagedModel *> *)fetchRequest
+{
+    return [[NSFetchRequest alloc] initWithEntityName:@"FSUserManagedModel"];
 }
 
 @dynamic dataId;

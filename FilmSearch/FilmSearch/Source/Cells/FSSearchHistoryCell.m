@@ -32,23 +32,23 @@
     [self setupUI];
 }
 
-- (void) setupUI
+- (void)setupUI
 {
     self.positionLabel.textColor = [UIColor ms_primaryRedColor];
     self.filmTitleLabel.textColor = [UIColor ms_primaryBlackColor];
     self.searchDateLabel.textColor = [UIColor ms_primaryBlackColor];
-    
+
     self.searchDateLabel.font = [UIFont ms_regularFontWithWeight:UIFontWeightRegular];
 }
 
 #pragma mark - Public
 
-- (void) addPosition:(NSInteger) position
+- (void)addPosition:(NSInteger)position
 {
-    _positionLabel.text = [NSString stringWithFormat:@"%d", position];
+    _positionLabel.text = [NSString stringWithFormat:@"%d", (int)position];
 }
 
-- (void) addHistoryItem:(FSHistoryItemManagedModel *) historyItem
+- (void)addHistoryItem:(FSHistoryItemManagedModel *)historyItem
 {
     _filmTitleLabel.text = historyItem.film.title;
     _searchDateLabel.text = [historyItem.searchDate ms_formattedAsTimeAgo];

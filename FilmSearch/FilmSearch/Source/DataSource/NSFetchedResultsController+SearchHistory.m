@@ -16,10 +16,10 @@
 + (instancetype)ms_allSearchHistoryFilmsFetchedResultsControllerDelegate:(id<NSFetchedResultsControllerDelegate>)delegate
 {
     NSFetchRequest *fetchRequest = [FSHistoryItemManagedModel MR_requestAllSortedBy:NSStringFromSelector(@selector(searchDate)) ascending:NO inContext:[MSDataManager sharedInstance].mainContext];
-    
-    
+
+
     NSFetchedResultsController *fetchController = [FSHistoryItemManagedModel MR_fetchController:fetchRequest delegate:delegate useFileCache:NO groupedBy:nil inContext:[MSDataManager sharedInstance].mainContext];
-    
+
     return fetchController;
 }
 

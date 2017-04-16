@@ -12,6 +12,6 @@
 
 @interface MSAlertManager (SearchFilm)
 
-+ (void) showAlertForFilmSearchResponse:(MSRequestResponse *) response;
++ (void)showAlertForFilmSearchResponse:(MSRequestResponse *)response;
 
 @end

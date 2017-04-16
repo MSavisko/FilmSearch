@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FSHistoryItemManagedModel : NSManagedObject
 
-+ (NSDictionary *) representationWithSearchTitle:(NSString *) searchTitle andFilmInfo:(NSDictionary *) filmInfo;
++ (NSDictionary *)representationWithSearchTitle:(NSString *)searchTitle andFilmInfo:(NSDictionary *)filmInfo;
 
 @end
 
