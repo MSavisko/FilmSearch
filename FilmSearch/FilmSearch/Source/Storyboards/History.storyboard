@@ -50,18 +50,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUJ-lh-atN">
-                                                    <rect key="frame" x="15" y="15" width="21" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="CSh-Mr-oSr"/>
-                                                        <constraint firstAttribute="width" constant="21" id="cDh-tC-7ZJ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JER-q9-3Y1">
-                                                    <rect key="frame" x="257" y="14" width="50" height="30"/>
+                                                    <rect key="frame" x="247" y="14" width="50" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="5zp-H2-3OU"/>
                                                         <constraint firstAttribute="width" constant="50" id="GOc-oI-TOs"/>
@@ -70,8 +60,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anX-IH-VNv">
-                                                    <rect key="frame" x="41" y="14.5" width="211" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anX-IH-VNv">
+                                                    <rect key="frame" x="15" y="14.5" width="227" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="73J-TO-fNL"/>
                                                     </constraints>
@@ -81,19 +71,16 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="JUJ-lh-atN" firstAttribute="centerY" secondItem="rPC-Zw-2NJ" secondAttribute="centerY" id="9aQ-5s-My3"/>
+                                                <constraint firstItem="anX-IH-VNv" firstAttribute="leading" secondItem="rPC-Zw-2NJ" secondAttribute="leading" constant="15" id="9jo-H7-AxG"/>
                                                 <constraint firstItem="anX-IH-VNv" firstAttribute="centerY" secondItem="rPC-Zw-2NJ" secondAttribute="centerY" id="WNt-DG-LcI"/>
                                                 <constraint firstItem="JER-q9-3Y1" firstAttribute="centerY" secondItem="rPC-Zw-2NJ" secondAttribute="centerY" id="glK-of-t6A"/>
                                                 <constraint firstItem="JER-q9-3Y1" firstAttribute="leading" secondItem="anX-IH-VNv" secondAttribute="trailing" constant="5" id="jSr-LW-chv"/>
-                                                <constraint firstItem="JUJ-lh-atN" firstAttribute="leading" secondItem="rPC-Zw-2NJ" secondAttribute="leading" constant="15" id="lhX-Cw-oUD"/>
-                                                <constraint firstItem="anX-IH-VNv" firstAttribute="leading" secondItem="JUJ-lh-atN" secondAttribute="trailing" constant="5" id="wsj-LX-cmW"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="JER-q9-3Y1" secondAttribute="trailing" constant="5" id="zMe-id-PkY"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="JER-q9-3Y1" secondAttribute="trailing" constant="15" id="zMe-id-PkY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="filmTitleLabel" destination="anX-IH-VNv" id="vdz-AK-N4r"/>
-                                            <outlet property="positionLabel" destination="JUJ-lh-atN" id="Pax-DF-I7F"/>
                                             <outlet property="searchDateLabel" destination="JER-q9-3Y1" id="r2P-fm-V8b"/>
                                         </connections>
                                     </tableViewCell>
