@@ -7,5 +7,5 @@ Test app that provide search by title with offline mode.
 3. Build project from Xcode.
 
 # Changes
-2017.04.16: Refactor, fix warning (from CD) and change position for History Cell.
-2017.04.13: First version 
+- 2017.04.16: Refactor, fix warning (from CD) and change position for History Cell.
+- 2017.04.13: First version 
