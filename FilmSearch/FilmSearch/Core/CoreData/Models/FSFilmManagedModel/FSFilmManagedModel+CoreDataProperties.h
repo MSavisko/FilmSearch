@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *dataId;
 @property (nullable, nonatomic, copy) NSString *imdbId;
 @property (nullable, nonatomic, copy) NSString *posterUrl;
-@property (nullable, nonatomic, copy) NSDate *releaseDate;
+@property (nullable, nonatomic, retain) NSDate *releaseDate;
 @property (nullable, nonatomic, copy) NSString *title;
 @property (nullable, nonatomic, retain) NSSet<FSHistoryItemManagedModel *> *history;
 
