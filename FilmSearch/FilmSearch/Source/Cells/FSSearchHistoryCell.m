@@ -45,7 +45,7 @@
 
 - (void) addPosition:(NSInteger) position
 {
-    _positionLabel.text = [NSString stringWithFormat:@"%d", position];
+    _positionLabel.text = [NSString stringWithFormat:@"%d", (int) position];
 }
 
 - (void) addHistoryItem:(FSHistoryItemManagedModel *) historyItem

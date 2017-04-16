@@ -118,6 +118,13 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 
 - (IBAction)searchButtonDidPressed:(id)sender
 {
+    
+    if (_searchTextField.text.length == 0)
+    {
+        [MSAlertManager showAlertWithText:NSLocalizedString(@"Film Search", @"v1.0") andTitle:NSLocalizedString(@"Film title could not be empty", @"v1.0")];
+        return;
+    }
+    
     [self updateScreenForState:FSSearchScreenStateSearching];
     
     //Try to find film in DB.
