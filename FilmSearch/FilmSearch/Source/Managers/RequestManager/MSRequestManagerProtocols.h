@@ -7,6 +7,7 @@
 //
 
 @import Foundation;
+#import "MSRequestManagerConstants.h"
 
 @class MSRequestToken;
 
@@ -19,6 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, getter=isAuthorize, readonly) BOOL authorize;
 @property (nonatomic, getter=isOffline, readonly) BOOL offline;
+
+@end
+
+@protocol MSRequestManagerFilmsProtocol <MSRequestManagerProtocol>
+
+- (void)findFilmByName:(nonnull NSString *)filmName andCompletion:(nullable MSRequestManagerResponseCompletionBlock)completion;
 
 @end
 

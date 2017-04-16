@@ -8,7 +8,7 @@
 
 #import "FSNavigationController.h"
 
-#import "MSThemeManager.h"
+#import "MSThemeManager+Navigation.h"
 
 @interface FSNavigationController ()
 

@@ -16,6 +16,7 @@
 
 #import "NSFetchedResultsController+SearchHistory.h"
 #import "NSIndexPath+MSExstension.h"
+#import "UIStoryboard+FS.h"
 
 @interface FSHistoryViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -30,8 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-
     [self setupTableView];
     [self setupNavigation];
 }
@@ -128,9 +127,6 @@
         case NSFetchedResultsChangeUpdate: {
 
             MSLogDebug(@"Update: %@. IndexPath - %@, NewIndexPath - %@", NSStringFromClass([anObject class]), indexPath.ms_humanReadableString, newIndexPath.ms_humanReadableString);
-
-            //[self reloadCellAtIndexPath:indexPath withModel:anObject];
-
             break;
         }
     }
@@ -147,7 +143,7 @@
 {
     FSHistoryItemManagedModel *item = self.fetchedResultsController.fetchedObjects[indexPath.row];
 
-    FSSearchHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchHistoryCell"];
+    FSSearchHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:FSHistoryCellIdentifier];
     [cell addHistoryItem:item];
 
     return cell;
@@ -155,7 +151,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return FSHistoryCellDefaultHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -163,8 +159,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
     FSHistoryItemManagedModel *item = self.fetchedResultsController.fetchedObjects[indexPath.row];
-
-    FSFilmDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Search" bundle:nil] instantiateViewControllerWithIdentifier:@"FSFilmDetail"];
+    
+    FSFilmDetailViewController *vc = [[UIStoryboard filmDetailStoryboard] instantiateViewControllerWithIdentifier:FSBaseViewControllerIdentifier];
+    
     vc.filmId = item.film.dataId;
 
     [self showViewController:vc sender:nil];

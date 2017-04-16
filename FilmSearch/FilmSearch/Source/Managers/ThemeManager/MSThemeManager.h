@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MSThemeManagerProtocols.h"
 
 @interface MSThemeManager : NSObject
 
@@ -22,13 +23,5 @@
  *  @return Singleton Instance of this class.
  */
 + (instancetype)sharedInstance;
-
-- (void)applyAppearance;
-
-- (void)customizeTabBar:(__kindof UITabBar *)tabBar;
-- (void)customizeNavigationBar:(__kindof UINavigationBar *)navigationBar;
-- (void)customizeButton:(__kindof UIButton *)button;
-- (void)customizeTextView:(__kindof UITextField *)textField;
-- (void)customizeTextView:(__kindof UITextField *)textField withPlaceholderText:(NSString *)placeholderText;
 
 @end

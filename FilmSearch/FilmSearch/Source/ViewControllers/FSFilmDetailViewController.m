@@ -18,6 +18,7 @@
 #import "UIColor+MSTheme.h"
 #import "UIFont+MSTheme.h"
 
+NSString *const FSBaseViewControllerIdentifier = @"FSFilmDetail";
 
 @interface FSFilmDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *filmTitleLabel;

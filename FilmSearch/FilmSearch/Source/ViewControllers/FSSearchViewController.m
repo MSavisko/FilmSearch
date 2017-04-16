@@ -9,7 +9,7 @@
 #import "FSSearchViewController.h"
 #import "FSFilmDetailViewController.h"
 
-#import "MSThemeManager.h"
+#import "MSThemeManager+Views.h"
 #import "MSRequestManager+Films.h"
 #import "MSDataManager+Film.h"
 #import "MSDataManager+SearchHistory.h"
@@ -118,7 +118,7 @@ static NSString *const FSFilmDetailSegueIdentifier = @"showFilmDetail";
 {
 
     if (_searchTextField.text.length == 0) {
-        [MSAlertManager showAlertWithText:NSLocalizedString(@"Film Search", @"v1.0") andTitle:NSLocalizedString(@"Film title could not be empty", @"v1.0")];
+        [MSAlertManager showAlertForEmptyFilmSearch];
         return;
     }
 

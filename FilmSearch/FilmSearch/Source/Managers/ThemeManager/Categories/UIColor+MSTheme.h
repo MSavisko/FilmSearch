@@ -21,6 +21,10 @@
 + (UIColor *)ms_navigationTitleColor;
 + (UIColor *)ms_buttonTextColor;
 + (UIColor *)ms_buttonBackgroundColor;
+
 + (UIColor *)ms_textFieldBorderColor;
+
++ (UIColor *)ms_historyCellTitleColor;
++ (UIColor *)ms_historyCellSearchDateColor;
 
 @end
