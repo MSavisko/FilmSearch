@@ -32,6 +32,15 @@
     [self setupUI];
 }
 
+- (void) prepareForReuse
+{
+    [super prepareForReuse];
+    
+    self.positionLabel.text = nil;
+    self.filmTitleLabel.text = nil;
+    self.searchDateLabel.text = nil;
+}
+
 - (void)setupUI
 {
     self.positionLabel.textColor = [UIColor ms_primaryRedColor];
