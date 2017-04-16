@@ -22,12 +22,11 @@
     formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
     [formatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
     [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    
+
     [self mapKeyPath:keypath
-          toProperty:property
-      withValueBlock:[EKMappingBlocks stringToDateManagedMappingBlockUsingFormatter:formatter]
-        reverseBlock:[EKMappingBlocks dateToStringManagedMappingBlockUsingFormatter:formatter]];
-    
+            toProperty:property
+        withValueBlock:[EKMappingBlocks stringToDateManagedMappingBlockUsingFormatter:formatter]
+          reverseBlock:[EKMappingBlocks dateToStringManagedMappingBlockUsingFormatter:formatter]];
 }
 
 @end

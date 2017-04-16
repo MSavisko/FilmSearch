@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, nullable) MSRequestToken *accessToken;
 @property (nonatomic, readonly, copy) NSString *serverAddress;
 
-@property (nonatomic, getter = isAuthorize, readonly) BOOL authorize;
-@property (nonatomic, getter = isOffline, readonly) BOOL offline;
+@property (nonatomic, getter=isAuthorize, readonly) BOOL authorize;
+@property (nonatomic, getter=isOffline, readonly) BOOL offline;
 
 @end
 

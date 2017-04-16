@@ -17,9 +17,9 @@
 + (EKManagedObjectMapping *)objectMapping
 {
     EKManagedObjectMapping *mapping = [super objectMapping];
-    
+
     [mapping hasMany:[FSHistoryItemManagedModel class] forKeyPath:FSUserSearchHistoryKey forProperty:NSStringFromSelector(@selector(searchHistory))];
-    
+
     return mapping;
 }
 

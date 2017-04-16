@@ -10,8 +10,8 @@
 
 @interface MSRequestResponse (Film)
 
-+ (BOOL) isFilmExistInInfo:(NSDictionary *) info;
-+ (NSString *) filmIdFromInfo:(NSDictionary *) info;
-+ (NSString *) errorTextFromInfo:(NSDictionary *) info;
++ (BOOL)isFilmExistInInfo:(NSDictionary *)info;
++ (NSString *)filmIdFromInfo:(NSDictionary *)info;
++ (NSString *)errorTextFromInfo:(NSDictionary *)info;
 
 @end

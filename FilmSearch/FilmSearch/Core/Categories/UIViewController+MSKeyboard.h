@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, MSKeyboardStatus){
-    
+typedef NS_ENUM(NSInteger, MSKeyboardStatus) {
+
     MSKeyboardStatusUnknown = 0,
     MSKeyboardStatusHidden,
     MSKeyboardStatusShown,

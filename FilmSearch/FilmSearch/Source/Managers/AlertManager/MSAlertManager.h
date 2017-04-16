@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // clue for improper use (produces compile time error)
 + (instancetype)alloc __attribute__((unavailable("alloc not available, call sharedInstance instead")));
-+ (instancetype)new __attribute__((unavailable("new not available, call sharedInstance instead")));
++ (instancetype) new __attribute__((unavailable("new not available, call sharedInstance instead")));
 - (instancetype)init __attribute__((unavailable("init not available, call sharedInstance instead")));
 - (instancetype)copy __attribute__((unavailable("copy not available, call sharedInstance instead")));
 
@@ -23,9 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return Singleton Instance of this class.
  */
-+ (instancetype) sharedInstance;
++ (instancetype)sharedInstance;
 
-+ (void) showAlertWithText:(nullable NSString *) text andTitle:(nullable NSString *) title;
++ (void)showAlertWithText:(nullable NSString *)text andTitle:(nullable NSString *)title;
 
 @end
 

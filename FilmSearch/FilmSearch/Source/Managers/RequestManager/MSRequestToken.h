@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM (NSInteger, MSRequestTokenType)
-{
+typedef NS_ENUM(NSInteger, MSRequestTokenType) {
     MSRequestTokenTypeBearer
 };
 
@@ -19,7 +18,7 @@ typedef NS_ENUM (NSInteger, MSRequestTokenType)
 @property (nonatomic, readonly, copy) NSString *shortInfo;
 @property (nonatomic, readonly) MSRequestTokenType tokenType;
 
-+ (instancetype) defaultTokenWithShortInfo:(NSString *) info;
-+ (instancetype) tokenWithType:(MSRequestTokenType) type andShortInfo:(NSString *) info;
++ (instancetype)defaultTokenWithShortInfo:(NSString *)info;
++ (instancetype)tokenWithType:(MSRequestTokenType)type andShortInfo:(NSString *)info;
 
 @end

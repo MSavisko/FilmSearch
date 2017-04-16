@@ -1,3 +1,5 @@
+
+
 //
 //  UIViewController+MSTop.m
 //  FilmSearch
@@ -12,41 +14,35 @@
 
 - (UIViewController *)ms_topViewController
 {
-    if ( [self isKindOfClass:[UINavigationController class]] )
-    {
+    if ([self isKindOfClass:[UINavigationController class]]) {
         return [(UINavigationController *)self topViewController];
-    }
-    else if ( [self isKindOfClass:[UITabBarController class]] )
-    {
+    } else if ([self isKindOfClass:[UITabBarController class]]) {
         return [(UITabBarController *)self selectedViewController];
     }
-    
+
     return self;
 }
 
 - (UIViewController *)ms_visibleViewController
 {
-    if ( [self isKindOfClass:[UINavigationController class]] )
-    {
+    if ([self isKindOfClass:[UINavigationController class]]) {
         return [(UINavigationController *)self visibleViewController];
-    }
-    else if ( [self isKindOfClass:[UITabBarController class]] )
-    {
+    } else if ([self isKindOfClass:[UITabBarController class]]) {
         return [[self ms_topViewController] ms_visibleViewController];
     }
-    
+
     return self;
 }
 
 - (UIViewController *)ms_topPresentedViewController
 {
     UIViewController *presentedViewController = self;
-    
+
     while (presentedViewController.presentedViewController) {
-        
+
         presentedViewController = presentedViewController.presentedViewController;
     }
-    
+
     return presentedViewController;
 }
 

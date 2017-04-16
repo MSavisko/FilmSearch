@@ -21,7 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [[MSThemeManager sharedInstance] customizeNavigationBar:self.navigationBar];
 }
 

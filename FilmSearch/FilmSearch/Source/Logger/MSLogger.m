@@ -9,8 +9,7 @@
 #import "MSLogger.h"
 #import "MSLoggerDefines.h"
 
-@interface MSLogger()
-{
+@interface MSLogger () {
     BOOL _loggerStarted;
 }
 
@@ -29,19 +28,17 @@
     dispatch_once(&pred, ^{
         sharedInstance = [[super alloc] initUniqueInstance];
     });
-    
+
     return sharedInstance;
 }
 
 - (instancetype)initUniqueInstance
 {
     self = [super init];
-    
-    if ( self )
-    {
-        
+
+    if (self) {
     }
-    
+
     return self;
 }
 
@@ -49,7 +46,6 @@
 {
     return self;
 }
-
 
 
 #pragma mark - Public
@@ -74,72 +70,69 @@
 
 - (DDFileLogger *)fileLogger
 {
-    if ( !_fileLogger )
-    {
+    if (!_fileLogger) {
         _fileLogger = [DDFileLogger new];
-        _fileLogger.maximumFileSize = 0;					//1024 * 1024 * 5;	// 5MB
-        _fileLogger.rollingFrequency = 60 * 60 * 6;		// 6h
+        _fileLogger.maximumFileSize = 0;            //1024 * 1024 * 5;	// 5MB
+        _fileLogger.rollingFrequency = 60 * 60 * 6; // 6h
         _fileLogger.logFileManager.maximumNumberOfLogFiles = 20;
     }
-    
+
     return _fileLogger;
 }
 
 - (void)startLogging
 {
-    if ( _loggerStarted && _fileLogger )
-    {
+    if (_loggerStarted && _fileLogger) {
         return;
     }
-    
+
     _loggerStarted = YES;
-    
+
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
-    
+
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     [DDLog addLogger:self.fileLogger];
-    
-    
+
+
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]
                                      backgroundColor:[UIColor colorWithRed:0.502 green:0.0 blue:0.0 alpha:1.0]
                                              forFlag:DDLogFlagError];
-    
+
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor colorWithRed:1.0 green:0.502 blue:0.0 alpha:1.0]
                                      backgroundColor:nil
                                              forFlag:DDLogFlagWarning];
-    
+
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor colorWithRed:0.4 green:0.4 blue:1.0 alpha:1.0]
                                      backgroundColor:nil
                                              forFlag:DDLogFlagVerbose];
-    
+
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor colorWithRed:0.0 green:0.502 blue:0.0 alpha:1.0]
                                      backgroundColor:nil
                                              forFlag:DDLogFlagInfo];
-    
+
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor colorWithRed:0.502 green:0.502 blue:0.0 alpha:1.0]
                                      backgroundColor:nil
                                              forFlag:DDLogFlagDebug];
-    
-    
+
+
     MSLogDebug(@"Logger started");
-    
+
     [self commonLogs];
 }
 
 - (void)stopLogging
 {
-    if ( !_loggerStarted && _fileLogger )
-    {
+    if (!_loggerStarted && _fileLogger) {
         return;
     }
-    
+
     _loggerStarted = NO;
-    
+
     [DDLog removeAllLoggers];
     _fileLogger = nil;
     [self flushLogs];
-    
+
     NSLog(@"Logger stopped");
 }
 
@@ -152,7 +145,7 @@
 {
     MSLogVerbose(@"App Version %@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]);
     MSLogVerbose(@"App Build %@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]);
-    
+
     MSLogVerbose(@"Logs directory %@", [_fileLogger.logFileManager logsDirectory]);
 }
 

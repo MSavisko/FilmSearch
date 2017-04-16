@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSString *contentId;
 @property (nonatomic) NSInteger statusCode;
 
-+ (instancetype) response;
-+ (NSString *) errorTextFromResponse:(NSError *) error;
++ (instancetype)response;
++ (NSString *)errorTextFromResponse:(NSError *)error;
 
 @end

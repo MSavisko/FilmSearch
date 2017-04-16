@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FSFilmManagedModel : NSManagedObject
 
-+ (UIImage *) placeholder;
-- (nullable NSString *) stringReleaseDate;
++ (UIImage *)placeholder;
+- (nullable NSString *)stringReleaseDate;
 
 @end
 
