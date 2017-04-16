@@ -14,7 +14,7 @@
 + (instancetype)alloc __attribute__((unavailable("alloc not available, call sharedInstance instead")));
 - (instancetype)init __attribute__((unavailable("init not available, call sharedInstance instead")));
 - (instancetype)copy __attribute__((unavailable("copy not available, call sharedInstance instead")));
-+ (instancetype)new __attribute__((unavailable("new not available, call sharedInstance instead")));
++ (instancetype) new __attribute__((unavailable("new not available, call sharedInstance instead")));
 
 /**
  *  Creates and returns singleton instance
@@ -29,6 +29,6 @@
 - (void)customizeNavigationBar:(__kindof UINavigationBar *)navigationBar;
 - (void)customizeButton:(__kindof UIButton *)button;
 - (void)customizeTextView:(__kindof UITextField *)textField;
-- (void)customizeTextView:(__kindof UITextField *)textField withPlaceholderText:(NSString*)placeholderText;
+- (void)customizeTextView:(__kindof UITextField *)textField withPlaceholderText:(NSString *)placeholderText;
 
 @end

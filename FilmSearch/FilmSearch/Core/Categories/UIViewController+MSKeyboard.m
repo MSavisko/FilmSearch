@@ -1,3 +1,4 @@
+
 //
 //  UIViewController+MSKeyboard.m
 //  FilmSearch
@@ -19,30 +20,31 @@
     }
 
     if (![self ms_isIllogicalKeyboardStatus:ms_keyboardStatus]) {
-        objc_setAssociatedObject(self, @selector(ms_keyboardStatus), @(ms_keyboardStatus), OBJC_ASSOCIATION_ASSIGN);
+        objc_setAssociatedObject(self, @selector(ms_keyboardStatus),
+                                 @(ms_keyboardStatus), OBJC_ASSOCIATION_ASSIGN);
     }
 
     switch (self.ms_keyboardStatus) {
-    case MSKeyboardStatusUnknown: {
-        MSLogDebug(@"Keyboard status Unknown");
-        break;
-    }
-    case MSKeyboardStatusHidden: {
-        MSLogDebug(@"Keyboard status Hidden");
-        break;
-    }
-    case MSKeyboardStatusShown: {
-        MSLogDebug(@"Keyboard status Shown");
-        break;
-    }
-    case MSKeyboardStatusWillShow: {
-        MSLogDebug(@"Keyboard status Will Show");
-        break;
-    }
-    case MSKeyboardStatusWillHide: {
-        MSLogDebug(@"Keyboard status Will Hide");
-        break;
-    }
+        case MSKeyboardStatusUnknown: {
+            MSLogDebug(@"Keyboard status Unknown");
+            break;
+        }
+        case MSKeyboardStatusHidden: {
+            MSLogDebug(@"Keyboard status Hidden");
+            break;
+        }
+        case MSKeyboardStatusShown: {
+            MSLogDebug(@"Keyboard status Shown");
+            break;
+        }
+        case MSKeyboardStatusWillShow: {
+            MSLogDebug(@"Keyboard status Will Show");
+            break;
+        }
+        case MSKeyboardStatusWillHide: {
+            MSLogDebug(@"Keyboard status Will Hide");
+            break;
+        }
     }
 
     if (![NSThread isMainThread]) {
@@ -56,22 +58,27 @@
 
 - (MSKeyboardStatus)ms_keyboardStatus
 {
-    return [objc_getAssociatedObject(self, @selector(ms_keyboardStatus)) integerValue];
+    return [objc_getAssociatedObject(self, @selector(ms_keyboardStatus))
+        integerValue];
 }
 
 - (void)setMs_currentUserInfo:(NSDictionary *)ms_currentUserInfo
 {
-    objc_setAssociatedObject(self, @selector(ms_currentUserInfo), ms_currentUserInfo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(ms_currentUserInfo),
+                             ms_currentUserInfo,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)setMs_showsKeyboard:(BOOL)ms_showsKeyboard
 {
-    objc_setAssociatedObject(self, @selector(ms_showsKeyboard), @(ms_showsKeyboard), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(ms_showsKeyboard),
+                             @(ms_showsKeyboard), OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (BOOL)ms_showsKeyboard
 {
-    return [objc_getAssociatedObject(self, @selector(ms_showsKeyboard)) boolValue];
+    return
+        [objc_getAssociatedObject(self, @selector(ms_showsKeyboard)) boolValue];
 }
 
 - (NSDictionary *)ms_currentUserInfo
@@ -79,7 +86,8 @@
     return objc_getAssociatedObject(self, @selector(ms_currentUserInfo));
 }
 
-- (MSKeyboardStatus)ms_keyboardStatusFromNotification:(NSNotification *)notification
+- (MSKeyboardStatus)ms_keyboardStatusFromNotification:
+        (NSNotification *)notification
 {
     NSString *name = notification.name;
 
@@ -98,8 +106,10 @@
 
 - (NSDictionary *)ms_userInfoFromNotification:(NSNotification *)notification
 {
-    CGRect beginFrame = [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-    CGRect endFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect beginFrame =
+        [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGRect endFrame =
+        [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
 
     beginFrame = [self.view convertRect:beginFrame fromView:nil];
     endFrame = [self.view convertRect:endFrame fromView:nil];
@@ -107,8 +117,10 @@
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
     [userInfo addEntriesFromDictionary:notification.userInfo];
 
-    [userInfo setValue:[NSValue valueWithCGRect:beginFrame] forKey:UIKeyboardFrameBeginUserInfoKey];
-    [userInfo setValue:[NSValue valueWithCGRect:endFrame] forKey:UIKeyboardFrameEndUserInfoKey];
+    [userInfo setValue:[NSValue valueWithCGRect:beginFrame]
+                forKey:UIKeyboardFrameBeginUserInfoKey];
+    [userInfo setValue:[NSValue valueWithCGRect:endFrame]
+                forKey:UIKeyboardFrameEndUserInfoKey];
 
     return [userInfo copy];
 }
@@ -117,8 +129,15 @@
 
 - (BOOL)ms_isIllogicalKeyboardStatus:(MSKeyboardStatus)newStatus
 {
-    if (self.ms_keyboardStatus == MSKeyboardStatusUnknown || (self.ms_keyboardStatus == MSKeyboardStatusHidden && newStatus == MSKeyboardStatusWillShow) || (self.ms_keyboardStatus == MSKeyboardStatusWillShow && newStatus == MSKeyboardStatusShown) || (self.ms_keyboardStatus == MSKeyboardStatusShown && newStatus == MSKeyboardStatusWillHide) || (self.ms_keyboardStatus == MSKeyboardStatusWillHide && newStatus == MSKeyboardStatusHidden)) {
-
+    if (self.ms_keyboardStatus == MSKeyboardStatusUnknown ||
+        (self.ms_keyboardStatus == MSKeyboardStatusHidden &&
+         newStatus == MSKeyboardStatusWillShow) ||
+        (self.ms_keyboardStatus == MSKeyboardStatusWillShow &&
+         newStatus == MSKeyboardStatusShown) ||
+        (self.ms_keyboardStatus == MSKeyboardStatusShown &&
+         newStatus == MSKeyboardStatusWillHide) ||
+        (self.ms_keyboardStatus == MSKeyboardStatusWillHide &&
+         newStatus == MSKeyboardStatusHidden)) {
         return NO;
     }
     return YES;
@@ -152,21 +171,35 @@
     [center removeObserver:self name:UIKeyboardDidHideNotification object:nil];
 
     if (registerForNotifications) {
-        [center addObserver:self selector:@selector(ms_keyboardUpdateNotification:) name:UIKeyboardWillShowNotification object:nil];
-        [center addObserver:self selector:@selector(ms_keyboardUpdateNotification:) name:UIKeyboardWillHideNotification object:nil];
+        [center addObserver:self
+                   selector:@selector(ms_keyboardUpdateNotification:)
+                       name:UIKeyboardWillShowNotification
+                     object:nil];
+        [center addObserver:self
+                   selector:@selector(ms_keyboardUpdateNotification:)
+                       name:UIKeyboardWillHideNotification
+                     object:nil];
 
-        [center addObserver:self selector:@selector(ms_keyboardUpdateNotification:) name:UIKeyboardDidShowNotification object:nil];
-        [center addObserver:self selector:@selector(ms_keyboardUpdateNotification:) name:UIKeyboardDidHideNotification object:nil];
+        [center addObserver:self
+                   selector:@selector(ms_keyboardUpdateNotification:)
+                       name:UIKeyboardDidShowNotification
+                     object:nil];
+        [center addObserver:self
+                   selector:@selector(ms_keyboardUpdateNotification:)
+                       name:UIKeyboardDidHideNotification
+                     object:nil];
     }
 }
 
 - (void)ms_keyboardUpdateNotification:(NSNotification *)notification
 {
-    if (![self isViewLoaded] || !self.view.window || self.modalPresentationStyle == UIModalPresentationPopover) {
+    if (![self isViewLoaded] || !self.view.window ||
+        self.modalPresentationStyle == UIModalPresentationPopover) {
         return;
     }
 
-    MSKeyboardStatus currentStatus = [self ms_keyboardStatusFromNotification:notification];
+    MSKeyboardStatus currentStatus =
+        [self ms_keyboardStatusFromNotification:notification];
 
     self.ms_currentUserInfo = [self ms_userInfoFromNotification:notification];
 
@@ -180,22 +213,35 @@
     [self ms_animateKeyboardStatusChangeWithBlock:nil];
 }
 
-- (void)ms_animateKeyboardStatusChangeWithBlock:(MSKeyboardAnimationBlock)animationBlock
+- (void)ms_animateKeyboardStatusChangeWithBlock:
+        (MSKeyboardAnimationBlock)animationBlock
 {
-    [self ms_animateKeyboardStatusChangeWithBlock:animationBlock completionBlock:nil];
+    [self ms_animateKeyboardStatusChangeWithBlock:animationBlock
+                                  completionBlock:nil];
 }
 
-- (void)ms_animateKeyboardStatusChangeWithBlock:(MSKeyboardAnimationBlock)animationBlock completionBlock:(MSKeyboardAnimationCompletionBlock)completion
+- (void)
+    ms_animateKeyboardStatusChangeWithBlock:(MSKeyboardAnimationBlock)animationBlock
+                            completionBlock:
+                                (MSKeyboardAnimationCompletionBlock)completion
 {
-    NSInteger curve = [self.ms_currentUserInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
-    NSTimeInterval duration = [self.ms_currentUserInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    NSInteger curve =
+        [self.ms_currentUserInfo[UIKeyboardAnimationCurveUserInfoKey]
+            integerValue];
+    NSTimeInterval duration =
+        [self.ms_currentUserInfo[UIKeyboardAnimationDurationUserInfoKey]
+            doubleValue];
 
-    CGRect beginFrame = [self.ms_currentUserInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-    CGRect endFrame = [self.ms_currentUserInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect beginFrame =
+        [self.ms_currentUserInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGRect endFrame =
+        [self.ms_currentUserInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
 
     UIView *viewForIntersection = self.ms_intersectionView ?: self.view;
 
-    CGRect intersectionViewFrame = [viewForIntersection.superview convertRect:viewForIntersection.frame toView:self.view];
+    CGRect intersectionViewFrame =
+        [viewForIntersection.superview convertRect:viewForIntersection.frame
+                                            toView:self.view];
 
     CGRect intersectionRect = CGRectIntersection(endFrame, intersectionViewFrame);
 
@@ -205,43 +251,54 @@
 
     CGFloat prevConstant = self.ms_keyboardAvoidingConstraint.constant;
 
-    if (bottomConstant > 0.f || self.ms_keyboardStatus == MSKeyboardStatusWillHide || self.ms_keyboardStatus == MSKeyboardStatusHidden) {
-        self.ms_keyboardAvoidingConstraint.constant = CGRectGetHeight(intersectionRect);
+    if (bottomConstant > 0.f ||
+        self.ms_keyboardStatus == MSKeyboardStatusWillHide ||
+        self.ms_keyboardStatus == MSKeyboardStatusHidden) {
+        self.ms_keyboardAvoidingConstraint.constant =
+            CGRectGetHeight(intersectionRect);
     }
 
-    if (fabs(prevConstant - self.ms_keyboardAvoidingConstraint.constant) < DBL_EPSILON) {
+    if (fabs(prevConstant - self.ms_keyboardAvoidingConstraint.constant) <
+        DBL_EPSILON) {
         return;
     }
 
-    [UIView animateWithDuration:animated ? duration : 0.f
-                          delay:0.f
-                        options:curve | UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionLayoutSubviews
-                     animations:^{
+    [UIView
+        animateWithDuration:animated ? duration : 0.f
+                      delay:0.f
+                    options:curve | UIViewAnimationOptionBeginFromCurrentState |
+                            UIViewAnimationOptionLayoutSubviews
+                 animations:^{
 
-                         [self.view layoutIfNeeded];
+                     [self.view layoutIfNeeded];
 
-                         if (animationBlock) {
-                             animationBlock();
-                         }
+                     if (animationBlock) {
+                         animationBlock();
                      }
-                     completion:completion];
+                 }
+                 completion:completion];
 }
 
 #pragma mark - Outlets
 
-- (void)setMs_keyboardAvoidingConstraint:(NSLayoutConstraint *)ms_keyboardAvoidingConstraint
+- (void)setMs_keyboardAvoidingConstraint:
+        (NSLayoutConstraint *)ms_keyboardAvoidingConstraint
 {
-    objc_setAssociatedObject(self, @selector(ms_keyboardAvoidingConstraint), ms_keyboardAvoidingConstraint, OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(ms_keyboardAvoidingConstraint),
+                             ms_keyboardAvoidingConstraint,
+                             OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (NSLayoutConstraint *)ms_keyboardAvoidingConstraint
 {
-    return objc_getAssociatedObject(self, @selector(ms_keyboardAvoidingConstraint));
+    return objc_getAssociatedObject(self,
+                                    @selector(ms_keyboardAvoidingConstraint));
 }
 
 - (void)setMs_intersectionView:(UIView *)ms_intersectionView
 {
-    objc_setAssociatedObject(self, @selector(ms_intersectionView), ms_intersectionView, OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(ms_intersectionView),
+                             ms_intersectionView, OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (UIView *)ms_intersectionView

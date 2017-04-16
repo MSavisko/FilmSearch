@@ -1,6 +1,6 @@
 //
 //  FSHistoryItemManagedModel+CoreDataProperties.m
-//  
+//
 //
 //  Created by Maksym Savisko on 4/10/17.
 //
@@ -10,8 +10,9 @@
 
 @implementation FSHistoryItemManagedModel (CoreDataProperties)
 
-+ (NSFetchRequest<FSHistoryItemManagedModel *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"FSHistoryItemManagedModel"];
++ (NSFetchRequest<FSHistoryItemManagedModel *> *)fetchRequest
+{
+    return [[NSFetchRequest alloc] initWithEntityName:@"FSHistoryItemManagedModel"];
 }
 
 @dynamic dataId;

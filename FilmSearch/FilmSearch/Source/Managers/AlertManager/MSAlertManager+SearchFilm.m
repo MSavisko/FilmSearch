@@ -12,17 +12,13 @@
 
 @implementation MSAlertManager (SearchFilm)
 
-+ (void) showAlertForFilmSearchResponse:(MSRequestResponse *) response
++ (void)showAlertForFilmSearchResponse:(MSRequestResponse *)response
 {
-    if (response.isSuccess)
-    {
+    if (response.isSuccess) {
         [self showAlertWithText:[MSRequestResponse errorTextFromInfo:response.object] andTitle:NSLocalizedString(@"Film Search", @"v1.0")];
-    }
-    else
-    {
+    } else {
         NSString *alertText = [MSRequestResponse errorTextFromResponse:response.error];
-        if (alertText.length == 0)
-        {
+        if (alertText.length == 0) {
             return;
         }
         [self showAlertWithText:alertText andTitle:NSLocalizedString(@"Error", @"v1.0")];
